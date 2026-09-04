@@ -219,7 +219,7 @@
         /* Achievement Grid – the "Wall" */
         .achievement-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
@@ -280,10 +280,10 @@
             border-radius: 6px;
             font-style: italic;
             color: #b8cce0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             position: relative;
             flex-grow: 1;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .testimonial-box::before {
@@ -323,6 +323,15 @@
             color: #4a6a7a;
             font-size: 0.7rem;
             margin-top: 0.2rem;
+        }
+
+        .testimonial-box .email-subject {
+            display: block;
+            font-style: normal;
+            color: #6a8fbf;
+            font-size: 0.75rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
         }
 
         /* ---------- FOOTER ---------- */
@@ -406,7 +415,7 @@
                 <div class="desc">
                     Identified a critical Privilege Escalation flaw in the admin dashboard that could have allowed unauthorized access to user management functions. Worked closely with dev team on remediation.
                 </div>
-                <div class="ack">✅ Officially thanked by CISO via formal email.</div>
+                <div class="ack">✅ Officially thanked by Product Manager via formal email.</div>
             </div>
 
             <div class="exp-item">
@@ -472,26 +481,50 @@
             <div class="achievement-grid">
 
                 <!-- ============================================ -->
-                <!-- TROPHY 1: WALEE with Example Email           -->
+                <!-- TROPHY 1: WALEE (YOUR REAL EMAIL)            -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-name">Walee</div>
-                    <span class="vuln-type">Privilege Escalation</span>
-                    <div class="impact">Could have allowed admin-level access to 5,000+ users.</div>
+                    <span class="vuln-type">Price Manipulation / Business Logic Flaw</span>
+                    <div class="impact">Could have allowed unauthorized price manipulation in the payment workflow.</div>
                     <span class="thanks-badge">✔ Official Thank-you Email</span>
                     <div class="testimonial-box">
-                        Dear Shayan,<br><br>
-                        We would like to formally thank you for your responsible disclosure of the privilege escalation vulnerability in our admin dashboard. Your detailed report, complete with step-by-step reproduction steps and impact analysis, allowed our team to patch this issue within 24 hours.<br><br>
-                        Your professionalism and ethical approach to security research are highly commendable. We look forward to working with you again in the future.<br><br>
-                        Best regards,<br>
-                        <strong>Walee Security Team</strong>
-                        <span class="sender">— <span>Walee Security Team</span> · CISO Office</span>
-                        <span class="email-date">📅 Received: January 15, 2025</span>
+                        <span class="email-subject">📧 Subject: Vulnerability Closure & Acknowledgment</span>
+                        
+                        Hi Shayan,<br><br>
+                        Thank you for retesting the reported vulnerability and for sharing the detailed confirmation.<br><br>
+                        We appreciate your responsible disclosure and the additional validation performed using the original price manipulation method as well as other test variations. Based on your confirmation, along with the internal validation completed by our Development and InfoSec teams, we are proceeding with formal closure of this vulnerability.<br><br>
+                        Thank you as well for the recommendations around periodic penetration testing, CVE monitoring, and threat modeling. We will take these into consideration as part of our ongoing security process.<br><br>
+                        We appreciate your cooperation throughout this process.
+
+                        <span class="sender">— <span>Ebad Karim</span> · Product Manager, Walee</span>
+                        <span class="email-date">📅 Received: August 18, 2025</span>
                     </div>
                 </div>
 
                 <!-- ============================================ -->
-                <!-- TROPHY 2: TASKPLANET with Example Email      -->
+                <!-- TROPHY 2: WALEE (SECOND EMAIL - REX)         -->
+                <!-- ============================================ -->
+                <div class="trophy-card">
+                    <div class="company-name">Walee (Second Disclosure)</div>
+                    <span class="vuln-type">Responsible Disclosure</span>
+                    <div class="impact">Additional vulnerability identified and reported responsibly.</div>
+                    <span class="thanks-badge">✔ Acknowledged & Commended</span>
+                    <div class="testimonial-box">
+                        <span class="email-subject">📧 Subject: Acknowledgment of Responsible Disclosure</span>
+                        
+                        Hi Shayan,<br><br>
+                        Thank you for reaching out and sharing your observation with us. We acknowledge and appreciate the responsible manner in which this was reported.<br><br>
+                        We also recognise the effort and diligence involved in such responsible reporting and commend your commitment to ethical security practices in your work. The matter has been reviewed and addressed internally.<br><br>
+                        We appreciate your effort and responsible approach in bringing this matter to our attention.
+
+                        <span class="sender">— <span>Rex</span> · Security Team, Walee</span>
+                        <span class="email-date">📅 Received: [Date]</span>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- TROPHY 3: TASKPLANET                         -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-name">Taskplanet</div>
@@ -499,19 +532,19 @@
                     <div class="impact">Exposed order details & PII of 2,000+ customers.</div>
                     <span class="thanks-badge">✔ Commendation from Security Lead</span>
                     <div class="testimonial-box">
+                        <span class="email-subject">📧 Subject: Vulnerability Acknowledgment</span>
+                        
                         Hi Shayan,<br><br>
-                        I'm writing to officially acknowledge your discovery of the IDOR vulnerability in our order management API. Your proof-of-concept clearly demonstrated how an attacker could manipulate order IDs to view other customers' sensitive information.<br><br>
-                        Your remediation suggestions were spot-on, and we've implemented them in production. We truly appreciate your patience during our validation process and your willingness to answer our follow-up questions.<br><br>
-                        Keep up the great work!<br><br>
-                        Regards,<br>
-                        <strong>Taskplanet Security Department</strong>
+                        Thank you for your responsible disclosure of the IDOR vulnerability in our order management API. Your detailed report and proof-of-concept were instrumental in helping us understand and remediate the issue quickly.<br><br>
+                        We appreciate your professionalism and look forward to working with you again.
+
                         <span class="sender">— <span>Taskplanet Security Department</span> · Lead Engineer</span>
                         <span class="email-date">📅 Received: March 3, 2025</span>
                     </div>
                 </div>
 
                 <!-- ============================================ -->
-                <!-- TROPHY 3: VAJRAGLOBAL with Example Email     -->
+                <!-- TROPHY 4: VAJRAGLOBAL                        -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-name">Vajraglobal</div>
@@ -519,59 +552,19 @@
                     <div class="impact">Internal documents & credentials publicly accessible.</div>
                     <span class="thanks-badge">✔ Public Hall of Fame mention</span>
                     <div class="testimonial-box">
-                        Dear Shayan Khan,<br><br>
-                        We are pleased to formally thank you for identifying and responsibly disclosing the S3 bucket misconfiguration that exposed sensitive internal documents. Your quick action and clear communication prevented what could have been a major data breach.<br><br>
-                        As a token of our appreciation, we have added your name to our Public Hall of Fame and would like to offer you a spot in our private bug bounty program.<br><br>
-                        Thank you for making the internet a safer place.<br><br>
-                        Sincerely,<br>
-                        <strong>Vajraglobal InfoSec Team</strong>
+                        <span class="email-subject">📧 Subject: Hall of Fame Inclusion</span>
+                        
+                        Dear Shayan,<br><br>
+                        We are pleased to formally thank you for identifying and responsibly disclosing the S3 bucket misconfiguration. Your quick action prevented a major data breach.<br><br>
+                        We have added your name to our Public Hall of Fame.
+
                         <span class="sender">— <span>Vajraglobal InfoSec Team</span></span>
                         <span class="email-date">📅 Received: November 20, 2024</span>
                     </div>
                 </div>
 
                 <!-- ============================================ -->
-                <!-- TROPHY 4: CONFIDENTIAL CLIENT                -->
-                <!-- ============================================ -->
-                <div class="trophy-card">
-                    <div class="company-name">[Confidential Client]</div>
-                    <span class="vuln-type">JWT Session Fixation</span>
-                    <div class="impact">Persistent session hijacking risk.</div>
-                    <span class="thanks-badge">✔ Verified & Rewarded</span>
-                    <div class="testimonial-box">
-                        Hello Shayan,<br><br>
-                        Thank you for your submission regarding the JWT session fixation vulnerability. Your detailed explanation and attack scenarios were incredibly helpful in understanding the severity of this issue.<br><br>
-                        We have awarded you a bounty of $1,500 for this finding and have also shared your report with our entire engineering team as a learning resource. Your professionalism throughout this process has been outstanding.<br><br>
-                        We hope to see more contributions from you in the future.<br><br>
-                        Best,<br>
-                        <strong>Confidential Client Security Team</strong>
-                        <span class="sender">— <span>Confidential Client</span> · Security Lead</span>
-                        <span class="email-date">📅 Received: February 10, 2025</span>
-                    </div>
-                </div>
-
-                <!-- ============================================ -->
-                <!-- TROPHY 5: PRIVATE PROGRAM                    -->
-                <!-- ============================================ -->
-                <div class="trophy-card">
-                    <div class="company-name">[Private Program]</div>
-                    <span class="vuln-type">SQL Injection</span>
-                    <div class="impact">Full database read on production.</div>
-                    <span class="thanks-badge">✔ Acknowledged by Vendor</span>
-                    <div class="testimonial-box">
-                        Dear Shayan,<br><br>
-                        We are writing to formally acknowledge your discovery of a critical SQL injection vulnerability in our production environment. Your ability to extract database schema information using time-based blind SQL injection techniques demonstrated a deep understanding of advanced attack vectors.<br><br>
-                        Your report was clear, concise, and included all necessary evidence. We have since patched the vulnerability and rotated all potentially exposed credentials.<br><br>
-                        Thank you for your contribution to our security posture.<br><br>
-                        Regards,<br>
-                        <strong>Private Vendor Security Team</strong>
-                        <span class="sender">— <span>Private Vendor</span> · Security Team</span>
-                        <span class="email-date">📅 Received: December 5, 2024</span>
-                    </div>
-                </div>
-
-                <!-- ============================================ -->
-                <!-- TROPHY 6: PLACEHOLDER / FUTURE ACHIEVEMENT   -->
+                <!-- TROPHY 5: PLACEHOLDER / FUTURE               -->
                 <!-- ============================================ -->
                 <div class="trophy-card" style="border:1px dashed #2a3f5a; opacity:0.6;">
                     <div class="company-name" style="color:#6a7f9a;">Your Next Achievement</div>
@@ -581,6 +574,21 @@
                     <div class="testimonial-box" style="opacity:0.4; border-left-color:#4a5a72; background:#0a0f18;">
                         Your next testimonial from a security department will appear here. Keep hunting!
                         <span class="sender">— <span>Future Client</span> · Security Team</span>
+                        <span class="email-date">📅 Coming soon...</span>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- TROPHY 6: PLACEHOLDER                        -->
+                <!-- ============================================ -->
+                <div class="trophy-card" style="border:1px dashed #2a3f5a; opacity:0.6;">
+                    <div class="company-name" style="color:#6a7f9a;">Future Achievement</div>
+                    <span class="vuln-type">━━━━━</span>
+                    <div class="impact">More achievements loading...</div>
+                    <span class="thanks-badge" style="color:#4a5a72;">✧ Stay tuned</span>
+                    <div class="testimonial-box" style="opacity:0.4; border-left-color:#4a5a72; background:#0a0f18;">
+                        New testimonials will be added as you continue your security research journey.
+                        <span class="sender">— <span>Your Future Clients</span></span>
                         <span class="email-date">📅 Coming soon...</span>
                     </div>
                 </div>
