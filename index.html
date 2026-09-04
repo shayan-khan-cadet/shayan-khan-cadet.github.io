@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shayan Khan | Penetration Tester</title>
     <style>
-        /* ---------- RESET & BASE ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -25,7 +24,6 @@
             margin: 0 auto;
         }
 
-        /* ---------- HERO ---------- */
         .hero {
             text-align: center;
             padding: 3rem 0 2rem;
@@ -70,7 +68,6 @@
             margin-right: 6px;
         }
 
-        /* ---------- SECTIONS ---------- */
         section {
             margin: 3rem 0;
         }
@@ -83,7 +80,6 @@
             padding-left: 1rem;
         }
 
-        /* ---------- SKILLS ---------- */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -105,7 +101,6 @@
             background: #1a2638;
         }
 
-        /* ---------- CV / EXPERIENCE ---------- */
         .exp-item {
             background: #111a26;
             padding: 1.2rem 1.5rem;
@@ -137,7 +132,6 @@
             font-size: 0.9rem;
         }
 
-        /* ---------- ACHIEVEMENT WALL TRIGGER ---------- */
         .wall-trigger {
             text-align: center;
             margin: 2.5rem 0;
@@ -161,7 +155,6 @@
             box-shadow: 0 6px 30px rgba(0, 212, 255, 0.4);
         }
 
-        /* ---------- THE ACHIEVEMENT WALL (hidden by default) ---------- */
         .wall-overlay {
             display: none;
             position: fixed;
@@ -216,7 +209,6 @@
             transform: scale(1.05);
         }
 
-        /* Achievement Grid – the "Wall" */
         .achievement-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -271,7 +263,6 @@
             display: block;
         }
 
-        /* ---------- TESTIMONIAL BOX ---------- */
         .testimonial-box {
             background: #0a1420;
             border-left: 3px solid #ffd700;
@@ -334,7 +325,6 @@
             font-weight: 600;
         }
 
-        /* ---------- FOOTER ---------- */
         .footer {
             margin-top: 4rem;
             text-align: center;
@@ -354,7 +344,6 @@
             color: #00d4ff;
         }
 
-        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 600px) {
             .hero h1 {
                 font-size: 2.2rem;
@@ -376,7 +365,6 @@
 
     <div class="container">
 
-        <!-- ========== HERO ========== -->
         <header class="hero">
             <h1>Shayan Khan</h1>
             <p class="tagline">Junior Penetration Tester · Bug Hunter · Security Researcher</p>
@@ -388,7 +376,6 @@
             </div>
         </header>
 
-        <!-- ========== SKILLS ========== -->
         <section>
             <h2>⚡ Technical Skills</h2>
             <div class="skills-grid">
@@ -405,7 +392,6 @@
             </div>
         </section>
 
-        <!-- ========== CV / EXPERIENCE ========== -->
         <section>
             <h2>📄 Security Engagements (CV)</h2>
 
@@ -413,7 +399,7 @@
                 <div class="company">Walee</div>
                 <div class="role">Web & API Penetration Testing · 2025</div>
                 <div class="desc">
-                    Identified a critical Privilege Escalation flaw in the admin dashboard that could have allowed unauthorized access to user management functions. Worked closely with dev team on remediation.
+                    Identified a critical Business Logic flaw in the payment workflow that could have allowed unauthorized price manipulation. Worked closely with dev team on remediation and retesting.
                 </div>
                 <div class="ack">✅ Officially thanked by Product Manager via formal email.</div>
             </div>
@@ -446,12 +432,10 @@
             </div>
         </section>
 
-        <!-- ========== ACHIEVEMENT WALL TRIGGER ========== -->
         <div class="wall-trigger">
             <button class="wall-btn" id="openWallBtn">🏆 View My Achievement Wall</button>
         </div>
 
-        <!-- ========== FOOTER ========== -->
         <div class="footer">
             <p>
                 📧 shayan.khan@example.com ·
@@ -466,9 +450,7 @@
 
     </div>
 
-    <!-- ========================================================= -->
     <!-- ========== ACHIEVEMENT WALL OVERLAY ========== -->
-    <!-- ========================================================= -->
     <div class="wall-overlay" id="achievementWall">
         <div class="wall-inner">
 
@@ -477,12 +459,9 @@
                 <button class="close-wall" id="closeWallBtn">✕</button>
             </div>
 
-            <!-- The grid of trophies -->
             <div class="achievement-grid">
 
-                <!-- ============================================ -->
-                <!-- TROPHY 1: WALEE (YOUR REAL EMAIL)            -->
-                <!-- ============================================ -->
+                <!-- TROPHY 1: WALEE (REAL EMAIL FROM EBAD) -->
                 <div class="trophy-card">
                     <div class="company-name">Walee</div>
                     <span class="vuln-type">Price Manipulation / Business Logic Flaw</span>
@@ -490,21 +469,17 @@
                     <span class="thanks-badge">✔ Official Thank-you Email</span>
                     <div class="testimonial-box">
                         <span class="email-subject">📧 Subject: Vulnerability Closure & Acknowledgment</span>
-                        
                         Hi Shayan,<br><br>
                         Thank you for retesting the reported vulnerability and for sharing the detailed confirmation.<br><br>
                         We appreciate your responsible disclosure and the additional validation performed using the original price manipulation method as well as other test variations. Based on your confirmation, along with the internal validation completed by our Development and InfoSec teams, we are proceeding with formal closure of this vulnerability.<br><br>
                         Thank you as well for the recommendations around periodic penetration testing, CVE monitoring, and threat modeling. We will take these into consideration as part of our ongoing security process.<br><br>
                         We appreciate your cooperation throughout this process.
-
                         <span class="sender">— <span>Ebad Karim</span> · Product Manager, Walee</span>
                         <span class="email-date">📅 Received: August 18, 2025</span>
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 2: WALEE (SECOND EMAIL - REX)         -->
-                <!-- ============================================ -->
+                <!-- TROPHY 2: WALEE (REAL EMAIL FROM REX) -->
                 <div class="trophy-card">
                     <div class="company-name">Walee (Second Disclosure)</div>
                     <span class="vuln-type">Responsible Disclosure</span>
@@ -512,20 +487,16 @@
                     <span class="thanks-badge">✔ Acknowledged & Commended</span>
                     <div class="testimonial-box">
                         <span class="email-subject">📧 Subject: Acknowledgment of Responsible Disclosure</span>
-                        
                         Hi Shayan,<br><br>
                         Thank you for reaching out and sharing your observation with us. We acknowledge and appreciate the responsible manner in which this was reported.<br><br>
                         We also recognise the effort and diligence involved in such responsible reporting and commend your commitment to ethical security practices in your work. The matter has been reviewed and addressed internally.<br><br>
                         We appreciate your effort and responsible approach in bringing this matter to our attention.
-
                         <span class="sender">— <span>Rex</span> · Security Team, Walee</span>
                         <span class="email-date">📅 Received: [Date]</span>
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 3: TASKPLANET                         -->
-                <!-- ============================================ -->
+                <!-- TROPHY 3: TASKPLANET -->
                 <div class="trophy-card">
                     <div class="company-name">Taskplanet</div>
                     <span class="vuln-type">IDOR (Order API)</span>
@@ -533,19 +504,15 @@
                     <span class="thanks-badge">✔ Commendation from Security Lead</span>
                     <div class="testimonial-box">
                         <span class="email-subject">📧 Subject: Vulnerability Acknowledgment</span>
-                        
                         Hi Shayan,<br><br>
                         Thank you for your responsible disclosure of the IDOR vulnerability in our order management API. Your detailed report and proof-of-concept were instrumental in helping us understand and remediate the issue quickly.<br><br>
                         We appreciate your professionalism and look forward to working with you again.
-
                         <span class="sender">— <span>Taskplanet Security Department</span> · Lead Engineer</span>
                         <span class="email-date">📅 Received: March 3, 2025</span>
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 4: VAJRAGLOBAL                        -->
-                <!-- ============================================ -->
+                <!-- TROPHY 4: VAJRAGLOBAL -->
                 <div class="trophy-card">
                     <div class="company-name">Vajraglobal</div>
                     <span class="vuln-type">S3 Bucket Misconfiguration</span>
@@ -553,19 +520,15 @@
                     <span class="thanks-badge">✔ Public Hall of Fame mention</span>
                     <div class="testimonial-box">
                         <span class="email-subject">📧 Subject: Hall of Fame Inclusion</span>
-                        
                         Dear Shayan,<br><br>
                         We are pleased to formally thank you for identifying and responsibly disclosing the S3 bucket misconfiguration. Your quick action prevented a major data breach.<br><br>
                         We have added your name to our Public Hall of Fame.
-
                         <span class="sender">— <span>Vajraglobal InfoSec Team</span></span>
                         <span class="email-date">📅 Received: November 20, 2024</span>
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 5: PLACEHOLDER / FUTURE               -->
-                <!-- ============================================ -->
+                <!-- TROPHY 5: PLACEHOLDER -->
                 <div class="trophy-card" style="border:1px dashed #2a3f5a; opacity:0.6;">
                     <div class="company-name" style="color:#6a7f9a;">Your Next Achievement</div>
                     <span class="vuln-type">━━━━━</span>
@@ -578,9 +541,7 @@
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 6: PLACEHOLDER                        -->
-                <!-- ============================================ -->
+                <!-- TROPHY 6: PLACEHOLDER -->
                 <div class="trophy-card" style="border:1px dashed #2a3f5a; opacity:0.6;">
                     <div class="company-name" style="color:#6a7f9a;">Future Achievement</div>
                     <span class="vuln-type">━━━━━</span>
@@ -594,7 +555,6 @@
                 </div>
 
             </div>
-            <!-- end grid -->
 
             <p style="text-align:center; margin-top:2rem; color:#6a7f9a; font-size:0.9rem;">
                 ⚡ Each trophy includes a verified testimonial from the respective security department.
@@ -603,7 +563,6 @@
         </div>
     </div>
 
-    <!-- ========== JAVASCRIPT: Open / Close Wall ========== -->
     <script>
         const wall = document.getElementById('achievementWall');
         const openBtn = document.getElementById('openWallBtn');
