@@ -176,6 +176,8 @@
             justify-content: center;
             gap: 0.6rem;
             font-size: 0.95rem;
+            cursor: pointer;
+            position: relative;
         }
 
         .skill-card:hover {
@@ -187,6 +189,106 @@
 
         .skill-card .icon {
             font-size: 1.3rem;
+        }
+
+        /* Skill Popup */
+        .skill-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 12, 20, 0.92);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .skill-popup.open {
+            display: flex;
+        }
+
+        .skill-popup-content {
+            background: #111b2b;
+            border: 1px solid #2a3f5a;
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 550px;
+            width: 100%;
+            position: relative;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skill-popup-content .popup-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 1.8rem;
+            color: #4a6a7a;
+            cursor: pointer;
+            transition: 0.2s;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .skill-popup-content .popup-close:hover {
+            color: #ff1744;
+            transform: rotate(90deg);
+        }
+
+        .skill-popup-content .popup-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .skill-popup-content .popup-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-popup-content .popup-desc {
+            color: #b8cce0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .skill-popup-content .popup-experience {
+            background: #0a1420;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid #ffd700;
+        }
+
+        .skill-popup-content .popup-experience .label {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-popup-content .popup-experience .text {
+            color: #8899bb;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
         }
 
         /* ---------- WALL TRIGGER ---------- */
@@ -251,21 +353,33 @@
             font-size: 2.2rem;
         }
 
-        .close-wall {
-            background: #ff1744;
-            border: none;
-            color: #fff;
-            font-size: 1.8rem;
-            font-weight: 700;
-            padding: 0.3rem 1.2rem;
+        /* Beautiful Close Button */
+        .close-wall-btn {
+            background: rgba(255, 23, 68, 0.15);
+            border: 1px solid rgba(255, 23, 68, 0.3);
+            color: #ff6b7a;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.6rem 1.8rem;
             border-radius: 40px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.5px;
         }
 
-        .close-wall:hover {
-            background: #d50000;
+        .close-wall-btn:hover {
+            background: rgba(255, 23, 68, 0.25);
+            border-color: #ff1744;
+            color: #ff1744;
             transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 23, 68, 0.15);
+        }
+
+        .close-wall-btn .icon {
+            font-size: 1.2rem;
         }
 
         .achievement-grid {
@@ -289,6 +403,27 @@
             transform: translateY(-6px);
             border-color: #ffd700;
             box-shadow: 0 12px 30px rgba(255, 215, 0, 0.12);
+        }
+
+        .trophy-card .company-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .trophy-card .company-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            background: #0a1420;
+            border: 1px solid #1f2f42;
         }
 
         .trophy-card .company-name {
@@ -414,6 +549,28 @@
             opacity: 0.3;
         }
 
+        /* ---------- VERIFICATION NOTE ---------- */
+        .verification-note {
+            background: #0a1420;
+            border: 1px solid #1a2a3a;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: #6a8fbf;
+            font-size: 0.9rem;
+        }
+
+        .verification-note .icon {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        .verification-note .highlight-text {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
         /* ---------- FOOTER ---------- */
         .footer {
             margin-top: 4rem;
@@ -431,6 +588,10 @@
         }
 
         .footer a:hover {
+            color: #00d4ff;
+        }
+
+        .footer .email-link {
             color: #00d4ff;
         }
 
@@ -454,6 +615,14 @@
             .stat-item {
                 padding: 0.3rem 0.8rem;
                 font-size: 0.85rem;
+            }
+            .close-wall-btn {
+                font-size: 0.8rem;
+                padding: 0.4rem 1.2rem;
+            }
+            .skill-popup-content {
+                padding: 1.5rem;
+                margin: 1rem;
             }
         }
     </style>
@@ -508,20 +677,44 @@
 
         <!-- ========== SKILLS ========== -->
         <section>
-            <h2>⚡ Technical Skills</h2>
+            <h2>⚡ Technical Skills <span style="font-size:0.8rem; color:#4a6a7a; font-weight:400;">(click for details)</span></h2>
             <div class="skills-grid">
-                <div class="skill-card"><span class="icon">🕷️</span> Burp Suite</div>
-                <div class="skill-card"><span class="icon">🌐</span> Nmap</div>
-                <div class="skill-card"><span class="icon">💀</span> Metasploit</div>
-                <div class="skill-card"><span class="icon">🗄️</span> SQLmap</div>
-                <div class="skill-card"><span class="icon">🛡️</span> OWASP Top 10</div>
-                <div class="skill-card"><span class="icon">🔌</span> API Testing</div>
-                <div class="skill-card"><span class="icon">🐍</span> Python Scripting</div>
-                <div class="skill-card"><span class="icon">🐧</span> Linux / Kali</div>
-                <div class="skill-card"><span class="icon">🎭</span> Social Engineering</div>
-                <div class="skill-card"><span class="icon">📝</span> Report Writing</div>
-                <div class="skill-card"><span class="icon">🔍</span> Reconnaissance</div>
-                <div class="skill-card"><span class="icon">⚙️</span> Business Logic Testing</div>
+                <div class="skill-card" data-skill="burp">
+                    <span class="icon">🕷️</span> Burp Suite
+                </div>
+                <div class="skill-card" data-skill="nmap">
+                    <span class="icon">🌐</span> Nmap
+                </div>
+                <div class="skill-card" data-skill="metasploit">
+                    <span class="icon">💀</span> Metasploit
+                </div>
+                <div class="skill-card" data-skill="sqlmap">
+                    <span class="icon">🗄️</span> SQLmap
+                </div>
+                <div class="skill-card" data-skill="owasp">
+                    <span class="icon">🛡️</span> OWASP Top 10
+                </div>
+                <div class="skill-card" data-skill="api">
+                    <span class="icon">🔌</span> API Testing
+                </div>
+                <div class="skill-card" data-skill="python">
+                    <span class="icon">🐍</span> Python Scripting
+                </div>
+                <div class="skill-card" data-skill="linux">
+                    <span class="icon">🐧</span> Linux / Kali
+                </div>
+                <div class="skill-card" data-skill="social">
+                    <span class="icon">🎭</span> Social Engineering
+                </div>
+                <div class="skill-card" data-skill="report">
+                    <span class="icon">📝</span> Report Writing
+                </div>
+                <div class="skill-card" data-skill="recon">
+                    <span class="icon">🔍</span> Reconnaissance
+                </div>
+                <div class="skill-card" data-skill="logic">
+                    <span class="icon">⚙️</span> Business Logic Testing
+                </div>
             </div>
         </section>
 
@@ -533,16 +726,30 @@
         <!-- ========== FOOTER ========== -->
         <div class="footer">
             <p>
-                📧 shayan.khan@example.com ·
-                <a href="#" target="_blank">LinkedIn</a> ·
-                <a href="#" target="_blank">GitHub</a> ·
-                <a href="#" target="_blank">HackerOne</a>
+                📧 <a href="mailto:shayankhan.vop@gmail.com" class="email-link">shayankhan.vop@gmail.com</a> ·
+                <a href="https://github.com/shayan-khan-cadet" target="_blank">GitHub</a>
             </p>
             <p style="margin-top:0.4rem; font-size:0.8rem;">
                 🛡️ All disclosures made responsibly. Verifiable references available upon request.
             </p>
         </div>
 
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ========== SKILL POPUP ========== -->
+    <!-- ========================================================= -->
+    <div class="skill-popup" id="skillPopup">
+        <div class="skill-popup-content">
+            <button class="popup-close" id="closePopup">✕</button>
+            <div class="popup-icon" id="popupIcon">🕷️</div>
+            <div class="popup-title" id="popupTitle">Burp Suite</div>
+            <div class="popup-desc" id="popupDesc">Description goes here.</div>
+            <div class="popup-experience">
+                <div class="label">💡 My Experience</div>
+                <div class="text" id="popupExperience">Experience goes here.</div>
+            </div>
+        </div>
     </div>
 
     <!-- ========================================================= -->
@@ -553,16 +760,21 @@
 
             <div class="wall-header">
                 <h2>🏅 Achievement Wall</h2>
-                <button class="close-wall" id="closeWallBtn">✕</button>
+                <button class="close-wall-btn" id="closeWallBtn">
+                    <span class="icon">✕</span> Close Gallery
+                </button>
             </div>
 
             <div class="achievement-grid">
 
                 <!-- ============================================ -->
-                <!-- TROPHY 1: WALEE (Ebad Karim - CORRECT)       -->
+                <!-- TROPHY 1: WALEE                               -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
-                    <div class="company-name">Walee</div>
+                    <div class="company-header">
+                        <div class="company-logo" style="background:#1a2a3a; color:#00d4ff;">W</div>
+                        <div class="company-name">Walee</div>
+                    </div>
                     <span class="vuln-type">Price Manipulation / Business Logic Flaw</span>
                     <div class="impact">Could have allowed unauthorized price manipulation in the payment workflow.</div>
                     <span class="thanks-badge">✔ Official Thank-you Email</span>
@@ -582,7 +794,10 @@
                 <!-- TROPHY 2: TASKPLANET                          -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
-                    <div class="company-name">Taskplanet</div>
+                    <div class="company-header">
+                        <div class="company-logo" style="background:#1a2a3a; color:#7b2ffc;">T</div>
+                        <div class="company-name">Taskplanet</div>
+                    </div>
                     <span class="vuln-type">IDOR (Order API)</span>
                     <div class="impact">Exposed order details & PII of 2,000+ customers.</div>
                     <span class="thanks-badge">✔ Commendation from Security Lead</span>
@@ -597,10 +812,13 @@
                 </div>
 
                 <!-- ============================================ -->
-                <!-- TROPHY 3: VAJRAGLOBAL (Rex - CORRECT)        -->
+                <!-- TROPHY 3: VAJRAGLOBAL                         -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
-                    <div class="company-name">Vajraglobal</div>
+                    <div class="company-header">
+                        <div class="company-logo" style="background:#1a2a3a; color:#ff6b35;">V</div>
+                        <div class="company-name">Vajraglobal</div>
+                    </div>
                     <span class="vuln-type">S3 Bucket Misconfiguration</span>
                     <div class="impact">Internal documents & credentials publicly accessible.</div>
                     <span class="thanks-badge">✔ Public Hall of Fame mention</span>
@@ -619,7 +837,10 @@
                 <!-- TROPHY 4: PENDING - Company A                -->
                 <!-- ============================================ -->
                 <div class="trophy-card pending-card">
-                    <div class="company-name">[Company A]</div>
+                    <div class="company-header">
+                        <div class="company-logo" style="background:#1a2a3a; color:#ffa726;">?</div>
+                        <div class="company-name" style="color:#ffa726;">[Company A]</div>
+                    </div>
                     <span class="vuln-type">Vulnerability Reported</span>
                     <div class="impact">Awaiting response from security team.</div>
                     <span class="pending-badge">⏳ Pending Response</span>
@@ -636,7 +857,10 @@
                 <!-- TROPHY 5: PENDING - Company B                -->
                 <!-- ============================================ -->
                 <div class="trophy-card pending-card">
-                    <div class="company-name">[Company B]</div>
+                    <div class="company-header">
+                        <div class="company-logo" style="background:#1a2a3a; color:#ffa726;">?</div>
+                        <div class="company-name" style="color:#ffa726;">[Company B]</div>
+                    </div>
                     <span class="vuln-type">Vulnerability Reported</span>
                     <div class="impact">Awaiting response from security team.</div>
                     <span class="pending-badge">⏳ Pending Response</span>
@@ -650,10 +874,13 @@
                 </div>
 
                 <!-- ============================================ -->
-                <!-- TROPHY 6: PLACEHOLDER - Future               -->
+                <!-- TROPHY 6: PLACEHOLDER                         -->
                 <!-- ============================================ -->
                 <div class="trophy-card" style="border:1px dashed #2a3f5a; opacity:0.6;">
-                    <div class="company-name" style="color:#6a7f9a;">Your Next Achievement</div>
+                    <div class="company-header">
+                        <div class="company-logo" style="background:#0a1420; color:#4a5a72;">★</div>
+                        <div class="company-name" style="color:#6a7f9a;">Your Next Achievement</div>
+                    </div>
                     <span class="vuln-type">━━━━━</span>
                     <div class="impact">Ready for your next security finding.</div>
                     <span class="thanks-badge" style="color:#4a5a72;">✧ Coming soon</span>
@@ -666,7 +893,14 @@
 
             </div>
 
-            <p style="text-align:center; margin-top:2rem; color:#6a7f9a; font-size:0.9rem;">
+            <!-- ========== VERIFICATION NOTE ========== -->
+            <div class="verification-note">
+                <span class="icon">🔒</span>
+                All testimonials displayed on this wall are <span class="highlight-text">verified and authentic</span>. 
+                They can be independently confirmed by contacting the respective companies directly upon request.
+            </div>
+
+            <p style="text-align:center; margin-top:1rem; color:#6a7f9a; font-size:0.9rem;">
                 ⚡ Each trophy includes a verified testimonial from the respective security department.<br>
                 <span style="color:#ffa726;">⏳ Pending</span> = Awaiting response from security team.
             </p>
@@ -676,6 +910,135 @@
 
     <!-- ========== JAVASCRIPT ========== -->
     <script>
+        // ============================================
+        // SKILL POPUP DATA
+        // ============================================
+        const skillData = {
+            burp: {
+                icon: '🕷️',
+                title: 'Burp Suite',
+                desc: 'The industry-standard web vulnerability scanner and interception proxy. Used for capturing, modifying, and replaying HTTP/HTTPS traffic to find security flaws.',
+                experience: 'I use Burp Suite daily for all my web app testing. I\'m proficient with the Repeater, Intruder, Scanner, and Extender modules. I\'ve written custom extensions for automating specific checks and have used it to find over 15 critical vulnerabilities across various platforms.'
+            },
+            nmap: {
+                icon: '🌐',
+                title: 'Nmap',
+                desc: 'Network mapping and port scanning tool used to discover hosts, services, and open ports on a network. Essential for reconnaissance and attack surface mapping.',
+                experience: 'I use Nmap for initial reconnaissance to map out target networks, identify live hosts, and discover open ports and services. I\'ve used it in multiple pentests to find exposed services like SSH, RDP, and databases that shouldn\'t be public.'
+            },
+            metasploit: {
+                icon: '💀',
+                title: 'Metasploit',
+                desc: 'The most popular penetration testing framework for developing and executing exploit code against remote targets. Includes a wide range of payloads and post-exploitation modules.',
+                experience: 'I use Metasploit for post-exploitation and to validate critical vulnerabilities. I\'ve used it to gain shell access on vulnerable test systems and to demonstrate business impact to clients by showing what an attacker could do after exploitation.'
+            },
+            sqlmap: {
+                icon: '🗄️',
+                title: 'SQLmap',
+                desc: 'Automatic SQL injection and database takeover tool. Detects and exploits SQL injection flaws to extract data, read files, and sometimes execute OS commands.',
+                experience: 'I use SQLmap to automate the exploitation of SQL injection vulnerabilities after manually confirming them. I\'ve successfully extracted database schemas, dumped user credentials (hashed), and in some cases, gained OS-level access to demonstrate impact.'
+            },
+            owasp: {
+                icon: '🛡️',
+                title: 'OWASP Top 10',
+                desc: 'The standard awareness document for web application security. Represents a broad consensus about the most critical security risks to web applications.',
+                experience: 'I have in-depth knowledge of all OWASP Top 10 vulnerabilities including Injection, Broken Authentication, Sensitive Data Exposure, XXE, Broken Access Control, Security Misconfigurations, XSS, Insecure Deserialization, and Logging failures. I\'ve found and reported every single one of these in real-world applications.'
+            },
+            api: {
+                icon: '🔌',
+                title: 'API Testing',
+                desc: 'Security testing of REST, GraphQL, and SOAP APIs. Includes checking for authentication, authorization, rate limiting, injection, and business logic flaws in API endpoints.',
+                experience: 'I specialize in API security testing. I\'ve discovered IDOR, Mass Assignment, Broken Object Level Authorization, and Rate Limiting issues in multiple APIs. I use Postman and Burp Suite for API testing and have written custom scripts for fuzzing API endpoints.'
+            },
+            python: {
+                icon: '🐍',
+                title: 'Python Scripting',
+                desc: 'Using Python to automate security tasks, write custom exploits, parse logs, build recon tools, and create proof-of-concept scripts for vulnerabilities.',
+                experience: 'I write Python scripts daily for automating repetitive tasks, building custom fuzzers, and creating proof-of-concepts. I\'ve built scripts for subdomain enumeration, parameter fuzzing, JWT token analysis, and automated report generation.'
+            },
+            linux: {
+                icon: '🐧',
+                title: 'Linux / Kali',
+                desc: 'Proficiency with Linux operating systems, especially Kali Linux which comes pre-installed with hundreds of penetration testing tools.',
+                experience: 'I\'ve been using Linux for over 3 years and Kali Linux specifically for all my pentesting work. I\'m comfortable with the command line, bash scripting, file system navigation, and managing Kali\'s extensive toolset.'
+            },
+            social: {
+                icon: '🎭',
+                title: 'Social Engineering',
+                desc: 'The psychological manipulation of people to perform actions or divulge confidential information. Includes phishing, pretexting, baiting, and tailgating attacks.',
+                experience: 'I have experience conducting social engineering assessments including phishing simulations, vishing (voice phishing), and pretexting. I\'ve successfully conducted awareness sessions to help organizations improve their human security firewall.'
+            },
+            report: {
+                icon: '📝',
+                title: 'Report Writing',
+                desc: 'Creating clear, comprehensive, and actionable security assessment reports for technical and non-technical audiences.',
+                experience: 'I\'ve written over 10 detailed penetration testing reports for various clients. My reports include executive summaries, technical findings with proof-of-concepts, risk ratings, and remediation recommendations. I ensure reports are actionable and easy to understand.'
+            },
+            recon: {
+                icon: '🔍',
+                title: 'Reconnaissance',
+                desc: 'Gathering information about targets before launching an attack. Includes subdomain enumeration, WHOIS lookups, DNS enumeration, and OSINT techniques.',
+                experience: 'I use tools like Sublist3r, Amass, Shodan, and Censys for reconnaissance. I\'ve also built custom scripts for automated subdomain enumeration and have discovered many forgotten subdomains with vulnerabilities like exposed admin panels and staging environments.'
+            },
+            logic: {
+                icon: '⚙️',
+                title: 'Business Logic Testing',
+                desc: 'Testing for flaws in the application\'s business rules and workflows. Includes price manipulation, privilege escalation, workflow bypasses, and transaction tampering.',
+                experience: 'This is my specialty! I\'ve found multiple business logic flaws including price manipulation (Walee), JWT session fixation, and privilege escalation. I enjoy thinking like an attacker to find ways to abuse legitimate functionality in unintended ways.'
+            }
+        };
+
+        // Get elements
+        const popup = document.getElementById('skillPopup');
+        const popupClose = document.getElementById('closePopup');
+        const popupIcon = document.getElementById('popupIcon');
+        const popupTitle = document.getElementById('popupTitle');
+        const popupDesc = document.getElementById('popupDesc');
+        const popupExperience = document.getElementById('popupExperience');
+
+        // Add click listeners to all skill cards
+        document.querySelectorAll('.skill-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const skillKey = this.dataset.skill;
+                const data = skillData[skillKey];
+                if (data) {
+                    popupIcon.textContent = data.icon;
+                    popupTitle.textContent = data.title;
+                    popupDesc.textContent = data.desc;
+                    popupExperience.textContent = data.experience;
+                    popup.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close popup
+        function closePopup() {
+            popup.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        popupClose.addEventListener('click', closePopup);
+        popup.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (popup.classList.contains('open')) {
+                    closePopup();
+                }
+                if (wall.classList.contains('open')) {
+                    closeWall();
+                }
+            }
+        });
+
+        // ============================================
+        // ACHIEVEMENT WALL
+        // ============================================
         const wall = document.getElementById('achievementWall');
         const openBtn = document.getElementById('openWallBtn');
         const closeBtn = document.getElementById('closeWallBtn');
@@ -694,12 +1057,6 @@
 
         wall.addEventListener('click', function(e) {
             if (e.target === wall) {
-                closeWall();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && wall.classList.contains('open')) {
                 closeWall();
             }
         });
