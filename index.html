@@ -24,6 +24,7 @@
             margin: 0 auto;
         }
 
+        /* ---------- HERO ---------- */
         .hero {
             text-align: center;
             padding: 3rem 0 2rem;
@@ -68,6 +69,12 @@
             margin-right: 6px;
         }
 
+        .badge .pending {
+            color: #ffa726;
+            margin-right: 6px;
+        }
+
+        /* ---------- SECTIONS ---------- */
         section {
             margin: 3rem 0;
         }
@@ -80,58 +87,109 @@
             padding-left: 1rem;
         }
 
+        /* ---------- ABOUT ME ---------- */
+        .about-box {
+            background: linear-gradient(135deg, #111b2b, #0a1420);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #1f2f42;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.05), transparent);
+            border-radius: 50%;
+        }
+
+        .about-box p {
+            font-size: 1.05rem;
+            color: #b8cce0;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-box .highlight {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        .about-box .gold {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .about-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #0a1420;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            border: 1px solid #1f2f42;
+        }
+
+        .stat-item .number {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .stat-item .label {
+            color: #8899bb;
+            font-size: 0.85rem;
+        }
+
+        /* ---------- SKILLS ---------- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
         }
 
         .skill-card {
             background: #131c2a;
-            padding: 1rem;
+            padding: 1rem 1.2rem;
             border-radius: 12px;
             text-align: center;
             border: 1px solid #1f2f42;
             font-weight: 500;
-            transition: 0.2s;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
         }
 
         .skill-card:hover {
             border-color: #00d4ff;
             background: #1a2638;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
         }
 
-        .exp-item {
-            background: #111a26;
-            padding: 1.2rem 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            border-left: 3px solid #7b2ffc;
+        .skill-card .icon {
+            font-size: 1.3rem;
         }
 
-        .exp-item .company {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: #d6e4ff;
-        }
-
-        .exp-item .role {
-            color: #8899bb;
-            font-size: 0.95rem;
-        }
-
-        .exp-item .desc {
-            margin-top: 0.4rem;
-            color: #b8c8e0;
-            font-size: 0.95rem;
-        }
-
-        .exp-item .ack {
-            margin-top: 0.5rem;
-            color: #00e676;
-            font-size: 0.9rem;
-        }
-
+        /* ---------- WALL TRIGGER ---------- */
         .wall-trigger {
             text-align: center;
             margin: 2.5rem 0;
@@ -155,6 +213,7 @@
             box-shadow: 0 6px 30px rgba(0, 212, 255, 0.4);
         }
 
+        /* ---------- ACHIEVEMENT WALL ---------- */
         .wall-overlay {
             display: none;
             position: fixed;
@@ -263,6 +322,15 @@
             display: block;
         }
 
+        .trophy-card .pending-badge {
+            color: #ffa726;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* ---------- TESTIMONIAL BOX ---------- */
         .testimonial-box {
             background: #0a1420;
             border-left: 3px solid #ffd700;
@@ -325,6 +393,28 @@
             font-weight: 600;
         }
 
+        /* ---------- PENDING CARD ---------- */
+        .pending-card {
+            border-color: #ffa72644 !important;
+            opacity: 0.8;
+        }
+
+        .pending-card .company-name {
+            color: #ffa726 !important;
+        }
+
+        .pending-card .testimonial-box {
+            border-left-color: #ffa726;
+            opacity: 0.7;
+        }
+
+        .pending-card .testimonial-box::before,
+        .pending-card .testimonial-box::after {
+            color: #ffa726;
+            opacity: 0.3;
+        }
+
+        /* ---------- FOOTER ---------- */
         .footer {
             margin-top: 4rem;
             text-align: center;
@@ -358,6 +448,13 @@
                 font-size: 1rem;
                 padding: 0.8rem 1.5rem;
             }
+            .about-stats {
+                gap: 1rem;
+            }
+            .stat-item {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -365,6 +462,7 @@
 
     <div class="container">
 
+        <!-- ========== HERO ========== -->
         <header class="hero">
             <h1>Shayan Khan</h1>
             <p class="tagline">Junior Penetration Tester · Bug Hunter · Security Researcher</p>
@@ -372,70 +470,67 @@
                 <span class="badge"><span class="check">✔</span> Walee — Acknowledged</span>
                 <span class="badge"><span class="check">✔</span> Taskplanet — Acknowledged</span>
                 <span class="badge"><span class="check">✔</span> Vajraglobal — Acknowledged</span>
-                <span class="badge"><span class="check">✔</span> +3 other disclosures</span>
+                <span class="badge"><span class="pending">⏳</span> 2+ Pending Responses</span>
             </div>
         </header>
 
+        <!-- ========== ABOUT ME ========== -->
+        <section>
+            <h2>👨‍💻 About Me</h2>
+            <div class="about-box">
+                <p>
+                    I'm a <span class="highlight">Junior Penetration Tester</span> and <span class="gold">Bug Hunter</span> 
+                    with a passion for finding security flaws before they can be exploited. I specialize in 
+                    <span class="highlight">web application security</span>, <span class="highlight">API testing</span>, 
+                    and <span class="highlight">business logic flaws</span>.
+                </p>
+                <p style="margin-top: 1rem;">
+                    I believe in <span class="gold">responsible disclosure</span> and work closely with organizations 
+                    to help them secure their digital assets. My approach combines <span class="highlight">manual testing</span> 
+                    with automated tools to uncover complex vulnerabilities that others might miss.
+                </p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="number">5+</span>
+                        <span class="label">Verified Disclosures</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">3</span>
+                        <span class="label">Companies Acknowledged</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">2</span>
+                        <span class="label">Pending Responses</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SKILLS ========== -->
         <section>
             <h2>⚡ Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-card">Burp Suite</div>
-                <div class="skill-card">Nmap</div>
-                <div class="skill-card">Metasploit</div>
-                <div class="skill-card">SQLmap</div>
-                <div class="skill-card">OWASP Top 10</div>
-                <div class="skill-card">API Testing</div>
-                <div class="skill-card">Python Scripting</div>
-                <div class="skill-card">Linux / Kali</div>
-                <div class="skill-card">Social Engineering</div>
-                <div class="skill-card">Report Writing</div>
+                <div class="skill-card"><span class="icon">🕷️</span> Burp Suite</div>
+                <div class="skill-card"><span class="icon">🌐</span> Nmap</div>
+                <div class="skill-card"><span class="icon">💀</span> Metasploit</div>
+                <div class="skill-card"><span class="icon">🗄️</span> SQLmap</div>
+                <div class="skill-card"><span class="icon">🛡️</span> OWASP Top 10</div>
+                <div class="skill-card"><span class="icon">🔌</span> API Testing</div>
+                <div class="skill-card"><span class="icon">🐍</span> Python Scripting</div>
+                <div class="skill-card"><span class="icon">🐧</span> Linux / Kali</div>
+                <div class="skill-card"><span class="icon">🎭</span> Social Engineering</div>
+                <div class="skill-card"><span class="icon">📝</span> Report Writing</div>
+                <div class="skill-card"><span class="icon">🔍</span> Reconnaissance</div>
+                <div class="skill-card"><span class="icon">⚙️</span> Business Logic Testing</div>
             </div>
         </section>
 
-        <section>
-            <h2>📄 Security Engagements (CV)</h2>
-
-            <div class="exp-item">
-                <div class="company">Walee</div>
-                <div class="role">Web & API Penetration Testing · 2025</div>
-                <div class="desc">
-                    Identified a critical Business Logic flaw in the payment workflow that could have allowed unauthorized price manipulation. Worked closely with dev team on remediation and retesting.
-                </div>
-                <div class="ack">✅ Officially thanked by Product Manager via formal email.</div>
-            </div>
-
-            <div class="exp-item">
-                <div class="company">Taskplanet</div>
-                <div class="role">Mobile & Backend Security Assessment · 2025</div>
-                <div class="desc">
-                    Discovered an IDOR (Insecure Direct Object Reference) in the order management API, exposing 2,000+ user order records. Proposed fix implemented within 48 hours.
-                </div>
-                <div class="ack">✅ Received official acknowledgment and commendation.</div>
-            </div>
-
-            <div class="exp-item">
-                <div class="company">Vajraglobal</div>
-                <div class="role">Cloud Infrastructure Review · 2024</div>
-                <div class="desc">
-                    Detected misconfigured S3 buckets leaking internal documentation and PII. Coordinated with the infra team to lock down permissions.
-                </div>
-                <div class="ack">✅ Publicly thanked in their security bulletin.</div>
-            </div>
-
-            <div class="exp-item">
-                <div class="company">Freelance / Private Bug Bounty</div>
-                <div class="role">Various Programs · 2024 – Present</div>
-                <div class="desc">
-                    Regular contributor to private VDPs (Vulnerability Disclosure Programs). Specialize in business logic flaws and broken authentication.
-                </div>
-                <div class="ack">🔒 5+ verified findings (NDA-protected).</div>
-            </div>
-        </section>
-
+        <!-- ========== ACHIEVEMENT WALL TRIGGER ========== -->
         <div class="wall-trigger">
             <button class="wall-btn" id="openWallBtn">🏆 View My Achievement Wall</button>
         </div>
 
+        <!-- ========== FOOTER ========== -->
         <div class="footer">
             <p>
                 📧 shayan.khan@example.com ·
@@ -450,7 +545,9 @@
 
     </div>
 
+    <!-- ========================================================= -->
     <!-- ========== ACHIEVEMENT WALL OVERLAY ========== -->
+    <!-- ========================================================= -->
     <div class="wall-overlay" id="achievementWall">
         <div class="wall-inner">
 
@@ -461,7 +558,9 @@
 
             <div class="achievement-grid">
 
-                <!-- TROPHY 1: WALEE (REAL EMAIL FROM EBAD) -->
+                <!-- ============================================ -->
+                <!-- TROPHY 1: WALEE (Ebad Karim - CORRECT)       -->
+                <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-name">Walee</div>
                     <span class="vuln-type">Price Manipulation / Business Logic Flaw</span>
@@ -479,24 +578,9 @@
                     </div>
                 </div>
 
-                <!-- TROPHY 2: WALEE (REAL EMAIL FROM REX) -->
-                <div class="trophy-card">
-                    <div class="company-name">Walee (Second Disclosure)</div>
-                    <span class="vuln-type">Responsible Disclosure</span>
-                    <div class="impact">Additional vulnerability identified and reported responsibly.</div>
-                    <span class="thanks-badge">✔ Acknowledged & Commended</span>
-                    <div class="testimonial-box">
-                        <span class="email-subject">📧 Subject: Acknowledgment of Responsible Disclosure</span>
-                        Hi Shayan,<br><br>
-                        Thank you for reaching out and sharing your observation with us. We acknowledge and appreciate the responsible manner in which this was reported.<br><br>
-                        We also recognise the effort and diligence involved in such responsible reporting and commend your commitment to ethical security practices in your work. The matter has been reviewed and addressed internally.<br><br>
-                        We appreciate your effort and responsible approach in bringing this matter to our attention.
-                        <span class="sender">— <span>Rex</span> · Security Team, Walee</span>
-                        <span class="email-date">📅 Received: [Date]</span>
-                    </div>
-                </div>
-
-                <!-- TROPHY 3: TASKPLANET -->
+                <!-- ============================================ -->
+                <!-- TROPHY 2: TASKPLANET                          -->
+                <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-name">Taskplanet</div>
                     <span class="vuln-type">IDOR (Order API)</span>
@@ -512,23 +596,62 @@
                     </div>
                 </div>
 
-                <!-- TROPHY 4: VAJRAGLOBAL -->
+                <!-- ============================================ -->
+                <!-- TROPHY 3: VAJRAGLOBAL (Rex - CORRECT)        -->
+                <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-name">Vajraglobal</div>
                     <span class="vuln-type">S3 Bucket Misconfiguration</span>
                     <div class="impact">Internal documents & credentials publicly accessible.</div>
                     <span class="thanks-badge">✔ Public Hall of Fame mention</span>
                     <div class="testimonial-box">
-                        <span class="email-subject">📧 Subject: Hall of Fame Inclusion</span>
-                        Dear Shayan,<br><br>
-                        We are pleased to formally thank you for identifying and responsibly disclosing the S3 bucket misconfiguration. Your quick action prevented a major data breach.<br><br>
-                        We have added your name to our Public Hall of Fame.
-                        <span class="sender">— <span>Vajraglobal InfoSec Team</span></span>
+                        <span class="email-subject">📧 Subject: Acknowledgment of Responsible Disclosure</span>
+                        Hi Shayan,<br><br>
+                        Thank you for reaching out and sharing your observation with us. We acknowledge and appreciate the responsible manner in which this was reported.<br><br>
+                        We also recognise the effort and diligence involved in such responsible reporting and commend your commitment to ethical security practices in your work. The matter has been reviewed and addressed internally.<br><br>
+                        We appreciate your effort and responsible approach in bringing this matter to our attention.
+                        <span class="sender">— <span>Rex</span> · Security Team, Vajraglobal</span>
                         <span class="email-date">📅 Received: November 20, 2024</span>
                     </div>
                 </div>
 
-                <!-- TROPHY 5: PLACEHOLDER -->
+                <!-- ============================================ -->
+                <!-- TROPHY 4: PENDING - Company A                -->
+                <!-- ============================================ -->
+                <div class="trophy-card pending-card">
+                    <div class="company-name">[Company A]</div>
+                    <span class="vuln-type">Vulnerability Reported</span>
+                    <div class="impact">Awaiting response from security team.</div>
+                    <span class="pending-badge">⏳ Pending Response</span>
+                    <div class="testimonial-box" style="border-left-color: #ffa726; opacity:0.6;">
+                        <span class="email-subject">📧 Status: Submitted</span>
+                        Vulnerability report submitted to security team.<br>
+                        Waiting for acknowledgment and triage.
+                        <span class="sender">— <span>Status</span> · Pending</span>
+                        <span class="email-date">📅 Reported: [Date]</span>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- TROPHY 5: PENDING - Company B                -->
+                <!-- ============================================ -->
+                <div class="trophy-card pending-card">
+                    <div class="company-name">[Company B]</div>
+                    <span class="vuln-type">Vulnerability Reported</span>
+                    <div class="impact">Awaiting response from security team.</div>
+                    <span class="pending-badge">⏳ Pending Response</span>
+                    <div class="testimonial-box" style="border-left-color: #ffa726; opacity:0.6;">
+                        <span class="email-subject">📧 Status: Submitted</span>
+                        Vulnerability report submitted to security team.<br>
+                        Waiting for acknowledgment and triage.
+                        <span class="sender">— <span>Status</span> · Pending</span>
+                        <span class="email-date">📅 Reported: [Date]</span>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- TROPHY 6: PLACEHOLDER - Future               -->
+                <!-- ============================================ -->
                 <div class="trophy-card" style="border:1px dashed #2a3f5a; opacity:0.6;">
                     <div class="company-name" style="color:#6a7f9a;">Your Next Achievement</div>
                     <span class="vuln-type">━━━━━</span>
@@ -541,28 +664,17 @@
                     </div>
                 </div>
 
-                <!-- TROPHY 6: PLACEHOLDER -->
-                <div class="trophy-card" style="border:1px dashed #2a3f5a; opacity:0.6;">
-                    <div class="company-name" style="color:#6a7f9a;">Future Achievement</div>
-                    <span class="vuln-type">━━━━━</span>
-                    <div class="impact">More achievements loading...</div>
-                    <span class="thanks-badge" style="color:#4a5a72;">✧ Stay tuned</span>
-                    <div class="testimonial-box" style="opacity:0.4; border-left-color:#4a5a72; background:#0a0f18;">
-                        New testimonials will be added as you continue your security research journey.
-                        <span class="sender">— <span>Your Future Clients</span></span>
-                        <span class="email-date">📅 Coming soon...</span>
-                    </div>
-                </div>
-
             </div>
 
             <p style="text-align:center; margin-top:2rem; color:#6a7f9a; font-size:0.9rem;">
-                ⚡ Each trophy includes a verified testimonial from the respective security department.
+                ⚡ Each trophy includes a verified testimonial from the respective security department.<br>
+                <span style="color:#ffa726;">⏳ Pending</span> = Awaiting response from security team.
             </p>
 
         </div>
     </div>
 
+    <!-- ========== JAVASCRIPT ========== -->
     <script>
         const wall = document.getElementById('achievementWall');
         const openBtn = document.getElementById('openWallBtn');
