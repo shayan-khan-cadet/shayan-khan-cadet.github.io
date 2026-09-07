@@ -69,11 +69,6 @@
             margin-right: 6px;
         }
 
-        .badge .pending {
-            color: #ffa726;
-            margin-right: 6px;
-        }
-
         /* ---------- SECTIONS ---------- */
         section {
             margin: 3rem 0;
@@ -156,50 +151,80 @@
             font-size: 0.85rem;
         }
 
-        /* ---------- TESTIMONIALS ---------- */
+        /* ---------- TESTIMONIALS (IMPROVED) ---------- */
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin-top: 1rem;
         }
 
         .testimonial-card {
-            background: #111b2b;
+            background: linear-gradient(145deg, #111b2b, #0d1624);
             border: 1px solid #1f2f42;
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: 0.3s;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.03), rgba(123, 47, 252, 0.03));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
         }
 
         .testimonial-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: #ffd700;
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.08);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.08);
         }
 
         .testimonial-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .testimonial-logo {
-            width: 50px;
-            height: 50px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             object-fit: contain;
-            background: #1a2a3a;
+            background: #0a1420;
             padding: 6px;
-            border: 2px solid #1f2f42;
+            border: 2px solid #2a3f5a;
             flex-shrink: 0;
+            transition: border-color 0.3s ease;
+        }
+
+        .testimonial-card:hover .testimonial-logo {
+            border-color: #ffd700;
+        }
+
+        .testimonial-info {
+            flex: 1;
         }
 
         .testimonial-card .name {
             font-weight: 700;
             color: #e8edf5;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            margin-bottom: 0.1rem;
         }
 
         .testimonial-card .role {
@@ -207,34 +232,59 @@
             font-size: 0.85rem;
         }
 
+        .testimonial-stars {
+            color: #ffd700;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-top: 0.2rem;
+        }
+
         .testimonial-text {
             color: #b8cce0;
             font-size: 0.95rem;
-            line-height: 1.7;
+            line-height: 1.8;
             font-style: italic;
+            position: relative;
+            z-index: 1;
+            padding-left: 0.5rem;
         }
 
         .testimonial-text::before {
             content: '"';
             color: #ffd700;
-            opacity: 0.4;
-            font-size: 1.5rem;
+            opacity: 0.3;
+            font-size: 2rem;
             margin-right: 4px;
+            font-style: normal;
         }
 
         .testimonial-text::after {
             content: '"';
             color: #ffd700;
-            opacity: 0.4;
-            font-size: 1.5rem;
+            opacity: 0.3;
+            font-size: 2rem;
             margin-left: 4px;
+            font-style: normal;
         }
 
         .testimonial-date {
-            margin-top: 0.8rem;
+            margin-top: 1rem;
             color: #4a6a7a;
             font-size: 0.8rem;
             text-align: right;
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid #1a2535;
+            padding-top: 0.8rem;
+        }
+
+        .testimonial-card .quote-icon {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 5rem;
+            color: rgba(255, 215, 0, 0.04);
+            pointer-events: none;
         }
 
         /* ---------- SKILLS ---------- */
@@ -464,8 +514,8 @@
 
         .achievement-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.8rem;
         }
 
         .trophy-card {
@@ -493,14 +543,12 @@
         }
 
         .trophy-card .company-logo {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            font-weight: 700;
             flex-shrink: 0;
             background: #0a1420;
             border: 1px solid #1f2f42;
@@ -512,7 +560,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 4px;
+            border-radius: 6px;
         }
 
         .trophy-card .company-name {
@@ -540,14 +588,6 @@
 
         .trophy-card .thanks-badge {
             color: #00e676;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            display: block;
-        }
-
-        .trophy-card .pending-badge {
-            color: #ffa726;
             font-weight: 600;
             font-size: 0.9rem;
             margin-top: 0.5rem;
@@ -626,47 +666,6 @@
             margin-bottom: 0.2rem;
         }
 
-        /* ---------- PENDING CARD ---------- */
-        .pending-card {
-            border-color: #ffa72644 !important;
-            opacity: 0.8;
-        }
-
-        .pending-card .company-name {
-            color: #ffa726 !important;
-        }
-
-        .pending-card .testimonial-box {
-            border-left-color: #ffa726;
-            opacity: 0.7;
-        }
-
-        .pending-card .testimonial-box::before,
-        .pending-card .testimonial-box::after {
-            color: #ffa726;
-            opacity: 0.3;
-        }
-
-        /* ---------- UNACKNOWLEDGED CARD ---------- */
-        .unacknowledged-card {
-            border-color: #4a6a7a44 !important;
-        }
-
-        .unacknowledged-card .company-name {
-            color: #6a8fbf !important;
-        }
-
-        .unacknowledged-card .testimonial-box {
-            border-left-color: #4a6a7a;
-            opacity: 0.7;
-        }
-
-        .unacknowledged-card .testimonial-box::before,
-        .unacknowledged-card .testimonial-box::after {
-            color: #4a6a7a;
-            opacity: 0.3;
-        }
-
         /* ---------- VERIFICATION NOTE ---------- */
         .verification-note {
             background: #0a1420;
@@ -687,23 +686,6 @@
         .verification-note .highlight-text {
             color: #ffd700;
             font-weight: 600;
-        }
-
-        .verification-note .legend {
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-        }
-
-        .verification-note .legend .gold {
-            color: #ffd700;
-        }
-
-        .verification-note .legend .blue {
-            color: #6a8fbf;
-        }
-
-        .verification-note .legend .orange {
-            color: #ffa726;
         }
 
         /* ---------- FOOTER ---------- */
@@ -777,8 +759,6 @@
                 <span class="badge"><span class="check">✔</span> Walee — Acknowledged</span>
                 <span class="badge"><span class="check">✔</span> Taskplanet — Acknowledged</span>
                 <span class="badge"><span class="check">✔</span> Vajraglobal — Acknowledged</span>
-                <span class="badge"><span class="check">✔</span> MyCo — Fixed</span>
-                <span class="badge"><span class="pending">⏳</span> 2+ Pending Responses</span>
             </div>
         </header>
 
@@ -799,39 +779,33 @@
                 </p>
                 <div class="about-stats">
                     <div class="stat-item">
-                        <span class="number">6+</span>
+                        <span class="number">4+</span>
                         <span class="label">Verified Disclosures</span>
                     </div>
                     <div class="stat-item">
-                        <span class="number">4</span>
+                        <span class="number">3</span>
                         <span class="label">Companies Acknowledged</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="number">2</span>
-                        <span class="label">Pending Responses</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="number">1</span>
-                        <span class="label">Unacknowledged (Fixed)</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== TESTIMONIALS ========== -->
+        <!-- ========== TESTIMONIALS (IMPROVED) ========== -->
         <section>
             <h2>💬 What Clients Say</h2>
             <div class="testimonial-grid">
 
                 <!-- Testimonial 1: Taskplanet - Founder -->
                 <div class="testimonial-card">
+                    <div class="quote-icon">💬</div>
                     <div class="testimonial-header">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxw-DUSoAUiARlrjFpz8CeaLel3CXWRS7Gh-7-fZfyOw&s=10" 
                              alt="Task Planet Logo" 
                              class="testimonial-logo">
-                        <div>
+                        <div class="testimonial-info">
                             <div class="name">Himanshu Singh</div>
                             <div class="role">Founder, TaskPlanet</div>
+                            <div class="testimonial-stars">★★★★★</div>
                         </div>
                     </div>
                     <div class="testimonial-text">
@@ -842,13 +816,15 @@
 
                 <!-- Testimonial 2: Walee -->
                 <div class="testimonial-card">
+                    <div class="quote-icon">💬</div>
                     <div class="testimonial-header">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" 
                              alt="Walee Logo" 
                              class="testimonial-logo">
-                        <div>
+                        <div class="testimonial-info">
                             <div class="name">Ebad Karim</div>
                             <div class="role">Product Manager, Walee</div>
+                            <div class="testimonial-stars">★★★★★</div>
                         </div>
                     </div>
                     <div class="testimonial-text">
@@ -859,13 +835,15 @@
 
                 <!-- Testimonial 3: Vajraglobal -->
                 <div class="testimonial-card">
+                    <div class="quote-icon">💬</div>
                     <div class="testimonial-header">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" 
                              alt="Vajra Global Logo" 
                              class="testimonial-logo">
-                        <div>
+                        <div class="testimonial-info">
                             <div class="name">Rex</div>
                             <div class="role">Security Team, Vajraglobal</div>
+                            <div class="testimonial-stars">★★★★★</div>
                         </div>
                     </div>
                     <div class="testimonial-text">
@@ -1030,31 +1008,7 @@
                 </div>
 
                 <!-- ============================================ -->
-                <!-- TROPHY 3: WALEE (SECOND DISCLOSURE)          -->
-                <!-- ============================================ -->
-                <div class="trophy-card">
-                    <div class="company-header">
-                        <div class="company-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" alt="Walee Logo">
-                        </div>
-                        <div class="company-name">Walee (Second Disclosure)</div>
-                    </div>
-                    <span class="vuln-type">Responsible Disclosure</span>
-                    <div class="impact">Additional vulnerability identified and reported responsibly.</div>
-                    <span class="thanks-badge">✔ Acknowledged & Commended</span>
-                    <div class="testimonial-box">
-                        <span class="email-subject">📧 Subject: Acknowledgment of Responsible Disclosure</span>
-                        Hi Shayan,<br><br>
-                        Thank you for reaching out and sharing your observation with us. We acknowledge and appreciate the responsible manner in which this was reported.<br><br>
-                        We also recognise the effort and diligence involved in such responsible reporting and commend your commitment to ethical security practices in your work. The matter has been reviewed and addressed internally.<br><br>
-                        We appreciate your effort and responsible approach in bringing this matter to our attention.
-                        <span class="sender">— <span>Rex</span> · Security Team, Walee</span>
-                        <span class="email-date">📅 Received: [Date]</span>
-                    </div>
-                </div>
-
-                <!-- ============================================ -->
-                <!-- TROPHY 4: VAJRAGLOBAL                         -->
+                <!-- TROPHY 3: VAJRAGLOBAL                         -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-header">
@@ -1065,7 +1019,7 @@
                     </div>
                     <span class="vuln-type">S3 Bucket Misconfiguration</span>
                     <div class="impact">Internal documents & credentials publicly accessible.</div>
-                    <span class="thanks-badge">✔ Public Hall of Fame mention</span>
+                    <span class="thanks-badge">✔ Official Thank-you Email</span>
                     <div class="testimonial-box">
                         <span class="email-subject">📧 Subject: Acknowledgment of Responsible Disclosure</span>
                         Hi Shayan,<br><br>
@@ -1077,95 +1031,6 @@
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 5: MYCO (UNACKNOWLEDGED - FIXED)      -->
-                <!-- ============================================ -->
-                <div class="trophy-card unacknowledged-card">
-                    <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#6a8fbf; font-weight:700; font-size:1rem; display:flex; align-items:center; justify-content:center;">
-                            M
-                        </div>
-                        <div class="company-name" style="color:#6a8fbf;">MyCo</div>
-                    </div>
-                    <span class="vuln-type">Business Logic Flaw - Subscription Manipulation</span>
-                    <div class="impact">Allowed unauthorized multiple subscriptions to artificially inflate subscriber counts for any channel.</div>
-                    <span class="thanks-badge" style="color:#6a8fbf;">🔒 Fixed · Unacknowledged</span>
-                    <div class="testimonial-box" style="border-left-color:#4a6a7a; opacity:0.7;">
-                        <span class="email-subject">📧 Status: Vulnerability Fixed</span>
-                        Reported responsibly to the security team. The issue allowed users to subscribe to the same channel multiple times, artificially inflating subscriber counts – a direct impact on platform credibility.<br><br>
-                        The vendor confirmed and patched the issue by implementing rate limiting and restricting subscription attempts to one per user per channel.<br><br>
-                        <span style="color:#4a6a7a; font-style:normal; font-size:0.8rem;">
-                            ✅ Vulnerability verified and remediated by the vendor.
-                        </span>
-                        <span class="sender">— <span>Status</span> · Responsible Disclosure</span>
-                        <span class="email-date">📅 Reported: [Date] · Fixed: [Date]</span>
-                    </div>
-                </div>
-
-                <!-- ============================================ -->
-                <!-- TROPHY 6: PENDING - Company A                -->
-                <!-- ============================================ -->
-                <div class="trophy-card pending-card">
-                    <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#ffa726; font-weight:700; font-size:1rem; display:flex; align-items:center; justify-content:center;">
-                            ?
-                        </div>
-                        <div class="company-name" style="color:#ffa726;">[Company A]</div>
-                    </div>
-                    <span class="vuln-type">Vulnerability Reported</span>
-                    <div class="impact">Awaiting response from security team.</div>
-                    <span class="pending-badge">⏳ Pending Response</span>
-                    <div class="testimonial-box" style="border-left-color: #ffa726; opacity:0.6;">
-                        <span class="email-subject">📧 Status: Submitted</span>
-                        Vulnerability report submitted to security team.<br>
-                        Waiting for acknowledgment and triage.
-                        <span class="sender">— <span>Status</span> · Pending</span>
-                        <span class="email-date">📅 Reported: [Date]</span>
-                    </div>
-                </div>
-
-                <!-- ============================================ -->
-                <!-- TROPHY 7: PENDING - Company B                -->
-                <!-- ============================================ -->
-                <div class="trophy-card pending-card">
-                    <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#ffa726; font-weight:700; font-size:1rem; display:flex; align-items:center; justify-content:center;">
-                            ?
-                        </div>
-                        <div class="company-name" style="color:#ffa726;">[Company B]</div>
-                    </div>
-                    <span class="vuln-type">Vulnerability Reported</span>
-                    <div class="impact">Awaiting response from security team.</div>
-                    <span class="pending-badge">⏳ Pending Response</span>
-                    <div class="testimonial-box" style="border-left-color: #ffa726; opacity:0.6;">
-                        <span class="email-subject">📧 Status: Submitted</span>
-                        Vulnerability report submitted to security team.<br>
-                        Waiting for acknowledgment and triage.
-                        <span class="sender">— <span>Status</span> · Pending</span>
-                        <span class="email-date">📅 Reported: [Date]</span>
-                    </div>
-                </div>
-
-                <!-- ============================================ -->
-                <!-- TROPHY 8: PLACEHOLDER                         -->
-                <!-- ============================================ -->
-                <div class="trophy-card" style="border:1px dashed #2a3f5a; opacity:0.6;">
-                    <div class="company-header">
-                        <div class="company-logo" style="background:#0a1420; color:#4a5a72; font-weight:700; font-size:1.2rem; display:flex; align-items:center; justify-content:center;">
-                            ★
-                        </div>
-                        <div class="company-name" style="color:#6a7f9a;">Your Next Achievement</div>
-                    </div>
-                    <span class="vuln-type">━━━━━</span>
-                    <div class="impact">Ready for your next security finding.</div>
-                    <span class="thanks-badge" style="color:#4a5a72;">✧ Coming soon</span>
-                    <div class="testimonial-box" style="opacity:0.4; border-left-color:#4a5a72; background:#0a0f18;">
-                        Your next testimonial from a security department will appear here. Keep hunting!
-                        <span class="sender">— <span>Future Client</span> · Security Team</span>
-                        <span class="email-date">📅 Coming soon...</span>
-                    </div>
-                </div>
-
             </div>
 
             <!-- ========== VERIFICATION NOTE ========== -->
@@ -1173,16 +1038,10 @@
                 <span class="icon">🔒</span>
                 All testimonials displayed on this wall are <span class="highlight-text">verified and authentic</span>. 
                 They can be independently confirmed by contacting the respective companies directly upon request.
-                <div class="legend">
-                    <span class="gold">🏅 Gold</span> = Acknowledged with thank-you email &nbsp;·&nbsp;
-                    <span class="blue">🔒 Blue</span> = Fixed but unacknowledged &nbsp;·&nbsp;
-                    <span class="orange">⏳ Orange</span> = Pending response
-                </div>
             </div>
 
             <p style="text-align:center; margin-top:1rem; color:#6a7f9a; font-size:0.9rem;">
-                ⚡ Each trophy includes a verified testimonial from the respective security department.<br>
-                <span style="color:#ffa726;">⏳ Pending</span> = Awaiting response from security team.
+                ⚡ Each trophy includes a verified testimonial from the respective security department.
             </p>
 
         </div>
@@ -1264,7 +1123,7 @@
                 icon: '⚙️',
                 title: 'Business Logic Testing',
                 desc: 'Testing for flaws in the application\'s business rules and workflows. Includes price manipulation, privilege escalation, workflow bypasses, and transaction tampering.',
-                experience: 'This is my specialty! I\'ve found multiple business logic flaws including price manipulation (Walee), subscription manipulation (MyCo), JWT session fixation, and privilege escalation. I enjoy thinking like an attacker to find ways to abuse legitimate functionality in unintended ways.'
+                experience: 'This is my specialty! I\'ve found multiple business logic flaws including price manipulation (Walee), subscription manipulation, JWT session fixation, and privilege escalation. I enjoy thinking like an attacker to find ways to abuse legitimate functionality in unintended ways.'
             }
         };
 
