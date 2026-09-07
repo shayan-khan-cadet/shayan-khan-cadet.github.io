@@ -185,16 +185,14 @@
             margin-bottom: 1rem;
         }
 
-        .avatar {
+        .testimonial-logo {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #fff;
+            object-fit: contain;
+            background: #1a2a3a;
+            padding: 6px;
+            border: 2px solid #1f2f42;
             flex-shrink: 0;
         }
 
@@ -506,6 +504,15 @@
             flex-shrink: 0;
             background: #0a1420;
             border: 1px solid #1f2f42;
+            overflow: hidden;
+            padding: 4px;
+        }
+
+        .trophy-card .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 4px;
         }
 
         .trophy-card .company-name {
@@ -819,7 +826,9 @@
                 <!-- Testimonial 1: Taskplanet - Founder -->
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <div class="avatar" style="background: #7b2ffc;">HS</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxw-DUSoAUiARlrjFpz8CeaLel3CXWRS7Gh-7-fZfyOw&s=10" 
+                             alt="Task Planet Logo" 
+                             class="testimonial-logo">
                         <div>
                             <div class="name">Himanshu Singh</div>
                             <div class="role">Founder, TaskPlanet</div>
@@ -834,7 +843,9 @@
                 <!-- Testimonial 2: Walee -->
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <div class="avatar" style="background: #00d4ff;">EK</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" 
+                             alt="Walee Logo" 
+                             class="testimonial-logo">
                         <div>
                             <div class="name">Ebad Karim</div>
                             <div class="role">Product Manager, Walee</div>
@@ -849,7 +860,9 @@
                 <!-- Testimonial 3: Vajraglobal -->
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <div class="avatar" style="background: #ff6b35;">RX</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" 
+                             alt="Vajra Global Logo" 
+                             class="testimonial-logo">
                         <div>
                             <div class="name">Rex</div>
                             <div class="role">Security Team, Vajraglobal</div>
@@ -957,11 +970,13 @@
             <div class="achievement-grid">
 
                 <!-- ============================================ -->
-                <!-- TROPHY 1: TASKPLANET (FOUNDER - UPDATED)     -->
+                <!-- TROPHY 1: TASKPLANET (FOUNDER)               -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#7b2ffc;">T</div>
+                        <div class="company-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxw-DUSoAUiARlrjFpz8CeaLel3CXWRS7Gh-7-fZfyOw&s=10" alt="Task Planet Logo">
+                        </div>
                         <div class="company-name">Taskplanet</div>
                     </div>
                     <span class="vuln-type">Multiple Critical Vulnerabilities</span>
@@ -994,7 +1009,9 @@
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#00d4ff;">W</div>
+                        <div class="company-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" alt="Walee Logo">
+                        </div>
                         <div class="company-name">Walee</div>
                     </div>
                     <span class="vuln-type">Price Manipulation / Business Logic Flaw</span>
@@ -1017,7 +1034,9 @@
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#00d4ff;">W</div>
+                        <div class="company-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" alt="Walee Logo">
+                        </div>
                         <div class="company-name">Walee (Second Disclosure)</div>
                     </div>
                     <span class="vuln-type">Responsible Disclosure</span>
@@ -1039,7 +1058,9 @@
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#ff6b35;">V</div>
+                        <div class="company-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" alt="Vajra Global Logo">
+                        </div>
                         <div class="company-name">Vajraglobal</div>
                     </div>
                     <span class="vuln-type">S3 Bucket Misconfiguration</span>
@@ -1061,7 +1082,9 @@
                 <!-- ============================================ -->
                 <div class="trophy-card unacknowledged-card">
                     <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#6a8fbf;">M</div>
+                        <div class="company-logo" style="background:#1a2a3a; color:#6a8fbf; font-weight:700; font-size:1rem; display:flex; align-items:center; justify-content:center;">
+                            M
+                        </div>
                         <div class="company-name" style="color:#6a8fbf;">MyCo</div>
                     </div>
                     <span class="vuln-type">Business Logic Flaw - Subscription Manipulation</span>
@@ -1084,7 +1107,9 @@
                 <!-- ============================================ -->
                 <div class="trophy-card pending-card">
                     <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#ffa726;">?</div>
+                        <div class="company-logo" style="background:#1a2a3a; color:#ffa726; font-weight:700; font-size:1rem; display:flex; align-items:center; justify-content:center;">
+                            ?
+                        </div>
                         <div class="company-name" style="color:#ffa726;">[Company A]</div>
                     </div>
                     <span class="vuln-type">Vulnerability Reported</span>
@@ -1104,7 +1129,9 @@
                 <!-- ============================================ -->
                 <div class="trophy-card pending-card">
                     <div class="company-header">
-                        <div class="company-logo" style="background:#1a2a3a; color:#ffa726;">?</div>
+                        <div class="company-logo" style="background:#1a2a3a; color:#ffa726; font-weight:700; font-size:1rem; display:flex; align-items:center; justify-content:center;">
+                            ?
+                        </div>
                         <div class="company-name" style="color:#ffa726;">[Company B]</div>
                     </div>
                     <span class="vuln-type">Vulnerability Reported</span>
@@ -1124,7 +1151,9 @@
                 <!-- ============================================ -->
                 <div class="trophy-card" style="border:1px dashed #2a3f5a; opacity:0.6;">
                     <div class="company-header">
-                        <div class="company-logo" style="background:#0a1420; color:#4a5a72;">★</div>
+                        <div class="company-logo" style="background:#0a1420; color:#4a5a72; font-weight:700; font-size:1.2rem; display:flex; align-items:center; justify-content:center;">
+                            ★
+                        </div>
                         <div class="company-name" style="color:#6a7f9a;">Your Next Achievement</div>
                     </div>
                     <span class="vuln-type">━━━━━</span>
