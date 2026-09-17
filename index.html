@@ -151,6 +151,159 @@
             font-size: 0.85rem;
         }
 
+        /* ---------- CAREER HIGHLIGHT (NEW) ---------- */
+        .career-highlight {
+            background: linear-gradient(135deg, #1a1420, #0f0a18);
+            border: 1px solid #7b2ffc44;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(123, 47, 252, 0.08);
+        }
+
+        .career-highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(123, 47, 252, 0.08), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .career-highlight::after {
+            content: '★';
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            font-size: 10rem;
+            color: rgba(255, 215, 0, 0.03);
+            pointer-events: none;
+        }
+
+        .career-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: linear-gradient(135deg, #ffd70022, #ffd70008);
+            border: 1px solid #ffd70044;
+            color: #ffd700;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #7b2ffc, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-subtitle {
+            color: #b8cce0;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-detail {
+            background: rgba(10, 20, 32, 0.6);
+            border: 1px solid #1f2f42;
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+        }
+
+        .career-detail .detail-label {
+            font-size: 0.7rem;
+            color: #6a8fbf;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .career-detail .detail-value {
+            font-size: 1rem;
+            color: #e8edf5;
+            font-weight: 600;
+        }
+
+        .career-detail .detail-value.gold {
+            color: #ffd700;
+        }
+
+        .career-detail .detail-value.cyan {
+            color: #00d4ff;
+        }
+
+        .career-story {
+            background: rgba(10, 20, 32, 0.5);
+            border-left: 3px solid #ffd700;
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            color: #b8cce0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.2rem;
+        }
+
+        .career-story .highlight {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        .career-story .gold {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .career-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6a8fbf;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+
+        .career-footer .pill {
+            background: rgba(123, 47, 252, 0.15);
+            border: 1px solid #7b2ffc44;
+            color: #b18cff;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
         /* ---------- TESTIMONIALS ---------- */
         .testimonial-grid {
             display: grid;
@@ -744,6 +897,12 @@
             .testimonial-grid {
                 grid-template-columns: 1fr;
             }
+            .career-details {
+                grid-template-columns: 1fr;
+            }
+            .career-title {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -788,6 +947,69 @@
                         <span class="label">Companies Acknowledged</span>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ========== CAREER HIGHLIGHT (NEW) ========== -->
+        <section>
+            <h2>🚀 Career Highlight</h2>
+            <div class="career-highlight">
+
+                <div class="career-badge">★ Verified Offer Letter</div>
+
+                <div class="career-title">Selected as Junior Security Engineer — Exfiltra, Lahore</div>
+
+                <div class="career-subtitle">
+                    Competed against BS Computer Science graduates and secured the offer <strong>with only an FSc background</strong>.
+                </div>
+
+                <div class="career-details">
+                    <div class="career-detail">
+                        <div class="detail-label">Position</div>
+                        <div class="detail-value cyan">Junior Security Engineer</div>
+                    </div>
+                    <div class="career-detail">
+                        <div class="detail-label">Company</div>
+                        <div class="detail-value">Exfiltra, Lahore</div>
+                    </div>
+                    <div class="career-detail">
+                        <div class="detail-label">Offered Salary</div>
+                        <div class="detail-value gold">70,000 PKR / Month</div>
+                    </div>
+                    <div class="career-detail">
+                        <div class="detail-label">Offer Date</div>
+                        <div class="detail-value">September 2025</div>
+                    </div>
+                    <div class="career-detail">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value" style="color:#ff6b7a;">Declined — Prioritized Studies</div>
+                    </div>
+                    <div class="career-detail">
+                        <div class="detail-label">Issued By</div>
+                        <div class="detail-value">Warda Khan · HR Generalist</div>
+                    </div>
+                </div>
+
+                <div class="career-story">
+                    After passing a competitive interview process, I was formally offered a 
+                    <span class="highlight">Junior Security Engineer</span> position at 
+                    <span class="highlight">Exfiltra, Lahore</span> — competing successfully against candidates with 
+                    <span class="gold">BS Computer Science degrees</span>, despite having only completed my FSc at the time. 
+                    <br><br>
+                    The offer included a <span class="gold">70,000 PKR monthly salary</span>, paid leaves, work-from-home policy, 
+                    company-provided lunch, and recreational facilities.
+                    <br><br>
+                    I respectfully declined the offer to <span class="highlight">prioritize my academic commitment</span> at 
+                    AWKUM Mardan, where I am currently pursuing my BS in Computer Science. This decision reflects my long-term 
+                    focus on building a strong theoretical foundation alongside practical security research.
+                </div>
+
+                <div class="career-footer">
+                    <span class="pill">🏆 Beat CS Graduates</span>
+                    <span class="pill">📩 Formal Offer Letter</span>
+                    <span class="pill">🎓 Chose Education</span>
+                </div>
+
             </div>
         </section>
 
@@ -968,7 +1190,46 @@
             <div class="achievement-grid">
 
                 <!-- ============================================ -->
-                <!-- TROPHY 1: WISDMLABS / AI BOTKIT               -->
+                <!-- TROPHY 1: EXFILTRA (JOB OFFER - FEATURED)    -->
+                <!-- ============================================ -->
+                <div class="trophy-card" style="border-color: #7b2ffc88; box-shadow: 0 12px 40px rgba(123, 47, 252, 0.15);">
+                    <div class="company-header">
+                        <div class="company-logo" style="background: linear-gradient(135deg, #7b2ffc22, #00d4ff22); color:#ffd700; font-weight:700; font-size:1.1rem; display:flex; align-items:center; justify-content:center;">
+                            ★
+                        </div>
+                        <div class="company-name" style="background: linear-gradient(135deg, #00d4ff, #7b2ffc, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Exfiltra — Job Offer</div>
+                    </div>
+                    <span class="vuln-type" style="background: linear-gradient(135deg, #7b2ffc33, #00d4ff33); color:#e0d0ff;">Junior Security Engineer · Selected</span>
+                    <div class="impact">Selected against BS CS graduates with only an FSc background. Offered 70,000 PKR/month — declined to prioritize university studies.</div>
+                    <span class="thanks-badge" style="color:#ffd700;">★ Verified Job Offer Letter</span>
+                    <div class="testimonial-box" style="border-left-color: #7b2ffc;">
+                        <span class="email-subject">📧 Subject: Offer of Employment — Junior Security Engineer</span>
+                        Dear Shayan,<br><br>
+                        We are pleased to extend a formal offer of employment to you for the position of <strong>Junior Security Engineer</strong> at Exfiltra.<br><br>
+                        Based on your skills, experience, and interview performance, we believe you will be a valuable addition to our team.<br><br>
+                        <strong>Position Details:</strong><br>
+                        • Job Title: Junior Security Engineer<br>
+                        • Department: Cyber Security<br>
+                        • Employment Type: Full-time<br>
+                        • Probation Period: 3 months<br><br>
+                        <strong>Compensation & Benefits:</strong><br>
+                        • Monthly Salary: 70,000 PKR<br>
+                        • Paid Leaves<br>
+                        • Work From Home Policy<br>
+                        • Company Provided Lunch<br>
+                        • Recreational area for in-house games<br><br>
+                        <strong>Work Arrangement:</strong><br>
+                        • Work Location: On-Site<br>
+                        • Shift: Morning Shift<br>
+                        • Working Hours: 10:00 AM to 7:00 PM (PKT)<br><br>
+                        Thank you for the time and effort you invested throughout the interview process. We are excited about the possibility of you joining the Exfiltra team and look forward to working with you.
+                        <span class="sender">— <span>Warda Khan</span> · HR Generalist, Exfiltra</span>
+                        <span class="email-date">📅 Received: September 15, 2025</span>
+                    </div>
+                </div>
+
+                <!-- ============================================ -->
+                <!-- TROPHY 2: WISDMLABS / AI BOTKIT               -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-header">
@@ -994,7 +1255,7 @@
                 </div>
 
                 <!-- ============================================ -->
-                <!-- TROPHY 2: TASKPLANET (FOUNDER)               -->
+                <!-- TROPHY 3: TASKPLANET (FOUNDER)               -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-header">
@@ -1029,7 +1290,7 @@
                 </div>
 
                 <!-- ============================================ -->
-                <!-- TROPHY 3: WALEE                               -->
+                <!-- TROPHY 4: WALEE                               -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-header">
@@ -1054,7 +1315,7 @@
                 </div>
 
                 <!-- ============================================ -->
-                <!-- TROPHY 4: VAJRAGLOBAL                         -->
+                <!-- TROPHY 5: VAJRAGLOBAL                         -->
                 <!-- ============================================ -->
                 <div class="trophy-card">
                     <div class="company-header">
@@ -1082,12 +1343,12 @@
             <!-- ========== VERIFICATION NOTE ========== -->
             <div class="verification-note">
                 <span class="icon">🔒</span>
-                All testimonials displayed on this wall are <span class="highlight-text">verified and authentic</span>. 
+                All testimonials and offers displayed on this wall are <span class="highlight-text">verified and authentic</span>. 
                 They can be independently confirmed by contacting the respective companies directly upon request.
             </div>
 
             <p style="text-align:center; margin-top:1rem; color:#6a7f9a; font-size:0.9rem;">
-                ⚡ Each trophy includes a verified testimonial from the respective security department.
+                ⚡ Each trophy includes a verified document from the respective organization.
             </p>
 
         </div>
