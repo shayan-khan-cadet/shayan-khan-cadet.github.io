@@ -5,16 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shayan Khan | Penetration Tester</title>
     <style>
+        /* ============================================================ */
+        /* CSS VARIABLES (Dark/Light Theme)                              */
+        /* ============================================================ */
+        :root {
+            --bg-primary: #0b0e14;
+            --bg-secondary: #111b2b;
+            --bg-tertiary: #0a1420;
+            --bg-card: #131c2a;
+            --border-color: #1f2f42;
+            --text-primary: #e8edf5;
+            --text-secondary: #b8cce0;
+            --text-muted: #8899bb;
+            --text-dim: #4a6a7a;
+            --accent-cyan: #00d4ff;
+            --accent-purple: #7b2ffc;
+            --accent-gold: #ffd700;
+            --accent-green: #00e676;
+            --header-bg: #0b0e14;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f0f4f8;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #d1dae6;
+            --text-primary: #1a2028;
+            --text-secondary: #2d3748;
+            --text-muted: #4a5568;
+            --text-dim: #718096;
+            --accent-cyan: #0094cc;
+            --accent-purple: #5a1fc7;
+            --accent-gold: #d97706;
+            --accent-green: #059669;
+            --header-bg: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #0b0e14;
-            color: #e8edf5;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             padding: 2rem 1.5rem;
         }
@@ -24,11 +62,98 @@
             margin: 0 auto;
         }
 
+        /* ============================================================ */
+        /* TOP BAR (Theme Toggle + Visitor Badge + Hire Me)              */
+        /* ============================================================ */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+        }
+
+        .hire-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #00e67622, #00d4ff22);
+            border: 1px solid #00e67666;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--accent-green);
+        }
+
+        .hire-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .top-right-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .visitor-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .visitor-badge .count {
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .theme-toggle {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-cyan);
+            transform: scale(1.1);
+        }
+
         /* ---------- HERO ---------- */
         .hero {
             text-align: center;
             padding: 3rem 0 2rem;
-            border-bottom: 1px solid #1f2a3a;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
         }
 
         .hero h1 {
@@ -43,8 +168,25 @@
 
         .hero .tagline {
             font-size: 1.2rem;
-            color: #8899bb;
+            color: var(--text-muted);
             margin-top: 0.4rem;
+            min-height: 1.8rem;
+        }
+
+        /* Typing cursor */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2rem;
+            background: var(--accent-cyan);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 3px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
         .hero .badge-group {
@@ -56,16 +198,16 @@
         }
 
         .badge {
-            background: #16202e;
+            background: var(--bg-card);
             padding: 0.4rem 1.2rem;
             border-radius: 30px;
             font-size: 0.85rem;
-            border: 1px solid #2a3a50;
-            color: #b0c8e8;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
         }
 
         .badge .check {
-            color: #00e676;
+            color: var(--accent-green);
             margin-right: 6px;
         }
 
@@ -78,46 +220,36 @@
             font-size: 2rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            border-left: 4px solid #00d4ff;
+            border-left: 4px solid var(--accent-cyan);
             padding-left: 1rem;
+            color: var(--text-primary);
         }
 
         /* ---------- ABOUT ME ---------- */
         .about-box {
-            background: linear-gradient(135deg, #111b2b, #0a1420);
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
             padding: 2rem;
             border-radius: 16px;
-            border: 1px solid #1f2f42;
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
 
-        .about-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.05), transparent);
-            border-radius: 50%;
-        }
-
         .about-box p {
             font-size: 1.05rem;
-            color: #b8cce0;
+            color: var(--text-secondary);
             max-width: 800px;
             position: relative;
             z-index: 1;
         }
 
         .about-box .highlight {
-            color: #00d4ff;
+            color: var(--accent-cyan);
             font-weight: 600;
         }
 
         .about-box .gold {
-            color: #ffd700;
+            color: var(--accent-gold);
             font-weight: 600;
         }
 
@@ -134,54 +266,31 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            background: #0a1420;
+            background: var(--bg-tertiary);
             padding: 0.5rem 1.2rem;
             border-radius: 30px;
-            border: 1px solid #1f2f42;
+            border: 1px solid var(--border-color);
         }
 
         .stat-item .number {
-            color: #ffd700;
+            color: var(--accent-gold);
             font-weight: 700;
             font-size: 1.1rem;
         }
 
         .stat-item .label {
-            color: #8899bb;
+            color: var(--text-muted);
             font-size: 0.85rem;
         }
 
-        /* ---------- CAREER HIGHLIGHT (NEW) ---------- */
+        /* ---------- CAREER HIGHLIGHT ---------- */
         .career-highlight {
-            background: linear-gradient(135deg, #1a1420, #0f0a18);
-            border: 1px solid #7b2ffc44;
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
+            border: 1px solid #7b2ffc66;
             border-radius: 20px;
             padding: 2rem;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(123, 47, 252, 0.08);
-        }
-
-        .career-highlight::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(123, 47, 252, 0.08), transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .career-highlight::after {
-            content: '★';
-            position: absolute;
-            bottom: -30px;
-            right: 20px;
-            font-size: 10rem;
-            color: rgba(255, 215, 0, 0.03);
-            pointer-events: none;
         }
 
         .career-badge {
@@ -189,8 +298,8 @@
             align-items: center;
             gap: 0.4rem;
             background: linear-gradient(135deg, #ffd70022, #ffd70008);
-            border: 1px solid #ffd70044;
-            color: #ffd700;
+            border: 1px solid #ffd70066;
+            color: var(--accent-gold);
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -198,8 +307,6 @@
             padding: 0.3rem 0.9rem;
             border-radius: 30px;
             margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
         }
 
         .career-title {
@@ -209,16 +316,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .career-subtitle {
-            color: #b8cce0;
+            color: var(--text-secondary);
             font-size: 1rem;
             margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .career-details {
@@ -226,20 +329,18 @@
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1rem;
             margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .career-detail {
-            background: rgba(10, 20, 32, 0.6);
-            border: 1px solid #1f2f42;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 0.8rem 1rem;
         }
 
         .career-detail .detail-label {
             font-size: 0.7rem;
-            color: #6a8fbf;
+            color: var(--text-dim);
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 600;
@@ -248,100 +349,66 @@
 
         .career-detail .detail-value {
             font-size: 1rem;
-            color: #e8edf5;
+            color: var(--text-primary);
             font-weight: 600;
         }
 
-        .career-detail .detail-value.gold {
-            color: #ffd700;
-        }
-
-        .career-detail .detail-value.cyan {
-            color: #00d4ff;
-        }
+        .career-detail .detail-value.gold { color: var(--accent-gold); }
+        .career-detail .detail-value.cyan { color: var(--accent-cyan); }
 
         .career-story {
-            background: rgba(10, 20, 32, 0.5);
-            border-left: 3px solid #ffd700;
+            background: var(--bg-tertiary);
+            border-left: 3px solid var(--accent-gold);
             padding: 1rem 1.2rem;
             border-radius: 8px;
-            color: #b8cce0;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.7;
-            position: relative;
-            z-index: 1;
             margin-bottom: 1.2rem;
-        }
-
-        .career-story .highlight {
-            color: #00d4ff;
-            font-weight: 600;
-        }
-
-        .career-story .gold {
-            color: #ffd700;
-            font-weight: 600;
         }
 
         .career-footer {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #6a8fbf;
+            color: var(--text-muted);
             font-size: 0.85rem;
-            position: relative;
-            z-index: 1;
             flex-wrap: wrap;
         }
 
         .career-footer .pill {
-            background: rgba(123, 47, 252, 0.15);
-            border: 1px solid #7b2ffc44;
-            color: #b18cff;
+            background: #7b2ffc22;
+            border: 1px solid #7b2ffc66;
+            color: var(--accent-purple);
             padding: 0.2rem 0.8rem;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
         }
 
-        /* ---------- TESTIMONIALS ---------- */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 1rem;
+        /* ---------- TESTIMONIAL SLIDER ---------- */
+        .testimonial-slider-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 0.5rem;
         }
 
         .testimonial-card {
-            background: linear-gradient(145deg, #111b2b, #0d1624);
-            border: 1px solid #1f2f42;
+            background: linear-gradient(145deg, var(--bg-card), var(--bg-tertiary));
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 2rem;
-            transition: all 0.4s ease;
             position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.03), rgba(123, 47, 252, 0.03));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .testimonial-card:hover::before {
-            opacity: 1;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-6px);
-            border-color: #ffd700;
-            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.08);
         }
 
         .testimonial-header {
@@ -349,8 +416,6 @@
             align-items: center;
             gap: 1rem;
             margin-bottom: 1.2rem;
-            position: relative;
-            z-index: 1;
         }
 
         .testimonial-logo {
@@ -358,53 +423,41 @@
             height: 56px;
             border-radius: 50%;
             object-fit: contain;
-            background: #0a1420;
+            background: var(--bg-tertiary);
             padding: 6px;
-            border: 2px solid #2a3f5a;
+            border: 2px solid var(--border-color);
             flex-shrink: 0;
-            transition: border-color 0.3s ease;
-        }
-
-        .testimonial-card:hover .testimonial-logo {
-            border-color: #ffd700;
-        }
-
-        .testimonial-info {
-            flex: 1;
         }
 
         .testimonial-card .name {
             font-weight: 700;
-            color: #e8edf5;
+            color: var(--text-primary);
             font-size: 1.05rem;
-            margin-bottom: 0.1rem;
         }
 
         .testimonial-card .role {
-            color: #8899bb;
+            color: var(--text-muted);
             font-size: 0.85rem;
         }
 
         .testimonial-stars {
-            color: #ffd700;
+            color: var(--accent-gold);
             font-size: 1rem;
             letter-spacing: 2px;
             margin-top: 0.2rem;
         }
 
         .testimonial-text {
-            color: #b8cce0;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.8;
             font-style: italic;
-            position: relative;
-            z-index: 1;
             padding-left: 0.5rem;
         }
 
         .testimonial-text::before {
             content: '"';
-            color: #ffd700;
+            color: var(--accent-gold);
             opacity: 0.3;
             font-size: 2rem;
             margin-right: 4px;
@@ -413,7 +466,7 @@
 
         .testimonial-text::after {
             content: '"';
-            color: #ffd700;
+            color: var(--accent-gold);
             opacity: 0.3;
             font-size: 2rem;
             margin-left: 4px;
@@ -422,22 +475,61 @@
 
         .testimonial-date {
             margin-top: 1rem;
-            color: #4a6a7a;
+            color: var(--text-dim);
             font-size: 0.8rem;
             text-align: right;
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid #1a2535;
+            border-top: 1px solid var(--border-color);
             padding-top: 0.8rem;
         }
 
-        .testimonial-card .quote-icon {
-            position: absolute;
-            bottom: -10px;
-            right: -10px;
-            font-size: 5rem;
-            color: rgba(255, 215, 0, 0.04);
-            pointer-events: none;
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .slider-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border-color);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--accent-cyan);
+            width: 24px;
+            border-radius: 5px;
         }
 
         /* ---------- SKILLS ---------- */
@@ -448,11 +540,11 @@
         }
 
         .skill-card {
-            background: #131c2a;
+            background: var(--bg-card);
             padding: 1rem 1.2rem;
             border-radius: 12px;
             text-align: center;
-            border: 1px solid #1f2f42;
+            border: 1px solid var(--border-color);
             font-weight: 500;
             transition: 0.3s;
             display: flex;
@@ -461,21 +553,397 @@
             gap: 0.6rem;
             font-size: 0.95rem;
             cursor: pointer;
-            position: relative;
         }
 
         .skill-card:hover {
-            border-color: #00d4ff;
-            background: #1a2638;
+            border-color: var(--accent-cyan);
             transform: translateY(-2px);
             box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
         }
 
-        .skill-card .icon {
-            font-size: 1.3rem;
+        .skill-card .icon { font-size: 1.3rem; }
+
+        /* Skill Progress Bars */
+        .skill-bars {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
         }
 
-        /* Skill Popup */
+        .skill-bar-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+        }
+
+        .skill-bar-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .skill-bar-name {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .skill-bar-percent {
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .skill-bar-track {
+            background: var(--bg-tertiary);
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* ---------- INTERACTIVE TERMINAL ---------- */
+        .terminal {
+            background: #0a0e14;
+            border: 1px solid #1f2f42;
+            border-radius: 12px;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] .terminal {
+            background: #1a2028;
+        }
+
+        .terminal-header {
+            background: #1a2028;
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid #1f2f42;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f57; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #28c840; }
+
+        .terminal-title {
+            color: #8899bb;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+
+        .terminal-body {
+            padding: 1.2rem;
+            height: 320px;
+            overflow-y: auto;
+            color: #e8edf5;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .terminal-body::-webkit-scrollbar {
+            width: 6px;
+        }
+        .terminal-body::-webkit-scrollbar-track {
+            background: #0a0e14;
+        }
+        .terminal-body::-webkit-scrollbar-thumb {
+            background: #2a3f5a;
+            border-radius: 3px;
+        }
+
+        .term-line {
+            margin-bottom: 0.3rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .term-prompt { color: #00e676; }
+        .term-command { color: #e8edf5; }
+        .term-output { color: #8899bb; }
+        .term-highlight { color: #00d4ff; font-weight: 600; }
+        .term-gold { color: #ffd700; }
+        .term-error { color: #ff6b7a; }
+        .term-success { color: #00e676; }
+
+        .term-input-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .term-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #e8edf5;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        /* ---------- WALL TRIGGER ---------- */
+        .wall-trigger {
+            text-align: center;
+            margin: 2.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .wall-btn {
+            background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.25);
+        }
+
+        .wall-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .cv-download-btn {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cv-download-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            transform: scale(1.04);
+            box-shadow: 0 6px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        /* ---------- ACHIEVEMENT WALL ---------- */
+        .wall-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(8, 12, 20, 0.94);
+            backdrop-filter: blur(8px);
+            z-index: 999;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .wall-overlay.open { display: block; }
+
+        .wall-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .wall-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .wall-header h2 {
+            border-left-color: var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 2.2rem;
+        }
+
+        .close-wall-btn {
+            background: rgba(255, 23, 68, 0.15);
+            border: 1px solid rgba(255, 23, 68, 0.3);
+            color: #ff6b7a;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .close-wall-btn:hover {
+            background: rgba(255, 23, 68, 0.25);
+            border-color: #ff1744;
+            color: #ff1744;
+            transform: scale(1.05);
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .trophy-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trophy-card:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .trophy-card .company-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .trophy-card .company-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            padding: 4px;
+        }
+
+        .trophy-card .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .trophy-card .company-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .trophy-card .vuln-type {
+            display: inline-block;
+            background: var(--bg-tertiary);
+            padding: 0.15rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin: 0.5rem 0 0.3rem;
+            align-self: flex-start;
+            border: 1px solid var(--border-color);
+        }
+
+        .trophy-card .impact {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0.4rem 0;
+        }
+
+        .trophy-card .thanks-badge {
+            color: var(--accent-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .testimonial-box {
+            background: var(--bg-tertiary);
+            border-left: 3px solid var(--accent-gold);
+            padding: 0.8rem 1rem;
+            margin-top: 0.8rem;
+            border-radius: 6px;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-box .sender {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.5rem;
+        }
+
+        .testimonial-box .sender span { color: var(--accent-gold); }
+
+        .testimonial-box .email-date {
+            display: block;
+            font-style: normal;
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            margin-top: 0.2rem;
+        }
+
+        .testimonial-box .email-subject {
+            display: block;
+            font-style: normal;
+            color: var(--accent-cyan);
+            font-size: 0.75rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .verification-note {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .verification-note .highlight-text {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* ---------- SKILL POPUP ---------- */
         .skill-popup {
             display: none;
             position: fixed;
@@ -491,13 +959,11 @@
             padding: 2rem;
         }
 
-        .skill-popup.open {
-            display: flex;
-        }
+        .skill-popup.open { display: flex; }
 
         .skill-popup-content {
-            background: #111b2b;
-            border: 1px solid #2a3f5a;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 2.5rem;
             max-width: 550px;
@@ -507,14 +973,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .skill-popup-content .popup-close {
@@ -522,7 +982,7 @@
             top: 12px;
             right: 18px;
             font-size: 1.8rem;
-            color: #4a6a7a;
+            color: var(--text-muted);
             cursor: pointer;
             transition: 0.2s;
             background: none;
@@ -543,26 +1003,26 @@
         .skill-popup-content .popup-title {
             font-size: 1.6rem;
             font-weight: 700;
-            color: #00d4ff;
+            color: var(--accent-cyan);
             margin-bottom: 0.5rem;
         }
 
         .skill-popup-content .popup-desc {
-            color: #b8cce0;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.7;
             margin-bottom: 1rem;
         }
 
         .skill-popup-content .popup-experience {
-            background: #0a1420;
+            background: var(--bg-tertiary);
             padding: 1rem;
             border-radius: 10px;
-            border-left: 3px solid #ffd700;
+            border-left: 3px solid var(--accent-gold);
         }
 
         .skill-popup-content .popup-experience .label {
-            color: #ffd700;
+            color: var(--accent-gold);
             font-weight: 600;
             font-size: 0.8rem;
             text-transform: uppercase;
@@ -570,339 +1030,47 @@
         }
 
         .skill-popup-content .popup-experience .text {
-            color: #8899bb;
+            color: var(--text-muted);
             font-size: 0.9rem;
             margin-top: 0.2rem;
-        }
-
-        /* ---------- WALL TRIGGER ---------- */
-        .wall-trigger {
-            text-align: center;
-            margin: 2.5rem 0;
-        }
-
-        .wall-btn {
-            background: linear-gradient(135deg, #00d4ff, #7b2ffc);
-            border: none;
-            color: #fff;
-            font-size: 1.3rem;
-            font-weight: 700;
-            padding: 1rem 3rem;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.25);
-        }
-
-        .wall-btn:hover {
-            transform: scale(1.04);
-            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.4);
-        }
-
-        /* ---------- ACHIEVEMENT WALL ---------- */
-        .wall-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(8, 12, 20, 0.94);
-            backdrop-filter: blur(8px);
-            z-index: 999;
-            overflow-y: auto;
-            padding: 2rem 1.5rem;
-        }
-
-        .wall-overlay.open {
-            display: block;
-        }
-
-        .wall-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .wall-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .wall-header h2 {
-            border-left-color: #ffd700;
-            color: #ffd700;
-            font-size: 2.2rem;
-        }
-
-        .close-wall-btn {
-            background: rgba(255, 23, 68, 0.15);
-            border: 1px solid rgba(255, 23, 68, 0.3);
-            color: #ff6b7a;
-            font-size: 1rem;
-            font-weight: 600;
-            padding: 0.6rem 1.8rem;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            letter-spacing: 0.5px;
-        }
-
-        .close-wall-btn:hover {
-            background: rgba(255, 23, 68, 0.25);
-            border-color: #ff1744;
-            color: #ff1744;
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 23, 68, 0.15);
-        }
-
-        .close-wall-btn .icon {
-            font-size: 1.2rem;
-        }
-
-        .achievement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 1.8rem;
-        }
-
-        .trophy-card {
-            background: #111b2b;
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid #2a3f5a;
-            transition: 0.25s;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .trophy-card:hover {
-            transform: translateY(-6px);
-            border-color: #ffd700;
-            box-shadow: 0 12px 30px rgba(255, 215, 0, 0.12);
-        }
-
-        .trophy-card .company-header {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .trophy-card .company-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            background: #0a1420;
-            border: 1px solid #1f2f42;
-            overflow: hidden;
-            padding: 4px;
-        }
-
-        .trophy-card .company-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 6px;
-        }
-
-        .trophy-card .company-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #ffd700;
-        }
-
-        .trophy-card .vuln-type {
-            display: inline-block;
-            background: #1f2f44;
-            padding: 0.15rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: #aac3e6;
-            margin: 0.5rem 0 0.3rem;
-            align-self: flex-start;
-        }
-
-        .trophy-card .impact {
-            font-size: 0.9rem;
-            color: #bccde8;
-            margin: 0.4rem 0;
-        }
-
-        .trophy-card .thanks-badge {
-            color: #00e676;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            display: block;
-        }
-
-        /* ---------- TESTIMONIAL BOX ---------- */
-        .testimonial-box {
-            background: #0a1420;
-            border-left: 3px solid #ffd700;
-            padding: 0.8rem 1rem;
-            margin-top: 0.8rem;
-            border-radius: 6px;
-            font-style: italic;
-            color: #b8cce0;
-            font-size: 0.85rem;
-            position: relative;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-
-        .testimonial-box::before {
-            content: '"';
-            font-size: 1.5rem;
-            color: #ffd700;
-            opacity: 0.5;
-            margin-right: 4px;
-        }
-
-        .testimonial-box::after {
-            content: '"';
-            font-size: 1.5rem;
-            color: #ffd700;
-            opacity: 0.5;
-            margin-left: 4px;
-        }
-
-        .testimonial-box .sender {
-            display: block;
-            margin-top: 0.6rem;
-            font-style: normal;
-            font-weight: 600;
-            color: #8899bb;
-            font-size: 0.8rem;
-            border-top: 1px solid #1a2a3a;
-            padding-top: 0.5rem;
-        }
-
-        .testimonial-box .sender span {
-            color: #ffd700;
-        }
-
-        .testimonial-box .email-date {
-            display: block;
-            font-style: normal;
-            color: #4a6a7a;
-            font-size: 0.7rem;
-            margin-top: 0.2rem;
-        }
-
-        .testimonial-box .email-subject {
-            display: block;
-            font-style: normal;
-            color: #6a8fbf;
-            font-size: 0.75rem;
-            margin-bottom: 0.3rem;
-            font-weight: 600;
-        }
-
-        .testimonial-box ul {
-            margin: 0.3rem 0 0.3rem 1.2rem;
-            color: #b8cce0;
-        }
-
-        .testimonial-box ul li {
-            margin-bottom: 0.2rem;
-        }
-
-        /* ---------- VERIFICATION NOTE ---------- */
-        .verification-note {
-            background: #0a1420;
-            border: 1px solid #1a2a3a;
-            border-radius: 12px;
-            padding: 1.2rem 1.5rem;
-            margin-top: 2rem;
-            text-align: center;
-            color: #6a8fbf;
-            font-size: 0.9rem;
-        }
-
-        .verification-note .icon {
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
-        }
-
-        .verification-note .highlight-text {
-            color: #ffd700;
-            font-weight: 600;
         }
 
         /* ---------- FOOTER ---------- */
         .footer {
             margin-top: 4rem;
             text-align: center;
-            color: #4a5a72;
+            color: var(--text-dim);
             font-size: 0.9rem;
-            border-top: 1px solid #1a2535;
+            border-top: 1px solid var(--border-color);
             padding-top: 2rem;
         }
 
         .footer a {
-            color: #6a8fbf;
+            color: var(--text-muted);
             text-decoration: none;
             transition: 0.2s;
         }
 
-        .footer a:hover {
-            color: #00d4ff;
-        }
+        .footer a:hover { color: var(--accent-cyan); }
 
-        .footer .email-link {
-            color: #00d4ff;
-        }
+        .footer .email-link { color: var(--accent-cyan); }
 
+        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .wall-header h2 {
-                font-size: 1.6rem;
-            }
-            .achievement-grid {
-                grid-template-columns: 1fr;
-            }
-            .wall-btn {
+            .hero h1 { font-size: 2.2rem; }
+            .wall-header h2 { font-size: 1.6rem; }
+            .achievement-grid { grid-template-columns: 1fr; }
+            .wall-btn, .cv-download-btn {
                 font-size: 1rem;
                 padding: 0.8rem 1.5rem;
             }
-            .about-stats {
-                gap: 1rem;
-            }
-            .stat-item {
-                padding: 0.3rem 0.8rem;
-                font-size: 0.85rem;
-            }
-            .close-wall-btn {
-                font-size: 0.8rem;
-                padding: 0.4rem 1.2rem;
-            }
-            .skill-popup-content {
-                padding: 1.5rem;
-                margin: 1rem;
-            }
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-            .career-details {
-                grid-template-columns: 1fr;
-            }
-            .career-title {
-                font-size: 1.3rem;
-            }
+            .about-stats { gap: 1rem; }
+            .stat-item { padding: 0.3rem 0.8rem; font-size: 0.85rem; }
+            .close-wall-btn { font-size: 0.8rem; padding: 0.4rem 1.2rem; }
+            .skill-popup-content { padding: 1.5rem; margin: 1rem; }
+            .terminal-body { height: 260px; font-size: 0.8rem; }
+            .top-bar { padding: 0.5rem; }
+            .hire-badge { font-size: 0.75rem; padding: 0.3rem 0.7rem; }
         }
     </style>
 </head>
@@ -910,10 +1078,24 @@
 
     <div class="container">
 
+        <!-- ========== TOP BAR ========== -->
+        <div class="top-bar">
+            <div class="hire-badge">
+                <span class="dot"></span>
+                Available for Hire — Junior Pentester Roles
+            </div>
+            <div class="top-right-controls">
+                <div class="visitor-badge" id="visitorBadge">
+                    👁️ <span class="count" id="visitorCount">...</span> visits
+                </div>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">🌙</button>
+            </div>
+        </div>
+
         <!-- ========== HERO ========== -->
         <header class="hero">
             <h1>Shayan Khan</h1>
-            <p class="tagline">Junior Penetration Tester · Bug Hunter · Security Researcher</p>
+            <p class="tagline" id="typingTagline"><span class="typing-cursor"></span></p>
             <div class="badge-group">
                 <span class="badge"><span class="check">✔</span> Walee — Acknowledged</span>
                 <span class="badge"><span class="check">✔</span> Taskplanet — Acknowledged</span>
@@ -950,19 +1132,15 @@
             </div>
         </section>
 
-        <!-- ========== CAREER HIGHLIGHT (NEW) ========== -->
+        <!-- ========== CAREER HIGHLIGHT ========== -->
         <section>
             <h2>🚀 Career Highlight</h2>
             <div class="career-highlight">
-
                 <div class="career-badge">★ Verified Offer Letter</div>
-
                 <div class="career-title">Selected as Junior Security Engineer — Exfiltra, Lahore</div>
-
                 <div class="career-subtitle">
                     Competed against BS Computer Science graduates and secured the offer <strong>with only an FSc background</strong>.
                 </div>
-
                 <div class="career-details">
                     <div class="career-detail">
                         <div class="detail-label">Position</div>
@@ -989,7 +1167,6 @@
                         <div class="detail-value">Warda Khan · HR Generalist</div>
                     </div>
                 </div>
-
                 <div class="career-story">
                     After passing a competitive interview process, I was formally offered a 
                     <span class="highlight">Junior Security Engineer</span> position at 
@@ -1000,149 +1177,212 @@
                     company-provided lunch, and recreational facilities.
                     <br><br>
                     I respectfully declined the offer to <span class="highlight">prioritize my academic commitment</span> at 
-                    AWKUM Mardan, where I am currently pursuing my BS in Computer Science. This decision reflects my long-term 
-                    focus on building a strong theoretical foundation alongside practical security research.
+                    AWKUM Mardan, where I am currently pursuing my BS in Computer Science.
                 </div>
-
                 <div class="career-footer">
                     <span class="pill">🏆 Beat CS Graduates</span>
                     <span class="pill">📩 Formal Offer Letter</span>
                     <span class="pill">🎓 Chose Education</span>
                 </div>
-
             </div>
         </section>
 
-        <!-- ========== TESTIMONIALS ========== -->
+        <!-- ========== TESTIMONIAL SLIDER ========== -->
         <section>
             <h2>💬 What Clients Say</h2>
-            <div class="testimonial-grid">
-
-                <!-- Testimonial 1: Wisdmlabs / AI BotKit -->
-                <div class="testimonial-card">
-                    <div class="quote-icon">💬</div>
-                    <div class="testimonial-header">
-                        <img src="data:image/jpeg;base64,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" 
-                             alt="Wisdmlabs Logo" 
-                             class="testimonial-logo">
-                        <div class="testimonial-info">
-                            <div class="name">Alpesh Patil</div>
-                            <div class="role">Product Head, AI BotKit · WisdmLabs</div>
-                            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-slider-wrap">
+                <div class="testimonial-slider" id="testimonialSlider">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="data:image/jpeg;base64,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" 
+                                     alt="Wisdmlabs Logo" 
+                                     class="testimonial-logo">
+                                <div>
+                                    <div class="name">Alpesh Patil</div>
+                                    <div class="role">Product Head, AI BotKit · WisdmLabs</div>
+                                    <div class="testimonial-stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                Shayan responsibly reported a security vulnerability in our chatbot creation flow at aibotkit.io. His report identified a race condition that allowed the chatbot creation limit to be bypassed across account tiers. We investigated, confirmed his findings, and deployed a fix.
+                            </div>
+                            <div class="testimonial-date">September 2025</div>
                         </div>
                     </div>
-                    <div class="testimonial-text">
-                        Shayan responsibly reported a security vulnerability in our chatbot creation flow at aibotkit.io. His report identified a race condition that allowed the chatbot creation limit to be bypassed across account tiers. We investigated, confirmed his findings, and deployed a fix. We appreciate the professionalism he brought to researching and documenting this issue.
-                    </div>
-                    <div class="testimonial-date">September 2025</div>
-                </div>
 
-                <!-- Testimonial 2: Taskplanet - Founder -->
-                <div class="testimonial-card">
-                    <div class="quote-icon">💬</div>
-                    <div class="testimonial-header">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxw-DUSoAUiARlrjFpz8CeaLel3CXWRS7Gh-7-fZfyOw&s=10" 
-                             alt="Task Planet Logo" 
-                             class="testimonial-logo">
-                        <div class="testimonial-info">
-                            <div class="name">Himanshu Singh</div>
-                            <div class="role">Founder, TaskPlanet</div>
-                            <div class="testimonial-stars">★★★★★</div>
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxw-DUSoAUiARlrjFpz8CeaLel3CXWRS7Gh-7-fZfyOw&s=10" 
+                                     alt="Task Planet Logo" 
+                                     class="testimonial-logo">
+                                <div>
+                                    <div class="name">Himanshu Singh</div>
+                                    <div class="role">Founder, TaskPlanet</div>
+                                    <div class="testimonial-stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                Shayan's comprehensive security testing uncovered multiple critical vulnerabilities across reward redemption, payment verification, access controls, and authentication. His detailed report and responsible disclosure helped us strengthen our platform's security significantly.
+                            </div>
+                            <div class="testimonial-date">September 2025</div>
                         </div>
                     </div>
-                    <div class="testimonial-text">
-                        Shayan's comprehensive security testing uncovered multiple critical vulnerabilities across reward redemption, payment verification, access controls, and authentication. His detailed report and responsible disclosure helped us strengthen our platform's security significantly. We highly value his contributions and encourage him to continue exploring TaskPlanet.
-                    </div>
-                    <div class="testimonial-date">September 2025</div>
-                </div>
 
-                <!-- Testimonial 3: Walee -->
-                <div class="testimonial-card">
-                    <div class="quote-icon">💬</div>
-                    <div class="testimonial-header">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" 
-                             alt="Walee Logo" 
-                             class="testimonial-logo">
-                        <div class="testimonial-info">
-                            <div class="name">Ebad Karim</div>
-                            <div class="role">Product Manager, Walee</div>
-                            <div class="testimonial-stars">★★★★★</div>
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" 
+                                     alt="Walee Logo" 
+                                     class="testimonial-logo">
+                                <div>
+                                    <div class="name">Ebad Karim</div>
+                                    <div class="role">Product Manager, Walee</div>
+                                    <div class="testimonial-stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                Shayan demonstrated exceptional professionalism in identifying and reporting a critical business logic flaw. His detailed report and cooperative approach made remediation seamless. We highly recommend his services.
+                            </div>
+                            <div class="testimonial-date">August 2025</div>
                         </div>
                     </div>
-                    <div class="testimonial-text">
-                        Shayan demonstrated exceptional professionalism in identifying and reporting a critical business logic flaw. His detailed report and cooperative approach made remediation seamless. We highly recommend his services.
-                    </div>
-                    <div class="testimonial-date">August 2025</div>
-                </div>
 
-                <!-- Testimonial 4: Vajraglobal -->
-                <div class="testimonial-card">
-                    <div class="quote-icon">💬</div>
-                    <div class="testimonial-header">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" 
-                             alt="Vajra Global Logo" 
-                             class="testimonial-logo">
-                        <div class="testimonial-info">
-                            <div class="name">Rex</div>
-                            <div class="role">Security Team, Vajraglobal</div>
-                            <div class="testimonial-stars">★★★★★</div>
+                    <!-- Slide 4 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" 
+                                     alt="Vajra Global Logo" 
+                                     class="testimonial-logo">
+                                <div>
+                                    <div class="name">Rex</div>
+                                    <div class="role">Security Team, Vajraglobal</div>
+                                    <div class="testimonial-stars">★★★★★</div>
+                                </div>
+                            </div>
+                            <div class="testimonial-text">
+                                We appreciate Shayan's responsible disclosure and commend his commitment to ethical security practices. His diligence helped us secure our cloud infrastructure and prevent a potential data breach.
+                            </div>
+                            <div class="testimonial-date">November 2024</div>
                         </div>
                     </div>
-                    <div class="testimonial-text">
-                        We appreciate Shayan's responsible disclosure and commend his commitment to ethical security practices. His diligence helped us secure our cloud infrastructure and prevent a potential data breach.
-                    </div>
-                    <div class="testimonial-date">November 2024</div>
                 </div>
-
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn" id="prevSlide">‹</button>
+                <div class="slider-dots" id="sliderDots"></div>
+                <button class="slider-btn" id="nextSlide">›</button>
             </div>
         </section>
 
         <!-- ========== SKILLS ========== -->
         <section>
-            <h2>⚡ Technical Skills <span style="font-size:0.8rem; color:#4a6a7a; font-weight:400;">(click for details)</span></h2>
+            <h2>⚡ Technical Skills <span style="font-size:0.8rem; color:var(--text-dim); font-weight:400;">(click for details)</span></h2>
             <div class="skills-grid">
-                <div class="skill-card" data-skill="burp">
-                    <span class="icon">🕷️</span> Burp Suite
+                <div class="skill-card" data-skill="burp"><span class="icon">🕷️</span> Burp Suite</div>
+                <div class="skill-card" data-skill="nmap"><span class="icon">🌐</span> Nmap</div>
+                <div class="skill-card" data-skill="metasploit"><span class="icon">💀</span> Metasploit</div>
+                <div class="skill-card" data-skill="sqlmap"><span class="icon">🗄️</span> SQLmap</div>
+                <div class="skill-card" data-skill="owasp"><span class="icon">🛡️</span> OWASP Top 10</div>
+                <div class="skill-card" data-skill="api"><span class="icon">🔌</span> API Testing</div>
+                <div class="skill-card" data-skill="python"><span class="icon">🐍</span> Python Scripting</div>
+                <div class="skill-card" data-skill="linux"><span class="icon">🐧</span> Linux / Kali</div>
+                <div class="skill-card" data-skill="social"><span class="icon">🎭</span> Social Engineering</div>
+                <div class="skill-card" data-skill="report"><span class="icon">📝</span> Report Writing</div>
+                <div class="skill-card" data-skill="recon"><span class="icon">🔍</span> Reconnaissance</div>
+                <div class="skill-card" data-skill="logic"><span class="icon">⚙️</span> Business Logic Testing</div>
+            </div>
+
+            <!-- Skill Progress Bars -->
+            <div class="skill-bars">
+                <div class="skill-bar-item">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">🕷️ Burp Suite</span>
+                        <span class="skill-bar-percent">90%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-width="90"></div>
+                    </div>
                 </div>
-                <div class="skill-card" data-skill="nmap">
-                    <span class="icon">🌐</span> Nmap
+                <div class="skill-bar-item">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">⚙️ Business Logic Testing</span>
+                        <span class="skill-bar-percent">95%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-width="95"></div>
+                    </div>
                 </div>
-                <div class="skill-card" data-skill="metasploit">
-                    <span class="icon">💀</span> Metasploit
+                <div class="skill-bar-item">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">🔌 API Testing</span>
+                        <span class="skill-bar-percent">85%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-width="85"></div>
+                    </div>
                 </div>
-                <div class="skill-card" data-skill="sqlmap">
-                    <span class="icon">🗄️</span> SQLmap
+                <div class="skill-bar-item">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">🐍 Python Scripting</span>
+                        <span class="skill-bar-percent">80%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-width="80"></div>
+                    </div>
                 </div>
-                <div class="skill-card" data-skill="owasp">
-                    <span class="icon">🛡️</span> OWASP Top 10
+                <div class="skill-bar-item">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">🌐 Nmap</span>
+                        <span class="skill-bar-percent">75%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-width="75"></div>
+                    </div>
                 </div>
-                <div class="skill-card" data-skill="api">
-                    <span class="icon">🔌</span> API Testing
-                </div>
-                <div class="skill-card" data-skill="python">
-                    <span class="icon">🐍</span> Python Scripting
-                </div>
-                <div class="skill-card" data-skill="linux">
-                    <span class="icon">🐧</span> Linux / Kali
-                </div>
-                <div class="skill-card" data-skill="social">
-                    <span class="icon">🎭</span> Social Engineering
-                </div>
-                <div class="skill-card" data-skill="report">
-                    <span class="icon">📝</span> Report Writing
-                </div>
-                <div class="skill-card" data-skill="recon">
-                    <span class="icon">🔍</span> Reconnaissance
-                </div>
-                <div class="skill-card" data-skill="logic">
-                    <span class="icon">⚙️</span> Business Logic Testing
+                <div class="skill-bar-item">
+                    <div class="skill-bar-header">
+                        <span class="skill-bar-name">🐧 Linux / Kali</span>
+                        <span class="skill-bar-percent">80%</span>
+                    </div>
+                    <div class="skill-bar-track">
+                        <div class="skill-bar-fill" data-width="80"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== ACHIEVEMENT WALL TRIGGER ========== -->
+        <!-- ========== INTERACTIVE TERMINAL ========== -->
+        <section>
+            <h2>💻 Interactive Terminal</h2>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">shayan@portfolio:~$</span>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="term-line term-output">Welcome to Shayan's interactive terminal.</div>
+                    <div class="term-line term-output">Type <span class="term-highlight">help</span> to see available commands.</div>
+                    <div class="term-line">&nbsp;</div>
+                    <div class="term-input-line">
+                        <span class="term-prompt">$</span>
+                        <input type="text" class="term-input" id="termInput" autocomplete="off" spellcheck="false" placeholder="type a command...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ACTION BUTTONS ========== -->
         <div class="wall-trigger">
             <button class="wall-btn" id="openWallBtn">🏆 View My Achievement Wall</button>
+            <a href="Shayan_Khan_CV.pdf" download="Shayan_Khan_CV.pdf" class="cv-download-btn">📥 Download CV</a>
         </div>
 
         <!-- ========== FOOTER ========== -->
@@ -1159,7 +1399,7 @@
     </div>
 
     <!-- ========================================================= -->
-    <!-- ========== SKILL POPUP ========== -->
+    <!-- SKILL POPUP                                                -->
     <!-- ========================================================= -->
     <div class="skill-popup" id="skillPopup">
         <div class="skill-popup-content">
@@ -1175,266 +1415,226 @@
     </div>
 
     <!-- ========================================================= -->
-    <!-- ========== ACHIEVEMENT WALL OVERLAY ========== -->
+    <!-- ACHIEVEMENT WALL OVERLAY                                   -->
     <!-- ========================================================= -->
     <div class="wall-overlay" id="achievementWall">
         <div class="wall-inner">
-
             <div class="wall-header">
                 <h2>🏅 Achievement Wall</h2>
-                <button class="close-wall-btn" id="closeWallBtn">
-                    <span class="icon">✕</span> Close Gallery
-                </button>
+                <button class="close-wall-btn" id="closeWallBtn"><span class="icon">✕</span> Close Gallery</button>
             </div>
-
             <div class="achievement-grid">
-
-                <!-- ============================================ -->
-                <!-- TROPHY 1: EXFILTRA (JOB OFFER - FEATURED)    -->
-                <!-- ============================================ -->
-                <div class="trophy-card" style="border-color: #7b2ffc88; box-shadow: 0 12px 40px rgba(123, 47, 252, 0.15);">
+                <!-- Exfiltra -->
+                <div class="trophy-card" style="border-color: #7b2ffc88;">
                     <div class="company-header">
-                        <div class="company-logo" style="background: linear-gradient(135deg, #7b2ffc22, #00d4ff22); color:#ffd700; font-weight:700; font-size:1.1rem; display:flex; align-items:center; justify-content:center;">
-                            ★
-                        </div>
-                        <div class="company-name" style="background: linear-gradient(135deg, #00d4ff, #7b2ffc, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Exfiltra — Job Offer</div>
+                        <div class="company-logo" style="color:var(--accent-gold); font-weight:700;">★</div>
+                        <div class="company-name">Exfiltra — Job Offer</div>
                     </div>
-                    <span class="vuln-type" style="background: linear-gradient(135deg, #7b2ffc33, #00d4ff33); color:#e0d0ff;">Junior Security Engineer · Selected</span>
-                    <div class="impact">Selected against BS CS graduates with only an FSc background. Offered 70,000 PKR/month — declined to prioritize university studies.</div>
-                    <span class="thanks-badge" style="color:#ffd700;">★ Verified Job Offer Letter</span>
-                    <div class="testimonial-box" style="border-left-color: #7b2ffc;">
-                        <span class="email-subject">📧 Subject: Offer of Employment — Junior Security Engineer</span>
-                        Dear Shayan,<br><br>
-                        We are pleased to extend a formal offer of employment to you for the position of <strong>Junior Security Engineer</strong> at Exfiltra.<br><br>
-                        Based on your skills, experience, and interview performance, we believe you will be a valuable addition to our team.<br><br>
-                        <strong>Position Details:</strong><br>
-                        • Job Title: Junior Security Engineer<br>
-                        • Department: Cyber Security<br>
-                        • Employment Type: Full-time<br>
-                        • Probation Period: 3 months<br><br>
-                        <strong>Compensation & Benefits:</strong><br>
-                        • Monthly Salary: 70,000 PKR<br>
-                        • Paid Leaves<br>
-                        • Work From Home Policy<br>
-                        • Company Provided Lunch<br>
-                        • Recreational area for in-house games<br><br>
-                        <strong>Work Arrangement:</strong><br>
-                        • Work Location: On-Site<br>
-                        • Shift: Morning Shift<br>
-                        • Working Hours: 10:00 AM to 7:00 PM (PKT)<br><br>
-                        Thank you for the time and effort you invested throughout the interview process. We are excited about the possibility of you joining the Exfiltra team and look forward to working with you.
+                    <span class="vuln-type">Junior Security Engineer · Selected</span>
+                    <div class="impact">Selected against BS CS graduates with only FSc. Offered 70,000 PKR/month — declined to prioritize studies.</div>
+                    <span class="thanks-badge" style="color:var(--accent-gold);">★ Verified Job Offer Letter</span>
+                    <div class="testimonial-box">
+                        <span class="email-subject">📧 Subject: Offer of Employment</span>
+                        Dear Shayan, we are pleased to extend a formal offer of employment for the position of <strong>Junior Security Engineer</strong> at Exfiltra. Based on your skills, experience, and interview performance, we believe you will be a valuable addition to our team.<br><br>
+                        <strong>Monthly Salary:</strong> 70,000 PKR<br>
+                        <strong>Benefits:</strong> Paid Leaves, WFH Policy, Company Lunch, Recreational Area<br>
+                        <strong>Working Hours:</strong> 10:00 AM to 7:00 PM (PKT)
                         <span class="sender">— <span>Warda Khan</span> · HR Generalist, Exfiltra</span>
                         <span class="email-date">📅 Received: September 15, 2025</span>
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 2: WISDMLABS / AI BOTKIT               -->
-                <!-- ============================================ -->
+                <!-- Wisdmlabs -->
                 <div class="trophy-card">
                     <div class="company-header">
-                        <div class="company-logo">
-                            <img src="data:image/jpeg;base64,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" alt="Wisdmlabs Logo">
-                        </div>
-                        <div class="company-name">Wisdmlabs (AI BotKit)</div>
+                        <div class="company-logo"><img src="data:image/jpeg;base64,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" alt="Wisdmlabs Logo"></div>
+                        <div class="company-name">Wisdmlabs</div>
                     </div>
                     <span class="vuln-type">Race Condition (CWE-362)</span>
-                    <div class="impact">Allowed chatbot creation limit to be bypassed across account tiers.</div>
-                    <span class="thanks-badge">✔ Official Responsible Disclosure Acknowledgment</span>
+                    <div class="impact">Chatbot creation limit bypass across account tiers.</div>
+                    <span class="thanks-badge">✔ Acknowledged</span>
                     <div class="testimonial-box">
-                        <span class="email-subject">📧 Subject: Responsible Disclosure Acknowledgment</span>
-                        Dear Shayan,<br><br>
-                        On behalf of the AI BotKit team at Wisdmlabs, I want to formally acknowledge and thank you for responsibly reporting a security vulnerability in our chatbot creation flow at aibotkit.io.<br><br>
-                        Your report identified a race condition (CWE-362) in the chatbot onboarding endpoint that allowed the chatbot creation limit to be bypassed across account tiers. We investigated the issue, confirmed your findings, and have since deployed a fix to close this gap.<br><br>
-                        We appreciate the time, effort, and professionalism you brought to researching and clearly documenting this issue, and for reporting it to us directly and in good faith. Reports like yours genuinely help us build a more secure product.<br><br>
-                        You're welcome to note on your portfolio that you responsibly disclosed a vulnerability to AI BotKit that was investigated and remediated, without publishing the specific technical details.<br><br>
-                        Thank you again for your diligence throughout this process.
-                        <span class="sender">— <span>Alpesh Patil</span> · Product Head, AI BotKit · WisdmLabs</span>
-                        <span class="email-date">📅 Received: September 2025</span>
+                        <span class="email-subject">📧 Responsible Disclosure Acknowledgment</span>
+                        Thank you for responsibly reporting a security vulnerability in our chatbot creation flow. Your report identified a race condition that allowed the chatbot creation limit to be bypassed. We investigated, confirmed, and deployed a fix.
+                        <span class="sender">— <span>Alpesh Patil</span> · Product Head, AI BotKit</span>
+                        <span class="email-date">📅 September 2025</span>
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 3: TASKPLANET (FOUNDER)               -->
-                <!-- ============================================ -->
+                <!-- Taskplanet -->
                 <div class="trophy-card">
                     <div class="company-header">
-                        <div class="company-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxw-DUSoAUiARlrjFpz8CeaLel3CXWRS7Gh-7-fZfyOw&s=10" alt="Task Planet Logo">
-                        </div>
+                        <div class="company-logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxw-DUSoAUiARlrjFpz8CeaLel3CXWRS7Gh-7-fZfyOw&s=10" alt="Taskplanet Logo"></div>
                         <div class="company-name">Taskplanet</div>
                     </div>
                     <span class="vuln-type">Multiple Critical Vulnerabilities</span>
-                    <div class="impact">Comprehensive security testing covering reward redemption, payment verification, access controls, and authentication.</div>
-                    <span class="thanks-badge">✔ Official Responsible Disclosure Acknowledgment</span>
+                    <div class="impact">7+ logic flaws including reward redemption, payment verification, and access controls.</div>
+                    <span class="thanks-badge">✔ Acknowledged</span>
                     <div class="testimonial-box">
-                        <span class="email-subject">📧 Subject: Responsible Disclosure Acknowledgment</span>
-                        Dear Shayan,<br><br>
-                        Thank you for taking the time to conduct security testing on the TaskPlanet platform and for sharing your findings with us in such a detailed and responsible manner.<br><br>
-                        We sincerely appreciate your efforts in identifying and reporting these vulnerabilities. Your report has helped us strengthen our platform's security, improve our transaction integrity, and address potential risks across several critical areas.<br><br>
-                        We are pleased to acknowledge your report as a <strong>Responsible Disclosure</strong>.<br><br>
-                        We would also like to confirm that our team has completed the necessary fixes for the reported vulnerabilities. The updates include improvements to:<br><br>
-                        • <strong>Reward redemption:</strong> Strengthened one-time reward validation and transaction handling to prevent duplicate claims.<br>
-                        • <strong>Points and coin conversion:</strong> Implemented safeguards to ensure balances are validated and updated correctly during concurrent transactions.<br>
-                        • <strong>Payment and subscription verification:</strong> Improved payment validation to prevent unauthorized activation of Premium, Premium Plus, and Pro subscriptions.<br>
-                        • <strong>Administrative and moderator access:</strong> Strengthened role-based access controls to ensure privileged features are accessible only to authorized users.<br>
-                        • <strong>User data protection:</strong> Improved authorization checks on user APIs to prevent unauthorized access to sensitive information.<br>
-                        • <strong>Authentication security:</strong> Updated login validation to ensure credentials are properly verified and cannot be bypassed using exposed password hashes.<br>
-                        • <strong>Input validation:</strong> Added stricter validation for payment amounts and other transaction inputs to prevent negative-value manipulation and unauthorized point generation.<br><br>
-                        We are happy to see security researchers taking an active interest in the safety and reliability of TaskPlanet. Responsible disclosures like yours play an important role in helping us build a more secure and trustworthy platform for our users.<br><br>
-                        We encourage you to continue exploring TaskPlanet and reporting any additional security vulnerabilities you may identify. Our team values constructive security research and will be glad to review further findings you wish to share.<br><br>
-                        Thank you once again for your contribution and for helping us improve TaskPlanet.
+                        <span class="email-subject">📧 Responsible Disclosure Acknowledgment</span>
+                        Your report helped us strengthen our platform's security, improve transaction integrity, and address potential risks. Acknowledged as a Responsible Disclosure.
                         <span class="sender">— <span>Himanshu Singh</span> · Founder, TaskPlanet</span>
-                        <span class="email-date">📅 Received: September 2025</span>
+                        <span class="email-date">📅 September 2025</span>
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 4: WALEE                               -->
-                <!-- ============================================ -->
+                <!-- Walee -->
                 <div class="trophy-card">
                     <div class="company-header">
-                        <div class="company-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" alt="Walee Logo">
-                        </div>
+                        <div class="company-logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" alt="Walee Logo"></div>
                         <div class="company-name">Walee</div>
                     </div>
-                    <span class="vuln-type">Price Manipulation / Business Logic Flaw</span>
-                    <div class="impact">Could have allowed unauthorized price manipulation in the payment workflow.</div>
-                    <span class="thanks-badge">✔ Official Thank-you Email</span>
+                    <span class="vuln-type">Price Manipulation / Logic Bypass</span>
+                    <div class="impact">Unauthorized price manipulation in payment workflow.</div>
+                    <span class="thanks-badge">✔ Acknowledged</span>
                     <div class="testimonial-box">
-                        <span class="email-subject">📧 Subject: Vulnerability Closure & Acknowledgment</span>
-                        Hi Shayan,<br><br>
-                        Thank you for retesting the reported vulnerability and for sharing the detailed confirmation.<br><br>
-                        We appreciate your responsible disclosure and the additional validation performed using the original price manipulation method as well as other test variations. Based on your confirmation, along with the internal validation completed by our Development and InfoSec teams, we are proceeding with formal closure of this vulnerability.<br><br>
-                        Thank you as well for the recommendations around periodic penetration testing, CVE monitoring, and threat modeling. We will take these into consideration as part of our ongoing security process.<br><br>
-                        We appreciate your cooperation throughout this process.
+                        <span class="email-subject">📧 Vulnerability Closure & Acknowledgment</span>
+                        We appreciate your responsible disclosure and validation. Your report has been reviewed and remediated.
                         <span class="sender">— <span>Ebad Karim</span> · Product Manager, Walee</span>
-                        <span class="email-date">📅 Received: August 18, 2025</span>
+                        <span class="email-date">📅 August 2025</span>
                     </div>
                 </div>
 
-                <!-- ============================================ -->
-                <!-- TROPHY 5: VAJRAGLOBAL                         -->
-                <!-- ============================================ -->
+                <!-- Vajraglobal -->
                 <div class="trophy-card">
                     <div class="company-header">
-                        <div class="company-logo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" alt="Vajra Global Logo">
-                        </div>
+                        <div class="company-logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" alt="Vajraglobal Logo"></div>
                         <div class="company-name">Vajraglobal</div>
                     </div>
                     <span class="vuln-type">S3 Bucket Misconfiguration</span>
-                    <div class="impact">Internal documents & credentials publicly accessible.</div>
-                    <span class="thanks-badge">✔ Official Thank-you Email</span>
+                    <div class="impact">Public S3 bucket exposing internal documents and credentials.</div>
+                    <span class="thanks-badge">✔ Acknowledged</span>
                     <div class="testimonial-box">
-                        <span class="email-subject">📧 Subject: Acknowledgment of Responsible Disclosure</span>
-                        Hi Shayan,<br><br>
-                        Thank you for reaching out and sharing your observation with us. We acknowledge and appreciate the responsible manner in which this was reported.<br><br>
-                        We also recognise the effort and diligence involved in such responsible reporting and commend your commitment to ethical security practices in your work. The matter has been reviewed and addressed internally.<br><br>
-                        We appreciate your effort and responsible approach in bringing this matter to our attention.
+                        <span class="email-subject">📧 Acknowledgment of Responsible Disclosure</span>
+                        We acknowledge and appreciate the responsible manner in which this was reported. Your diligence helped us secure our cloud infrastructure.
                         <span class="sender">— <span>Rex</span> · Security Team, Vajraglobal</span>
-                        <span class="email-date">📅 Received: November 20, 2024</span>
+                        <span class="email-date">📅 November 2024</span>
                     </div>
                 </div>
 
             </div>
 
-            <!-- ========== VERIFICATION NOTE ========== -->
             <div class="verification-note">
-                <span class="icon">🔒</span>
-                All testimonials and offers displayed on this wall are <span class="highlight-text">verified and authentic</span>. 
+                🔒 All testimonials and offers displayed on this wall are <span class="highlight-text">verified and authentic</span>. 
                 They can be independently confirmed by contacting the respective companies directly upon request.
             </div>
-
-            <p style="text-align:center; margin-top:1rem; color:#6a7f9a; font-size:0.9rem;">
-                ⚡ Each trophy includes a verified document from the respective organization.
-            </p>
-
         </div>
     </div>
 
-    <!-- ========== JAVASCRIPT ========== -->
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT                                                 -->
+    <!-- ========================================================= -->
     <script>
-        // ============================================
-        // SKILL POPUP DATA
-        // ============================================
-        const skillData = {
-            burp: {
-                icon: '🕷️',
-                title: 'Burp Suite',
-                desc: 'The industry-standard web vulnerability scanner and interception proxy. Used for capturing, modifying, and replaying HTTP/HTTPS traffic to find security flaws.',
-                experience: 'I use Burp Suite daily for all my web app testing. I\'m proficient with the Repeater, Intruder, Scanner, and Extender modules. I\'ve written custom extensions for automating specific checks and have used it to find over 15 critical vulnerabilities across various platforms.'
-            },
-            nmap: {
-                icon: '🌐',
-                title: 'Nmap',
-                desc: 'Network mapping and port scanning tool used to discover hosts, services, and open ports on a network. Essential for reconnaissance and attack surface mapping.',
-                experience: 'I use Nmap for initial reconnaissance to map out target networks, identify live hosts, and discover open ports and services. I\'ve used it in multiple pentests to find exposed services like SSH, RDP, and databases that shouldn\'t be public.'
-            },
-            metasploit: {
-                icon: '💀',
-                title: 'Metasploit',
-                desc: 'The most popular penetration testing framework for developing and executing exploit code against remote targets. Includes a wide range of payloads and post-exploitation modules.',
-                experience: 'I use Metasploit for post-exploitation and to validate critical vulnerabilities. I\'ve used it to gain shell access on vulnerable test systems and to demonstrate business impact to clients by showing what an attacker could do after exploitation.'
-            },
-            sqlmap: {
-                icon: '🗄️',
-                title: 'SQLmap',
-                desc: 'Automatic SQL injection and database takeover tool. Detects and exploits SQL injection flaws to extract data, read files, and sometimes execute OS commands.',
-                experience: 'I use SQLmap to automate the exploitation of SQL injection vulnerabilities after manually confirming them. I\'ve successfully extracted database schemas, dumped user credentials (hashed), and in some cases, gained OS-level access to demonstrate impact.'
-            },
-            owasp: {
-                icon: '🛡️',
-                title: 'OWASP Top 10',
-                desc: 'The standard awareness document for web application security. Represents a broad consensus about the most critical security risks to web applications.',
-                experience: 'I have in-depth knowledge of all OWASP Top 10 vulnerabilities including Injection, Broken Authentication, Sensitive Data Exposure, XXE, Broken Access Control, Security Misconfigurations, XSS, Insecure Deserialization, and Logging failures. I\'ve found and reported every single one of these in real-world applications.'
-            },
-            api: {
-                icon: '🔌',
-                title: 'API Testing',
-                desc: 'Security testing of REST, GraphQL, and SOAP APIs. Includes checking for authentication, authorization, rate limiting, injection, and business logic flaws in API endpoints.',
-                experience: 'I specialize in API security testing. I\'ve discovered IDOR, Mass Assignment, Broken Object Level Authorization, and Rate Limiting issues in multiple APIs. I use Postman and Burp Suite for API testing and have written custom scripts for fuzzing API endpoints.'
-            },
-            python: {
-                icon: '🐍',
-                title: 'Python Scripting',
-                desc: 'Using Python to automate security tasks, write custom exploits, parse logs, build recon tools, and create proof-of-concept scripts for vulnerabilities.',
-                experience: 'I write Python scripts daily for automating repetitive tasks, building custom fuzzers, and creating proof-of-concepts. I\'ve built scripts for subdomain enumeration, parameter fuzzing, JWT token analysis, and automated report generation.'
-            },
-            linux: {
-                icon: '🐧',
-                title: 'Linux / Kali',
-                desc: 'Proficiency with Linux operating systems, especially Kali Linux which comes pre-installed with hundreds of penetration testing tools.',
-                experience: 'I\'ve been using Linux for over 3 years and Kali Linux specifically for all my pentesting work. I\'m comfortable with the command line, bash scripting, file system navigation, and managing Kali\'s extensive toolset.'
-            },
-            social: {
-                icon: '🎭',
-                title: 'Social Engineering',
-                desc: 'The psychological manipulation of people to perform actions or divulge confidential information. Includes phishing, pretexting, baiting, and tailgating attacks.',
-                experience: 'I have experience conducting social engineering assessments including phishing simulations, vishing (voice phishing), and pretexting. I\'ve successfully conducted awareness sessions to help organizations improve their human security firewall.'
-            },
-            report: {
-                icon: '📝',
-                title: 'Report Writing',
-                desc: 'Creating clear, comprehensive, and actionable security assessment reports for technical and non-technical audiences.',
-                experience: 'I\'ve written over 10 detailed penetration testing reports for various clients. My reports include executive summaries, technical findings with proof-of-concepts, risk ratings, and remediation recommendations. I ensure reports are actionable and easy to understand.'
-            },
-            recon: {
-                icon: '🔍',
-                title: 'Reconnaissance',
-                desc: 'Gathering information about targets before launching an attack. Includes subdomain enumeration, WHOIS lookups, DNS enumeration, and OSINT techniques.',
-                experience: 'I use tools like Sublist3r, Amass, Shodan, and Censys for reconnaissance. I\'ve also built custom scripts for automated subdomain enumeration and have discovered many forgotten subdomains with vulnerabilities like exposed admin panels and staging environments.'
-            },
-            logic: {
-                icon: '⚙️',
-                title: 'Business Logic Testing',
-                desc: 'Testing for flaws in the application\'s business rules and workflows. Includes price manipulation, privilege escalation, workflow bypasses, and transaction tampering.',
-                experience: 'This is my specialty! I\'ve found multiple business logic flaws including price manipulation (Walee), subscription manipulation, race conditions (Wisdmlabs AI BotKit), JWT session fixation, and privilege escalation. I enjoy thinking like an attacker to find ways to abuse legitimate functionality in unintended ways.'
+        // ============================================================
+        // SOUND EFFECTS (using Web Audio API - no external files)
+        // ============================================================
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function playSound(type) {
+            if (!audioCtx) {
+                audioCtx = new AudioContext();
             }
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (type === 'click') {
+                osc.frequency.value = 800;
+                osc.type = 'sine';
+                gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+                osc.start(audioCtx.currentTime);
+                osc.stop(audioCtx.currentTime + 0.08);
+            } else if (type === 'success') {
+                osc.frequency.value = 1200;
+                osc.type = 'sine';
+                gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+                osc.start(audioCtx.currentTime);
+                osc.stop(audioCtx.currentTime + 0.15);
+            } else if (type === 'open') {
+                osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(800, audioCtx.currentTime + 0.15);
+                osc.type = 'sine';
+                gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.2);
+                osc.start(audioCtx.currentTime);
+                osc.stop(audioCtx.currentTime + 0.2);
+            }
+        }
+
+        // ============================================================
+        // THEME TOGGLE (Dark / Light)
+        // ============================================================
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlEl = document.documentElement;
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        htmlEl.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+        themeToggle.addEventListener('click', () => {
+            playSound('click');
+            const current = htmlEl.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', next);
+            themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+            localStorage.setItem('theme', next);
+        });
+
+        // ============================================================
+        // TYPING EFFECT
+        // ============================================================
+        const taglineEl = document.getElementById('typingTagline');
+        const taglineText = 'Junior Penetration Tester · Bug Hunter · Security Researcher';
+        let taglineIndex = 0;
+
+        function typeTagline() {
+            if (taglineIndex < taglineText.length) {
+                taglineEl.innerHTML = taglineText.substring(0, taglineIndex + 1) + '<span class="typing-cursor"></span>';
+                taglineIndex++;
+                setTimeout(typeTagline, 50);
+            }
+        }
+        setTimeout(typeTagline, 500);
+
+        // ============================================================
+        // VISITOR COUNTER (using GoatCounter public API)
+        // ============================================================
+        async function loadVisitorCount() {
+            try {
+                const response = await fetch('https://shayankhan.goatcounter.com/counter/TOTAL.json');
+                const data = await response.json();
+                const count = data.count || '0';
+                document.getElementById('visitorCount').textContent = count;
+            } catch (e) {
+                // Fallback if API fails
+                document.getElementById('visitorCount').textContent = '—';
+            }
+        }
+        loadVisitorCount();
+
+        // ============================================================
+        // SKILL POPUP
+        // ============================================================
+        const skillData = {
+            burp: { icon: '🕷️', title: 'Burp Suite', desc: 'The industry-standard web vulnerability scanner and interception proxy. Used for capturing, modifying, and replaying HTTP/HTTPS traffic to find security flaws.', experience: 'I use Burp Suite daily for all my web app testing. Proficient with Repeater, Intruder, Scanner, and Extender modules. Found 15+ critical vulnerabilities using it.' },
+            nmap: { icon: '🌐', title: 'Nmap', desc: 'Network mapping and port scanning tool for discovering hosts, services, and open ports.', experience: 'I use Nmap for reconnaissance to map networks, identify live hosts, and find exposed services like SSH, RDP, and databases.' },
+            metasploit: { icon: '💀', title: 'Metasploit', desc: 'Popular penetration testing framework for developing and executing exploit code against remote targets.', experience: 'I use Metasploit for post-exploitation and validating critical vulnerabilities to demonstrate business impact.' },
+            sqlmap: { icon: '🗄️', title: 'SQLmap', desc: 'Automatic SQL injection and database takeover tool.', experience: 'I use SQLmap to automate exploitation after manually confirming SQLi. Have extracted schemas and demonstrated OS-level access.' },
+            owasp: { icon: '🛡️', title: 'OWASP Top 10', desc: 'The standard awareness document for web application security risks.', experience: 'In-depth knowledge of all OWASP Top 10 — Injection, Broken Auth, XXE, Access Control, Misconfigurations, XSS, and more.' },
+            api: { icon: '🔌', title: 'API Testing', desc: 'Security testing of REST, GraphQL, and SOAP APIs.', experience: 'Specialized in API security. Found IDOR, Mass Assignment, BOLA, and Rate Limiting issues across multiple APIs.' },
+            python: { icon: '🐍', title: 'Python Scripting', desc: 'Using Python to automate security tasks, write custom exploits, and build recon tools.', experience: 'Write Python daily for automation, custom fuzzers, and PoCs. Built scripts for subdomain enum, parameter fuzzing, and JWT analysis.' },
+            linux: { icon: '🐧', title: 'Linux / Kali', desc: 'Proficiency with Linux operating systems, especially Kali Linux.', experience: 'Using Linux for 3+ years and Kali for all pentesting work. Comfortable with CLI, bash scripting, and managing toolsets.' },
+            social: { icon: '🎭', title: 'Social Engineering', desc: 'Psychological manipulation tactics including phishing, pretexting, and vishing.', experience: 'Conducted phishing simulations and awareness sessions to help organizations improve human security.' },
+            report: { icon: '📝', title: 'Report Writing', desc: 'Creating clear, actionable security reports for technical and non-technical audiences.', experience: 'Written 10+ detailed pentest reports with executive summaries, PoCs, CVSS scoring, and remediation guidance.' },
+            recon: { icon: '🔍', title: 'Reconnaissance', desc: 'Gathering information about targets before launching an attack.', experience: 'Use Sublist3r, Amass, Shodan, Censys. Built custom scripts for automated subdomain enum — found many forgotten subdomains with vulns.' },
+            logic: { icon: '⚙️', title: 'Business Logic Testing', desc: 'Testing for flaws in business rules and workflows.', experience: 'My specialty! Found price manipulation (Walee), race conditions (Wisdmlabs), and 7+ logic flaws in Taskplanet.' }
         };
 
-        // Get elements
         const popup = document.getElementById('skillPopup');
         const popupClose = document.getElementById('closePopup');
         const popupIcon = document.getElementById('popupIcon');
@@ -1442,9 +1642,9 @@
         const popupDesc = document.getElementById('popupDesc');
         const popupExperience = document.getElementById('popupExperience');
 
-        // Add click listeners to all skill cards
         document.querySelectorAll('.skill-card').forEach(card => {
             card.addEventListener('click', function() {
+                playSound('click');
                 const skillKey = this.dataset.skill;
                 const data = skillData[skillKey];
                 if (data) {
@@ -1458,38 +1658,23 @@
             });
         });
 
-        // Close popup
         function closePopup() {
             popup.classList.remove('open');
             document.body.style.overflow = '';
         }
 
-        popupClose.addEventListener('click', closePopup);
-        popup.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePopup();
-            }
-        });
+        popupClose.addEventListener('click', () => { playSound('click'); closePopup(); });
+        popup.addEventListener('click', function(e) { if (e.target === this) closePopup(); });
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (popup.classList.contains('open')) {
-                    closePopup();
-                }
-                if (wall.classList.contains('open')) {
-                    closeWall();
-                }
-            }
-        });
-
-        // ============================================
+        // ============================================================
         // ACHIEVEMENT WALL
-        // ============================================
+        // ============================================================
         const wall = document.getElementById('achievementWall');
         const openBtn = document.getElementById('openWallBtn');
         const closeBtn = document.getElementById('closeWallBtn');
 
-        openBtn.addEventListener('click', function() {
+        openBtn.addEventListener('click', () => {
+            playSound('open');
             wall.classList.add('open');
             document.body.style.overflow = 'hidden';
         });
@@ -1499,14 +1684,205 @@
             document.body.style.overflow = '';
         }
 
-        closeBtn.addEventListener('click', closeWall);
+        closeBtn.addEventListener('click', () => { playSound('click'); closeWall(); });
+        wall.addEventListener('click', function(e) { if (e.target === wall) closeWall(); });
 
-        wall.addEventListener('click', function(e) {
-            if (e.target === wall) {
-                closeWall();
+        // ============================================================
+        // TESTIMONIAL SLIDER
+        // ============================================================
+        const slider = document.getElementById('testimonialSlider');
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        const dotsContainer = document.getElementById('sliderDots');
+        let currentSlide = 0;
+
+        // Create dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => { playSound('click'); goToSlide(i); });
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function goToSlide(index) {
+            currentSlide = index;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === index));
+        }
+
+        prevBtn.addEventListener('click', () => {
+            playSound('click');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(currentSlide);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            playSound('click');
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        });
+
+        // Auto-advance every 6 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        }, 6000);
+
+        // ============================================================
+        // INTERACTIVE TERMINAL
+        // ============================================================
+        const termInput = document.getElementById('termInput');
+        const termBody = document.getElementById('terminalBody');
+
+        const commands = {
+            help: () => {
+                return [
+                    '<span class="term-highlight">Available commands:</span>',
+                    '  <span class="term-gold">whoami</span>       — About Shayan',
+                    '  <span class="term-gold">skills</span>       — List technical skills',
+                    '  <span class="term-gold">achievements</span> — Show disclosures',
+                    '  <span class="term-gold">experience</span>   — Career highlights',
+                    '  <span class="term-gold">contact</span>      — Contact info',
+                    '  <span class="term-gold">cv</span>           — Download CV',
+                    '  <span class="term-gold">clear</span>        — Clear terminal',
+                    '  <span class="term-gold">help</span>         — Show this message'
+                ];
+            },
+            whoami: () => [
+                '<span class="term-success">Shayan Khan</span> — Junior Penetration Tester',
+                'Bug Hunter · Security Researcher',
+                'Location: Takht Bhai, Mardan, Pakistan',
+                'Currently: BS CS Student at AWKUM'
+            ],
+            skills: () => [
+                '<span class="term-highlight">Technical Skills:</span>',
+                '  🕷️  Burp Suite        🌐 Nmap',
+                '  💀 Metasploit        🗄️ SQLmap',
+                '  🛡️  OWASP Top 10     🔌 API Testing',
+                '  🐍 Python Scripting  🐧 Linux / Kali',
+                '  🎭 Social Engineering 📝 Report Writing',
+                '  🔍 Reconnaissance    ⚙️ Business Logic'
+            ],
+            achievements: () => [
+                '<span class="term-highlight">Security Disclosures:</span>',
+                '  ✔ <span class="term-gold">Wisdmlabs</span> — Race Condition (CWE-362)',
+                '  ✔ <span class="term-gold">Taskplanet</span> — 7+ Critical Vulnerabilities',
+                '  ✔ <span class="term-gold">Walee</span> — Price Manipulation Flaw',
+                '  ✔ <span class="term-gold">Vajraglobal</span> — S3 Bucket Misconfiguration',
+                '',
+                '  ★ <span class="term-success">Exfiltra</span> — Selected as Jr. Security Engineer'
+            ],
+            experience: () => [
+                '<span class="term-highlight">Career Highlights:</span>',
+                '  ★ Selected as Junior Security Engineer at Exfiltra (2025)',
+                '    → Beat BS CS graduates with only FSc background',
+                '    → Offered 70,000 PKR/month — declined for studies',
+                '  • Vulnerability Disclosure Researcher (2024 – Present)',
+                '  • Independent Security Researcher (2023 – Present)'
+            ],
+            contact: () => [
+                '<span class="term-highlight">Contact Info:</span>',
+                '  📧 Email:     shayankhan.vop@gmail.com',
+                '  🐙 GitHub:    github.com/shayan-khan-cadet',
+                '  📞 Phone:     +923236828840'
+            ],
+            cv: () => {
+                setTimeout(() => {
+                    const link = document.createElement('a');
+                    link.href = 'Shayan_Khan_CV.pdf';
+                    link.download = 'Shayan_Khan_CV.pdf';
+                    link.click();
+                }, 500);
+                return ['<span class="term-success">✓ Downloading CV...</span>'];
+            },
+            clear: () => {
+                termBody.innerHTML = '';
+                return [];
+            }
+        };
+
+        termInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const cmd = this.value.trim().toLowerCase();
+                this.value = '';
+
+                // Add command line
+                const cmdLine = document.createElement('div');
+                cmdLine.className = 'term-line';
+                cmdLine.innerHTML = `<span class="term-prompt">$</span> <span class="term-command">${cmd}</span>`;
+                termBody.insertBefore(cmdLine, termBody.lastElementChild);
+
+                // Process command
+                if (cmd) {
+                    if (commands[cmd]) {
+                        playSound('success');
+                        const output = commands[cmd]();
+                        output.forEach(line => {
+                            const outLine = document.createElement('div');
+                            outLine.className = 'term-line term-output';
+                            outLine.innerHTML = line;
+                            termBody.insertBefore(outLine, termBody.lastElementChild);
+                        });
+                    } else {
+                        playSound('click');
+                        const errLine = document.createElement('div');
+                        errLine.className = 'term-line term-error';
+                        errLine.innerHTML = `command not found: ${cmd}. Type <span class="term-highlight">help</span> for available commands.`;
+                        termBody.insertBefore(errLine, termBody.lastElementChild);
+                    }
+                }
+
+                // Add blank line
+                const blank = document.createElement('div');
+                blank.className = 'term-line';
+                blank.innerHTML = '&nbsp;';
+                termBody.insertBefore(blank, termBody.lastElementChild);
+
+                // Scroll to bottom
+                termBody.scrollTop = termBody.scrollHeight;
             }
         });
+
+        // Focus terminal input on terminal click
+        termBody.addEventListener('click', () => termInput.focus());
+
+        // ============================================================
+        // SKILL BARS ANIMATION (on scroll into view)
+        // ============================================================
+        const skillBars = document.querySelectorAll('.skill-bar-fill');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.dataset.width;
+                    entry.target.style.width = width + '%';
+                }
+            });
+        }, { threshold: 0.3 });
+
+        skillBars.forEach(bar => observer.observe(bar));
+
+        // ============================================================
+        // ESC KEY - Close Popups
+        // ============================================================
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (popup.classList.contains('open')) closePopup();
+                if (wall.classList.contains('open')) closeWall();
+            }
+        });
+
+        // ============================================================
+        // SOUND ON CV DOWNLOAD BUTTON
+        // ============================================================
+        document.querySelector('.cv-download-btn').addEventListener('click', () => playSound('success'));
     </script>
+
+    <!-- ========== GOATCOUNTER ANALYTICS ========== -->
+    <script data-goatcounter="https://shayankhan.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
 
 </body>
 </html>
