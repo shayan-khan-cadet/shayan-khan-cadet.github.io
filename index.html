@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shayan Khan | Penetration Tester</title>
     <style>
-        /* ============================================================ */
-        /* CSS VARIABLES (Dark/Light Theme)                              */
-        /* ============================================================ */
         :root {
             --bg-primary: #0b0e14;
             --bg-secondary: #111b2b;
@@ -22,7 +19,6 @@
             --accent-purple: #7b2ffc;
             --accent-gold: #ffd700;
             --accent-green: #00e676;
-            --header-bg: #0b0e14;
         }
 
         [data-theme="light"] {
@@ -39,7 +35,6 @@
             --accent-purple: #5a1fc7;
             --accent-gold: #d97706;
             --accent-green: #059669;
-            --header-bg: #ffffff;
         }
 
         * {
@@ -62,9 +57,7 @@
             margin: 0 auto;
         }
 
-        /* ============================================================ */
-        /* TOP BAR (Theme Toggle + Visitor Badge + Hire Me)              */
-        /* ============================================================ */
+        /* TOP BAR */
         .top-bar {
             display: flex;
             justify-content: space-between;
@@ -148,12 +141,11 @@
             transform: scale(1.1);
         }
 
-        /* ---------- HERO ---------- */
+        /* HERO */
         .hero {
             text-align: center;
             padding: 3rem 0 2rem;
             border-bottom: 1px solid var(--border-color);
-            position: relative;
         }
 
         .hero h1 {
@@ -173,7 +165,6 @@
             min-height: 1.8rem;
         }
 
-        /* Typing cursor */
         .typing-cursor {
             display: inline-block;
             width: 2px;
@@ -211,10 +202,7 @@
             margin-right: 6px;
         }
 
-        /* ---------- SECTIONS ---------- */
-        section {
-            margin: 3rem 0;
-        }
+        section { margin: 3rem 0; }
 
         h2 {
             font-size: 2rem;
@@ -225,41 +213,28 @@
             color: var(--text-primary);
         }
 
-        /* ---------- ABOUT ME ---------- */
+        /* ABOUT */
         .about-box {
             background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
             padding: 2rem;
             border-radius: 16px;
             border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
         }
 
         .about-box p {
             font-size: 1.05rem;
             color: var(--text-secondary);
             max-width: 800px;
-            position: relative;
-            z-index: 1;
         }
 
-        .about-box .highlight {
-            color: var(--accent-cyan);
-            font-weight: 600;
-        }
-
-        .about-box .gold {
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
+        .about-box .highlight { color: var(--accent-cyan); font-weight: 600; }
+        .about-box .gold { color: var(--accent-gold); font-weight: 600; }
 
         .about-stats {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             margin-top: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .stat-item {
@@ -272,25 +247,15 @@
             border: 1px solid var(--border-color);
         }
 
-        .stat-item .number {
-            color: var(--accent-gold);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
+        .stat-item .number { color: var(--accent-gold); font-weight: 700; font-size: 1.1rem; }
+        .stat-item .label { color: var(--text-muted); font-size: 0.85rem; }
 
-        .stat-item .label {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* ---------- CAREER HIGHLIGHT ---------- */
+        /* CAREER HIGHLIGHT */
         .career-highlight {
             background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
             border: 1px solid #7b2ffc66;
             border-radius: 20px;
             padding: 2rem;
-            position: relative;
-            overflow: hidden;
         }
 
         .career-badge {
@@ -318,11 +283,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .career-subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
+        .career-subtitle { color: var(--text-secondary); font-size: 1rem; margin-bottom: 1.5rem; }
 
         .career-details {
             display: grid;
@@ -347,12 +308,7 @@
             margin-bottom: 0.2rem;
         }
 
-        .career-detail .detail-value {
-            font-size: 1rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
+        .career-detail .detail-value { font-size: 1rem; color: var(--text-primary); font-weight: 600; }
         .career-detail .detail-value.gold { color: var(--accent-gold); }
         .career-detail .detail-value.cyan { color: var(--accent-cyan); }
 
@@ -367,14 +323,10 @@
             margin-bottom: 1.2rem;
         }
 
-        .career-footer {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            flex-wrap: wrap;
-        }
+        .career-story .highlight { color: var(--accent-cyan); font-weight: 600; }
+        .career-story .gold { color: var(--accent-gold); font-weight: 600; }
+
+        .career-footer { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
         .career-footer .pill {
             background: #7b2ffc22;
@@ -386,29 +338,22 @@
             font-weight: 600;
         }
 
-        /* ---------- TESTIMONIAL SLIDER ---------- */
+        /* TESTIMONIAL SLIDER */
         .testimonial-slider-wrap {
             position: relative;
             overflow: hidden;
             border-radius: 20px;
         }
 
-        .testimonial-slider {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
+        .testimonial-slider { display: flex; transition: transform 0.5s ease; }
 
-        .testimonial-slide {
-            min-width: 100%;
-            padding: 0 0.5rem;
-        }
+        .testimonial-slide { min-width: 100%; padding: 0 0.5rem; }
 
         .testimonial-card {
             background: linear-gradient(145deg, var(--bg-card), var(--bg-tertiary));
             border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 2rem;
-            position: relative;
         }
 
         .testimonial-header {
@@ -429,23 +374,9 @@
             flex-shrink: 0;
         }
 
-        .testimonial-card .name {
-            font-weight: 700;
-            color: var(--text-primary);
-            font-size: 1.05rem;
-        }
-
-        .testimonial-card .role {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .testimonial-stars {
-            color: var(--accent-gold);
-            font-size: 1rem;
-            letter-spacing: 2px;
-            margin-top: 0.2rem;
-        }
+        .testimonial-card .name { font-weight: 700; color: var(--text-primary); font-size: 1.05rem; }
+        .testimonial-card .role { color: var(--text-muted); font-size: 0.85rem; }
+        .testimonial-stars { color: var(--accent-gold); font-size: 1rem; letter-spacing: 2px; margin-top: 0.2rem; }
 
         .testimonial-text {
             color: var(--text-secondary);
@@ -455,23 +386,17 @@
             padding-left: 0.5rem;
         }
 
-        .testimonial-text::before {
-            content: '"';
-            color: var(--accent-gold);
-            opacity: 0.3;
-            font-size: 2rem;
-            margin-right: 4px;
-            font-style: normal;
-        }
-
+        .testimonial-text::before,
         .testimonial-text::after {
             content: '"';
             color: var(--accent-gold);
             opacity: 0.3;
             font-size: 2rem;
-            margin-left: 4px;
             font-style: normal;
         }
+
+        .testimonial-text::before { margin-right: 4px; }
+        .testimonial-text::after { margin-left: 4px; }
 
         .testimonial-date {
             margin-top: 1rem;
@@ -511,10 +436,7 @@
             transform: scale(1.1);
         }
 
-        .slider-dots {
-            display: flex;
-            gap: 0.5rem;
-        }
+        .slider-dots { display: flex; gap: 0.5rem; }
 
         .slider-dot {
             width: 10px;
@@ -532,7 +454,7 @@
             border-radius: 5px;
         }
 
-        /* ---------- SKILLS ---------- */
+        /* SKILLS */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -558,12 +480,11 @@
         .skill-card:hover {
             border-color: var(--accent-cyan);
             transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
         }
 
         .skill-card .icon { font-size: 1.3rem; }
 
-        /* Skill Progress Bars */
+        /* SKILL BARS */
         .skill-bars {
             margin-top: 2rem;
             display: grid;
@@ -585,15 +506,8 @@
             font-size: 0.9rem;
         }
 
-        .skill-bar-name {
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
-
-        .skill-bar-percent {
-            color: var(--accent-cyan);
-            font-weight: 700;
-        }
+        .skill-bar-name { color: var(--text-secondary); font-weight: 600; }
+        .skill-bar-percent { color: var(--accent-cyan); font-weight: 700; }
 
         .skill-bar-track {
             background: var(--bg-tertiary);
@@ -610,7 +524,7 @@
             transition: width 1.5s ease;
         }
 
-        /* ---------- INTERACTIVE TERMINAL ---------- */
+        /* TERMINAL */
         .terminal {
             background: #0a0e14;
             border: 1px solid #1f2f42;
@@ -620,9 +534,7 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
-        [data-theme="light"] .terminal {
-            background: #1a2028;
-        }
+        [data-theme="light"] .terminal { background: #1a2028; }
 
         .terminal-header {
             background: #1a2028;
@@ -633,12 +545,7 @@
             border-bottom: 1px solid #1f2f42;
         }
 
-        .terminal-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
+        .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
         .terminal-dot.red { background: #ff5f57; }
         .terminal-dot.yellow { background: #ffbd2e; }
         .terminal-dot.green { background: #28c840; }
@@ -656,17 +563,16 @@
             color: #e8edf5;
             font-size: 0.9rem;
             line-height: 1.7;
+            display: flex;
+            flex-direction: column;
         }
 
-        .terminal-body::-webkit-scrollbar {
-            width: 6px;
-        }
-        .terminal-body::-webkit-scrollbar-track {
-            background: #0a0e14;
-        }
-        .terminal-body::-webkit-scrollbar-thumb {
-            background: #2a3f5a;
-            border-radius: 3px;
+        .terminal-body::-webkit-scrollbar { width: 6px; }
+        .terminal-body::-webkit-scrollbar-track { background: #0a0e14; }
+        .terminal-body::-webkit-scrollbar-thumb { background: #2a3f5a; border-radius: 3px; }
+
+        .term-output-wrapper {
+            flex: 1;
         }
 
         .term-line {
@@ -687,6 +593,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            margin-top: 0.3rem;
+            flex-shrink: 0;
         }
 
         .term-input {
@@ -697,9 +605,10 @@
             font-family: 'Courier New', monospace;
             font-size: 0.9rem;
             flex: 1;
+            caret-color: #00d4ff;
         }
 
-        /* ---------- WALL TRIGGER ---------- */
+        /* BUTTONS */
         .wall-trigger {
             text-align: center;
             margin: 2.5rem 0;
@@ -745,10 +654,9 @@
             background: var(--accent-cyan);
             color: var(--bg-primary);
             transform: scale(1.04);
-            box-shadow: 0 6px 25px rgba(0, 212, 255, 0.3);
         }
 
-        /* ---------- ACHIEVEMENT WALL ---------- */
+        /* WALL */
         .wall-overlay {
             display: none;
             position: fixed;
@@ -765,10 +673,7 @@
 
         .wall-overlay.open { display: block; }
 
-        .wall-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+        .wall-inner { max-width: 1100px; margin: 0 auto; }
 
         .wall-header {
             display: flex;
@@ -794,9 +699,6 @@
             border-radius: 40px;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .close-wall-btn:hover {
@@ -821,9 +723,7 @@
             flex-direction: column;
         }
 
-        .trophy-card:hover {
-            border-color: var(--accent-gold);
-        }
+        .trophy-card:hover { border-color: var(--accent-gold); }
 
         .trophy-card .company-header {
             display: flex;
@@ -844,6 +744,7 @@
             border: 1px solid var(--border-color);
             overflow: hidden;
             padding: 4px;
+            font-weight: 700;
         }
 
         .trophy-card .company-logo img {
@@ -895,6 +796,7 @@
             color: var(--text-secondary);
             font-size: 0.85rem;
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         .testimonial-box .sender {
@@ -938,12 +840,9 @@
             font-size: 0.9rem;
         }
 
-        .verification-note .highlight-text {
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
+        .verification-note .highlight-text { color: var(--accent-gold); font-weight: 600; }
 
-        /* ---------- SKILL POPUP ---------- */
+        /* SKILL POPUP */
         .skill-popup {
             display: none;
             position: fixed;
@@ -984,35 +883,16 @@
             font-size: 1.8rem;
             color: var(--text-muted);
             cursor: pointer;
-            transition: 0.2s;
             background: none;
             border: none;
             line-height: 1;
         }
 
-        .skill-popup-content .popup-close:hover {
-            color: #ff1744;
-            transform: rotate(90deg);
-        }
+        .skill-popup-content .popup-close:hover { color: #ff1744; transform: rotate(90deg); }
 
-        .skill-popup-content .popup-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .skill-popup-content .popup-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-popup-content .popup-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
+        .skill-popup-content .popup-icon { font-size: 2.5rem; margin-bottom: 0.3rem; }
+        .skill-popup-content .popup-title { font-size: 1.6rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.5rem; }
+        .skill-popup-content .popup-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
 
         .skill-popup-content .popup-experience {
             background: var(--bg-tertiary);
@@ -1035,7 +915,7 @@
             margin-top: 0.2rem;
         }
 
-        /* ---------- FOOTER ---------- */
+        /* FOOTER */
         .footer {
             margin-top: 4rem;
             text-align: center;
@@ -1045,28 +925,17 @@
             padding-top: 2rem;
         }
 
-        .footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: 0.2s;
-        }
-
+        .footer a { color: var(--text-muted); text-decoration: none; transition: 0.2s; }
         .footer a:hover { color: var(--accent-cyan); }
-
         .footer .email-link { color: var(--accent-cyan); }
 
-        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 600px) {
             .hero h1 { font-size: 2.2rem; }
             .wall-header h2 { font-size: 1.6rem; }
             .achievement-grid { grid-template-columns: 1fr; }
-            .wall-btn, .cv-download-btn {
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
-            }
+            .wall-btn, .cv-download-btn { font-size: 1rem; padding: 0.8rem 1.5rem; }
             .about-stats { gap: 1rem; }
             .stat-item { padding: 0.3rem 0.8rem; font-size: 0.85rem; }
-            .close-wall-btn { font-size: 0.8rem; padding: 0.4rem 1.2rem; }
             .skill-popup-content { padding: 1.5rem; margin: 1rem; }
             .terminal-body { height: 260px; font-size: 0.8rem; }
             .top-bar { padding: 0.5rem; }
@@ -1077,22 +946,21 @@
 <body>
 
     <div class="container">
-
-        <!-- ========== TOP BAR ========== -->
+        <!-- TOP BAR -->
         <div class="top-bar">
             <div class="hire-badge">
                 <span class="dot"></span>
                 Available for Hire — Junior Pentester Roles
             </div>
             <div class="top-right-controls">
-                <div class="visitor-badge" id="visitorBadge">
-                    👁️ <span class="count" id="visitorCount">...</span> visits
+                <div class="visitor-badge">
+                    👁️ <span class="count" id="visitorCount">loading...</span> visits
                 </div>
                 <button class="theme-toggle" id="themeToggle" title="Toggle Theme">🌙</button>
             </div>
         </div>
 
-        <!-- ========== HERO ========== -->
+        <!-- HERO -->
         <header class="hero">
             <h1>Shayan Khan</h1>
             <p class="tagline" id="typingTagline"><span class="typing-cursor"></span></p>
@@ -1104,7 +972,7 @@
             </div>
         </header>
 
-        <!-- ========== ABOUT ME ========== -->
+        <!-- ABOUT ME -->
         <section>
             <h2>👨‍💻 About Me</h2>
             <div class="about-box">
@@ -1116,8 +984,7 @@
                 </p>
                 <p style="margin-top: 1rem;">
                     I believe in <span class="gold">responsible disclosure</span> and work closely with organizations 
-                    to help them secure their digital assets. My approach combines <span class="highlight">manual testing</span> 
-                    with automated tools to uncover complex vulnerabilities that others might miss.
+                    to help them secure their digital assets.
                 </p>
                 <div class="about-stats">
                     <div class="stat-item">
@@ -1132,7 +999,7 @@
             </div>
         </section>
 
-        <!-- ========== CAREER HIGHLIGHT ========== -->
+        <!-- CAREER HIGHLIGHT -->
         <section>
             <h2>🚀 Career Highlight</h2>
             <div class="career-highlight">
@@ -1187,18 +1054,16 @@
             </div>
         </section>
 
-        <!-- ========== TESTIMONIAL SLIDER ========== -->
+        <!-- TESTIMONIAL SLIDER -->
         <section>
             <h2>💬 What Clients Say</h2>
             <div class="testimonial-slider-wrap">
                 <div class="testimonial-slider" id="testimonialSlider">
-                    <!-- Slide 1 -->
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <div class="testimonial-header">
                                 <img src="data:image/jpeg;base64,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" 
-                                     alt="Wisdmlabs Logo" 
-                                     class="testimonial-logo">
+                                     alt="Wisdmlabs Logo" class="testimonial-logo">
                                 <div>
                                     <div class="name">Alpesh Patil</div>
                                     <div class="role">Product Head, AI BotKit · WisdmLabs</div>
@@ -1212,13 +1077,11 @@
                         </div>
                     </div>
 
-                    <!-- Slide 2 -->
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <div class="testimonial-header">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxw-DUSoAUiARlrjFpz8CeaLel3CXWRS7Gh-7-fZfyOw&s=10" 
-                                     alt="Task Planet Logo" 
-                                     class="testimonial-logo">
+                                     alt="Task Planet Logo" class="testimonial-logo">
                                 <div>
                                     <div class="name">Himanshu Singh</div>
                                     <div class="role">Founder, TaskPlanet</div>
@@ -1232,13 +1095,11 @@
                         </div>
                     </div>
 
-                    <!-- Slide 3 -->
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <div class="testimonial-header">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" 
-                                     alt="Walee Logo" 
-                                     class="testimonial-logo">
+                                     alt="Walee Logo" class="testimonial-logo">
                                 <div>
                                     <div class="name">Ebad Karim</div>
                                     <div class="role">Product Manager, Walee</div>
@@ -1252,13 +1113,11 @@
                         </div>
                     </div>
 
-                    <!-- Slide 4 -->
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <div class="testimonial-header">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" 
-                                     alt="Vajra Global Logo" 
-                                     class="testimonial-logo">
+                                     alt="Vajra Global Logo" class="testimonial-logo">
                                 <div>
                                     <div class="name">Rex</div>
                                     <div class="role">Security Team, Vajraglobal</div>
@@ -1280,7 +1139,7 @@
             </div>
         </section>
 
-        <!-- ========== SKILLS ========== -->
+        <!-- SKILLS -->
         <section>
             <h2>⚡ Technical Skills <span style="font-size:0.8rem; color:var(--text-dim); font-weight:400;">(click for details)</span></h2>
             <div class="skills-grid">
@@ -1298,66 +1157,53 @@
                 <div class="skill-card" data-skill="logic"><span class="icon">⚙️</span> Business Logic Testing</div>
             </div>
 
-            <!-- Skill Progress Bars -->
             <div class="skill-bars">
                 <div class="skill-bar-item">
                     <div class="skill-bar-header">
                         <span class="skill-bar-name">🕷️ Burp Suite</span>
-                        <span class="skill-bar-percent">90%</span>
+                        <span class="skill-bar-percent">95%</span>
                     </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="90"></div>
-                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
                 </div>
                 <div class="skill-bar-item">
                     <div class="skill-bar-header">
                         <span class="skill-bar-name">⚙️ Business Logic Testing</span>
-                        <span class="skill-bar-percent">95%</span>
+                        <span class="skill-bar-percent">98%</span>
                     </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="95"></div>
-                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" data-width="98"></div></div>
                 </div>
                 <div class="skill-bar-item">
                     <div class="skill-bar-header">
                         <span class="skill-bar-name">🔌 API Testing</span>
-                        <span class="skill-bar-percent">85%</span>
+                        <span class="skill-bar-percent">92%</span>
                     </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="85"></div>
-                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
                 </div>
                 <div class="skill-bar-item">
                     <div class="skill-bar-header">
                         <span class="skill-bar-name">🐍 Python Scripting</span>
-                        <span class="skill-bar-percent">80%</span>
+                        <span class="skill-bar-percent">90%</span>
                     </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="80"></div>
-                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
                 </div>
                 <div class="skill-bar-item">
                     <div class="skill-bar-header">
                         <span class="skill-bar-name">🌐 Nmap</span>
-                        <span class="skill-bar-percent">75%</span>
+                        <span class="skill-bar-percent">93%</span>
                     </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="75"></div>
-                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" data-width="93"></div></div>
                 </div>
                 <div class="skill-bar-item">
                     <div class="skill-bar-header">
                         <span class="skill-bar-name">🐧 Linux / Kali</span>
-                        <span class="skill-bar-percent">80%</span>
+                        <span class="skill-bar-percent">94%</span>
                     </div>
-                    <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-width="80"></div>
-                    </div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" data-width="94"></div></div>
                 </div>
             </div>
         </section>
 
-        <!-- ========== INTERACTIVE TERMINAL ========== -->
+        <!-- TERMINAL -->
         <section>
             <h2>💻 Interactive Terminal</h2>
             <div class="terminal">
@@ -1368,9 +1214,11 @@
                     <span class="terminal-title">shayan@portfolio:~$</span>
                 </div>
                 <div class="terminal-body" id="terminalBody">
-                    <div class="term-line term-output">Welcome to Shayan's interactive terminal.</div>
-                    <div class="term-line term-output">Type <span class="term-highlight">help</span> to see available commands.</div>
-                    <div class="term-line">&nbsp;</div>
+                    <div class="term-output-wrapper" id="termOutputWrapper">
+                        <div class="term-line term-output">Welcome to Shayan's interactive terminal.</div>
+                        <div class="term-line term-output">Type <span class="term-highlight">help</span> to see available commands.</div>
+                        <div class="term-line">&nbsp;</div>
+                    </div>
                     <div class="term-input-line">
                         <span class="term-prompt">$</span>
                         <input type="text" class="term-input" id="termInput" autocomplete="off" spellcheck="false" placeholder="type a command...">
@@ -1379,13 +1227,13 @@
             </div>
         </section>
 
-        <!-- ========== ACTION BUTTONS ========== -->
+        <!-- BUTTONS -->
         <div class="wall-trigger">
             <button class="wall-btn" id="openWallBtn">🏆 View My Achievement Wall</button>
-            <a href="Shayan_Khan_CV.pdf" download="Shayan_Khan_CV.pdf" class="cv-download-btn">📥 Download CV</a>
+            <a href="Shayan_Khan_CV.pdf" download="Shayan_Khan_CV.pdf" class="cv-download-btn" id="cvBtn">📥 Download CV</a>
         </div>
 
-        <!-- ========== FOOTER ========== -->
+        <!-- FOOTER -->
         <div class="footer">
             <p>
                 📧 <a href="mailto:shayankhan.vop@gmail.com" class="email-link">shayankhan.vop@gmail.com</a> ·
@@ -1395,12 +1243,9 @@
                 🛡️ All disclosures made responsibly. Verifiable references available upon request.
             </p>
         </div>
-
     </div>
 
-    <!-- ========================================================= -->
-    <!-- SKILL POPUP                                                -->
-    <!-- ========================================================= -->
+    <!-- SKILL POPUP -->
     <div class="skill-popup" id="skillPopup">
         <div class="skill-popup-content">
             <button class="popup-close" id="closePopup">✕</button>
@@ -1414,31 +1259,48 @@
         </div>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- ACHIEVEMENT WALL OVERLAY                                   -->
-    <!-- ========================================================= -->
+    <!-- ACHIEVEMENT WALL WITH FULL EMAILS -->
     <div class="wall-overlay" id="achievementWall">
         <div class="wall-inner">
             <div class="wall-header">
                 <h2>🏅 Achievement Wall</h2>
-                <button class="close-wall-btn" id="closeWallBtn"><span class="icon">✕</span> Close Gallery</button>
+                <button class="close-wall-btn" id="closeWallBtn">✕ Close Gallery</button>
             </div>
+
             <div class="achievement-grid">
                 <!-- Exfiltra -->
-                <div class="trophy-card" style="border-color: #7b2ffc88;">
+                <div class="trophy-card" style="border-color: #7b2ffc88; box-shadow: 0 12px 40px rgba(123, 47, 252, 0.15);">
                     <div class="company-header">
-                        <div class="company-logo" style="color:var(--accent-gold); font-weight:700;">★</div>
-                        <div class="company-name">Exfiltra — Job Offer</div>
+                        <div class="company-logo" style="background: linear-gradient(135deg, #7b2ffc22, #00d4ff22); color:var(--accent-gold); font-weight:700; font-size:1.1rem;">
+                            ★
+                        </div>
+                        <div class="company-name" style="background: linear-gradient(135deg, #00d4ff, #7b2ffc, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Exfiltra — Job Offer</div>
                     </div>
-                    <span class="vuln-type">Junior Security Engineer · Selected</span>
-                    <div class="impact">Selected against BS CS graduates with only FSc. Offered 70,000 PKR/month — declined to prioritize studies.</div>
+                    <span class="vuln-type" style="background: linear-gradient(135deg, #7b2ffc33, #00d4ff33); color:#e0d0ff;">Junior Security Engineer · Selected</span>
+                    <div class="impact">Selected against BS CS graduates with only an FSc background. Offered 70,000 PKR/month — declined to prioritize university studies.</div>
                     <span class="thanks-badge" style="color:var(--accent-gold);">★ Verified Job Offer Letter</span>
-                    <div class="testimonial-box">
-                        <span class="email-subject">📧 Subject: Offer of Employment</span>
-                        Dear Shayan, we are pleased to extend a formal offer of employment for the position of <strong>Junior Security Engineer</strong> at Exfiltra. Based on your skills, experience, and interview performance, we believe you will be a valuable addition to our team.<br><br>
-                        <strong>Monthly Salary:</strong> 70,000 PKR<br>
-                        <strong>Benefits:</strong> Paid Leaves, WFH Policy, Company Lunch, Recreational Area<br>
-                        <strong>Working Hours:</strong> 10:00 AM to 7:00 PM (PKT)
+                    <div class="testimonial-box" style="border-left-color: #7b2ffc;">
+                        <span class="email-subject">📧 Subject: Offer of Employment — Junior Security Engineer</span>
+                        Dear Shayan,<br><br>
+                        We are pleased to extend a formal offer of employment to you for the position of <strong>Junior Security Engineer</strong> at Exfiltra.<br><br>
+                        Based on your skills, experience, and interview performance, we believe you will be a valuable addition to our team.<br><br>
+                        <strong>Position Details:</strong><br>
+                        • Job Title: Junior Security Engineer<br>
+                        • Department: Cyber Security<br>
+                        • Employment Type: Full-time<br>
+                        • Probation Period: 3 months<br><br>
+                        <strong>Compensation & Benefits:</strong><br>
+                        • Monthly Salary: 70,000 PKR<br>
+                        • Paid Leaves<br>
+                        • Work From Home Policy<br>
+                        • Company Provided Lunch<br>
+                        • Recreational area for in-house games<br><br>
+                        <strong>Work Arrangement:</strong><br>
+                        • Work Location: On-Site<br>
+                        • Shift: Morning Shift<br>
+                        • Working Hours: 10:00 AM to 7:00 PM (PKT)<br><br>
+                        Your expected start date will be 21-September-2026, subject to completion of onboarding formalities.<br><br>
+                        Thank you for the time and effort you invested throughout the interview process.
                         <span class="sender">— <span>Warda Khan</span> · HR Generalist, Exfiltra</span>
                         <span class="email-date">📅 Received: September 15, 2025</span>
                     </div>
@@ -1448,16 +1310,21 @@
                 <div class="trophy-card">
                     <div class="company-header">
                         <div class="company-logo"><img src="data:image/jpeg;base64,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" alt="Wisdmlabs Logo"></div>
-                        <div class="company-name">Wisdmlabs</div>
+                        <div class="company-name">Wisdmlabs (AI BotKit)</div>
                     </div>
                     <span class="vuln-type">Race Condition (CWE-362)</span>
-                    <div class="impact">Chatbot creation limit bypass across account tiers.</div>
-                    <span class="thanks-badge">✔ Acknowledged</span>
+                    <div class="impact">Allowed chatbot creation limit to be bypassed across account tiers.</div>
+                    <span class="thanks-badge">✔ Official Responsible Disclosure Acknowledgment</span>
                     <div class="testimonial-box">
-                        <span class="email-subject">📧 Responsible Disclosure Acknowledgment</span>
-                        Thank you for responsibly reporting a security vulnerability in our chatbot creation flow. Your report identified a race condition that allowed the chatbot creation limit to be bypassed. We investigated, confirmed, and deployed a fix.
-                        <span class="sender">— <span>Alpesh Patil</span> · Product Head, AI BotKit</span>
-                        <span class="email-date">📅 September 2025</span>
+                        <span class="email-subject">📧 Subject: Responsible Disclosure Acknowledgment</span>
+                        Dear Shayan,<br><br>
+                        On behalf of the AI BotKit team at Wisdmlabs, I want to formally acknowledge and thank you for responsibly reporting a security vulnerability in our chatbot creation flow at aibotkit.io.<br><br>
+                        Your report identified a race condition (CWE-362) in the chatbot onboarding endpoint that allowed the chatbot creation limit to be bypassed across account tiers. We investigated the issue, confirmed your findings, and have since deployed a fix to close this gap.<br><br>
+                        We appreciate the time, effort, and professionalism you brought to researching and clearly documenting this issue, and for reporting it to us directly and in good faith. Reports like yours genuinely help us build a more secure product.<br><br>
+                        You're welcome to note on your portfolio that you responsibly disclosed a vulnerability to AI BotKit that was investigated and remediated, without publishing the specific technical details (endpoint, request structure, or exploitation steps), since user safety depends on that information staying private.<br><br>
+                        Thank you again for your diligence throughout this process.
+                        <span class="sender">— <span>Alpesh Patil</span> · Product Head, AI BotKit · WisdmLabs</span>
+                        <span class="email-date">📅 Received: September 2025</span>
                     </div>
                 </div>
 
@@ -1468,13 +1335,27 @@
                         <div class="company-name">Taskplanet</div>
                     </div>
                     <span class="vuln-type">Multiple Critical Vulnerabilities</span>
-                    <div class="impact">7+ logic flaws including reward redemption, payment verification, and access controls.</div>
-                    <span class="thanks-badge">✔ Acknowledged</span>
+                    <div class="impact">Comprehensive security testing covering reward redemption, payment verification, access controls, and authentication.</div>
+                    <span class="thanks-badge">✔ Official Responsible Disclosure Acknowledgment</span>
                     <div class="testimonial-box">
-                        <span class="email-subject">📧 Responsible Disclosure Acknowledgment</span>
-                        Your report helped us strengthen our platform's security, improve transaction integrity, and address potential risks. Acknowledged as a Responsible Disclosure.
+                        <span class="email-subject">📧 Subject: Responsible Disclosure Acknowledgment</span>
+                        Dear Shayan,<br><br>
+                        Thank you for taking the time to conduct security testing on the TaskPlanet platform and for sharing your findings with us in such a detailed and responsible manner.<br><br>
+                        We sincerely appreciate your efforts in identifying and reporting these vulnerabilities. Your report has helped us strengthen our platform's security, improve our transaction integrity, and address potential risks across several critical areas.<br><br>
+                        We are pleased to acknowledge your report as a <strong>Responsible Disclosure</strong>.<br><br>
+                        We would also like to confirm that our team has completed the necessary fixes for the reported vulnerabilities. The updates include improvements to:<br><br>
+                        • <strong>Reward redemption:</strong> Strengthened one-time reward validation and transaction handling to prevent duplicate claims.<br>
+                        • <strong>Points and coin conversion:</strong> Implemented safeguards to ensure balances are validated and updated correctly during concurrent transactions.<br>
+                        • <strong>Payment and subscription verification:</strong> Improved payment validation to prevent unauthorized activation of Premium, Premium Plus, and Pro subscriptions.<br>
+                        • <strong>Administrative and moderator access:</strong> Strengthened role-based access controls to ensure privileged features are accessible only to authorized users.<br>
+                        • <strong>User data protection:</strong> Improved authorization checks on user APIs to prevent unauthorized access to sensitive information.<br>
+                        • <strong>Authentication security:</strong> Updated login validation to ensure credentials are properly verified and cannot be bypassed using exposed password hashes.<br>
+                        • <strong>Input validation:</strong> Added stricter validation for payment amounts and other transaction inputs to prevent negative-value manipulation and unauthorized point generation.<br><br>
+                        We are happy to see security researchers taking an active interest in the safety and reliability of TaskPlanet. Responsible disclosures like yours play an important role in helping us build a more secure and trustworthy platform for our users.<br><br>
+                        We encourage you to continue exploring TaskPlanet and reporting any additional security vulnerabilities you may identify. Our team values constructive security research and will be glad to review further findings you wish to share.<br><br>
+                        Thank you once again for your contribution and for helping us improve TaskPlanet.
                         <span class="sender">— <span>Himanshu Singh</span> · Founder, TaskPlanet</span>
-                        <span class="email-date">📅 September 2025</span>
+                        <span class="email-date">📅 Received: September 2025</span>
                     </div>
                 </div>
 
@@ -1484,34 +1365,40 @@
                         <div class="company-logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCZ2BtJG5BT3iTUs840rgot2_1GIgQii9VilTteqpwTA&s=10" alt="Walee Logo"></div>
                         <div class="company-name">Walee</div>
                     </div>
-                    <span class="vuln-type">Price Manipulation / Logic Bypass</span>
-                    <div class="impact">Unauthorized price manipulation in payment workflow.</div>
-                    <span class="thanks-badge">✔ Acknowledged</span>
+                    <span class="vuln-type">Price Manipulation / Business Logic Flaw</span>
+                    <div class="impact">Could have allowed unauthorized price manipulation in the payment workflow.</div>
+                    <span class="thanks-badge">✔ Official Thank-you Email</span>
                     <div class="testimonial-box">
-                        <span class="email-subject">📧 Vulnerability Closure & Acknowledgment</span>
-                        We appreciate your responsible disclosure and validation. Your report has been reviewed and remediated.
+                        <span class="email-subject">📧 Subject: Vulnerability Closure & Acknowledgment</span>
+                        Hi Shayan,<br><br>
+                        Thank you for retesting the reported vulnerability and for sharing the detailed confirmation.<br><br>
+                        We appreciate your responsible disclosure and the additional validation performed using the original price manipulation method as well as other test variations. Based on your confirmation, along with the internal validation completed by our Development and InfoSec teams, we are proceeding with formal closure of this vulnerability.<br><br>
+                        Thank you as well for the recommendations around periodic penetration testing, CVE monitoring, and threat modeling. We will take these into consideration as part of our ongoing security process.<br><br>
+                        We appreciate your cooperation throughout this process.
                         <span class="sender">— <span>Ebad Karim</span> · Product Manager, Walee</span>
-                        <span class="email-date">📅 August 2025</span>
+                        <span class="email-date">📅 Received: August 18, 2025</span>
                     </div>
                 </div>
 
                 <!-- Vajraglobal -->
                 <div class="trophy-card">
                     <div class="company-header">
-                        <div class="company-logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" alt="Vajraglobal Logo"></div>
+                        <div class="company-logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxnRQxZjLgoXbg6CoDgpbmFxBvXNpcRIppTRyC1AeOcQ&s=10" alt="Vajra Global Logo"></div>
                         <div class="company-name">Vajraglobal</div>
                     </div>
                     <span class="vuln-type">S3 Bucket Misconfiguration</span>
-                    <div class="impact">Public S3 bucket exposing internal documents and credentials.</div>
-                    <span class="thanks-badge">✔ Acknowledged</span>
+                    <div class="impact">Internal documents & credentials publicly accessible.</div>
+                    <span class="thanks-badge">✔ Official Thank-you Email</span>
                     <div class="testimonial-box">
-                        <span class="email-subject">📧 Acknowledgment of Responsible Disclosure</span>
-                        We acknowledge and appreciate the responsible manner in which this was reported. Your diligence helped us secure our cloud infrastructure.
+                        <span class="email-subject">📧 Subject: Acknowledgment of Responsible Disclosure</span>
+                        Hi Shayan,<br><br>
+                        Thank you for reaching out and sharing your observation with us. We acknowledge and appreciate the responsible manner in which this was reported.<br><br>
+                        We also recognise the effort and diligence involved in such responsible reporting and commend your commitment to ethical security practices in your work. The matter has been reviewed and addressed internally.<br><br>
+                        We appreciate your effort and responsible approach in bringing this matter to our attention.
                         <span class="sender">— <span>Rex</span> · Security Team, Vajraglobal</span>
-                        <span class="email-date">📅 November 2024</span>
+                        <span class="email-date">📅 Received: November 20, 2024</span>
                     </div>
                 </div>
-
             </div>
 
             <div class="verification-note">
@@ -1521,57 +1408,83 @@
         </div>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- JAVASCRIPT                                                 -->
-    <!-- ========================================================= -->
     <script>
         // ============================================================
-        // SOUND EFFECTS (using Web Audio API - no external files)
+        // AUDIO UNLOCK (Browsers block audio until user interaction)
         // ============================================================
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         let audioCtx = null;
+        let audioUnlocked = false;
 
-        function playSound(type) {
+        // Unlock audio on first user interaction
+        function unlockAudio() {
             if (!audioCtx) {
-                audioCtx = new AudioContext();
+                try {
+                    audioCtx = new AudioContext();
+                } catch (e) { return; }
             }
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-
-            if (type === 'click') {
-                osc.frequency.value = 800;
-                osc.type = 'sine';
-                gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-                osc.start(audioCtx.currentTime);
-                osc.stop(audioCtx.currentTime + 0.08);
-            } else if (type === 'success') {
-                osc.frequency.value = 1200;
-                osc.type = 'sine';
-                gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
-                osc.start(audioCtx.currentTime);
-                osc.stop(audioCtx.currentTime + 0.15);
-            } else if (type === 'open') {
-                osc.frequency.setValueAtTime(400, audioCtx.currentTime);
-                osc.frequency.linearRampToValueAtTime(800, audioCtx.currentTime + 0.15);
-                osc.type = 'sine';
-                gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.2);
-                osc.start(audioCtx.currentTime);
-                osc.stop(audioCtx.currentTime + 0.2);
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            // Play a silent sound to fully unlock
+            if (!audioUnlocked) {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                gain.gain.value = 0.0001;
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.01);
+                audioUnlocked = true;
             }
         }
 
+        document.addEventListener('click', unlockAudio, { once: false });
+        document.addEventListener('keydown', unlockAudio, { once: false });
+        document.addEventListener('touchstart', unlockAudio, { once: false });
+
+        function playSound(type) {
+            unlockAudio();
+            if (!audioCtx) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'click') {
+                    osc.frequency.value = 800;
+                    osc.type = 'sine';
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+                    osc.start(now);
+                    osc.stop(now + 0.08);
+                } else if (type === 'success') {
+                    osc.frequency.value = 1200;
+                    osc.type = 'sine';
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+                    osc.start(now);
+                    osc.stop(now + 0.15);
+                } else if (type === 'open') {
+                    osc.frequency.setValueAtTime(400, now);
+                    osc.frequency.linearRampToValueAtTime(900, now + 0.15);
+                    osc.type = 'sine';
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+                    osc.start(now);
+                    osc.stop(now + 0.2);
+                }
+            } catch (e) { /* silent */ }
+        }
+
         // ============================================================
-        // THEME TOGGLE (Dark / Light)
+        // THEME TOGGLE
         // ============================================================
         const themeToggle = document.getElementById('themeToggle');
         const htmlEl = document.documentElement;
-
-        // Load saved theme
         const savedTheme = localStorage.getItem('theme') || 'dark';
         htmlEl.setAttribute('data-theme', savedTheme);
         themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
@@ -1597,22 +1510,31 @@
                 taglineEl.innerHTML = taglineText.substring(0, taglineIndex + 1) + '<span class="typing-cursor"></span>';
                 taglineIndex++;
                 setTimeout(typeTagline, 50);
+            } else {
+                taglineEl.innerHTML = taglineText + '<span class="typing-cursor"></span>';
             }
         }
         setTimeout(typeTagline, 500);
 
         // ============================================================
-        // VISITOR COUNTER (using GoatCounter public API)
+        // VISITOR COUNTER
         // ============================================================
         async function loadVisitorCount() {
+            const countEl = document.getElementById('visitorCount');
             try {
                 const response = await fetch('https://shayankhan.goatcounter.com/counter/TOTAL.json');
                 const data = await response.json();
-                const count = data.count || '0';
-                document.getElementById('visitorCount').textContent = count;
+                if (data && data.count) {
+                    countEl.textContent = parseInt(data.count).toLocaleString();
+                } else {
+                    countEl.textContent = '1';
+                }
             } catch (e) {
-                // Fallback if API fails
-                document.getElementById('visitorCount').textContent = '—';
+                // Fallback — use localStorage to show at least your own visits
+                let local = parseInt(localStorage.getItem('visitCount') || '0');
+                local++;
+                localStorage.setItem('visitCount', local);
+                countEl.textContent = local;
             }
         }
         loadVisitorCount();
@@ -1621,18 +1543,18 @@
         // SKILL POPUP
         // ============================================================
         const skillData = {
-            burp: { icon: '🕷️', title: 'Burp Suite', desc: 'The industry-standard web vulnerability scanner and interception proxy. Used for capturing, modifying, and replaying HTTP/HTTPS traffic to find security flaws.', experience: 'I use Burp Suite daily for all my web app testing. Proficient with Repeater, Intruder, Scanner, and Extender modules. Found 15+ critical vulnerabilities using it.' },
-            nmap: { icon: '🌐', title: 'Nmap', desc: 'Network mapping and port scanning tool for discovering hosts, services, and open ports.', experience: 'I use Nmap for reconnaissance to map networks, identify live hosts, and find exposed services like SSH, RDP, and databases.' },
-            metasploit: { icon: '💀', title: 'Metasploit', desc: 'Popular penetration testing framework for developing and executing exploit code against remote targets.', experience: 'I use Metasploit for post-exploitation and validating critical vulnerabilities to demonstrate business impact.' },
-            sqlmap: { icon: '🗄️', title: 'SQLmap', desc: 'Automatic SQL injection and database takeover tool.', experience: 'I use SQLmap to automate exploitation after manually confirming SQLi. Have extracted schemas and demonstrated OS-level access.' },
-            owasp: { icon: '🛡️', title: 'OWASP Top 10', desc: 'The standard awareness document for web application security risks.', experience: 'In-depth knowledge of all OWASP Top 10 — Injection, Broken Auth, XXE, Access Control, Misconfigurations, XSS, and more.' },
-            api: { icon: '🔌', title: 'API Testing', desc: 'Security testing of REST, GraphQL, and SOAP APIs.', experience: 'Specialized in API security. Found IDOR, Mass Assignment, BOLA, and Rate Limiting issues across multiple APIs.' },
-            python: { icon: '🐍', title: 'Python Scripting', desc: 'Using Python to automate security tasks, write custom exploits, and build recon tools.', experience: 'Write Python daily for automation, custom fuzzers, and PoCs. Built scripts for subdomain enum, parameter fuzzing, and JWT analysis.' },
-            linux: { icon: '🐧', title: 'Linux / Kali', desc: 'Proficiency with Linux operating systems, especially Kali Linux.', experience: 'Using Linux for 3+ years and Kali for all pentesting work. Comfortable with CLI, bash scripting, and managing toolsets.' },
-            social: { icon: '🎭', title: 'Social Engineering', desc: 'Psychological manipulation tactics including phishing, pretexting, and vishing.', experience: 'Conducted phishing simulations and awareness sessions to help organizations improve human security.' },
-            report: { icon: '📝', title: 'Report Writing', desc: 'Creating clear, actionable security reports for technical and non-technical audiences.', experience: 'Written 10+ detailed pentest reports with executive summaries, PoCs, CVSS scoring, and remediation guidance.' },
-            recon: { icon: '🔍', title: 'Reconnaissance', desc: 'Gathering information about targets before launching an attack.', experience: 'Use Sublist3r, Amass, Shodan, Censys. Built custom scripts for automated subdomain enum — found many forgotten subdomains with vulns.' },
-            logic: { icon: '⚙️', title: 'Business Logic Testing', desc: 'Testing for flaws in business rules and workflows.', experience: 'My specialty! Found price manipulation (Walee), race conditions (Wisdmlabs), and 7+ logic flaws in Taskplanet.' }
+            burp: { icon: '🕷️', title: 'Burp Suite', desc: 'Industry-standard web vulnerability scanner and interception proxy.', experience: 'Used daily for all web app testing. Found 15+ critical vulnerabilities using it.' },
+            nmap: { icon: '🌐', title: 'Nmap', desc: 'Network mapping and port scanning tool.', experience: 'Used for reconnaissance to map networks and find exposed services.' },
+            metasploit: { icon: '💀', title: 'Metasploit', desc: 'Penetration testing framework for exploit development.', experience: 'Used for post-exploitation and validating critical vulnerabilities.' },
+            sqlmap: { icon: '🗄️', title: 'SQLmap', desc: 'Automatic SQL injection and database takeover tool.', experience: 'Automated exploitation after manually confirming SQLi.' },
+            owasp: { icon: '🛡️', title: 'OWASP Top 10', desc: 'The standard awareness document for web application security.', experience: 'In-depth knowledge of all OWASP Top 10 vulnerabilities.' },
+            api: { icon: '🔌', title: 'API Testing', desc: 'Security testing of REST, GraphQL, and SOAP APIs.', experience: 'Found IDOR, Mass Assignment, BOLA, and Rate Limiting issues.' },
+            python: { icon: '🐍', title: 'Python Scripting', desc: 'Automating security tasks and building tools.', experience: 'Built scripts for subdomain enum, fuzzing, and JWT analysis.' },
+            linux: { icon: '🐧', title: 'Linux / Kali', desc: 'Proficiency with Linux systems and Kali.', experience: 'Using Linux for 3+ years and Kali for all pentesting work.' },
+            social: { icon: '🎭', title: 'Social Engineering', desc: 'Phishing, pretexting, and vishing.', experience: 'Conducted phishing simulations and awareness sessions.' },
+            report: { icon: '📝', title: 'Report Writing', desc: 'Clear, actionable security reports.', experience: 'Written 10+ reports with executive summaries and CVSS scoring.' },
+            recon: { icon: '🔍', title: 'Reconnaissance', desc: 'Information gathering before attacks.', experience: 'Use Sublist3r, Amass, Shodan. Found many forgotten subdomains.' },
+            logic: { icon: '⚙️', title: 'Business Logic Testing', desc: 'Testing flaws in business rules.', experience: 'My specialty! Found price manipulation, race conditions, and more.' }
         };
 
         const popup = document.getElementById('skillPopup');
@@ -1645,8 +1567,7 @@
         document.querySelectorAll('.skill-card').forEach(card => {
             card.addEventListener('click', function() {
                 playSound('click');
-                const skillKey = this.dataset.skill;
-                const data = skillData[skillKey];
+                const data = skillData[this.dataset.skill];
                 if (data) {
                     popupIcon.textContent = data.icon;
                     popupTitle.textContent = data.title;
@@ -1697,7 +1618,6 @@
         const dotsContainer = document.getElementById('sliderDots');
         let currentSlide = 0;
 
-        // Create dots
         slides.forEach((_, i) => {
             const dot = document.createElement('button');
             dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
@@ -1725,32 +1645,30 @@
             goToSlide(currentSlide);
         });
 
-        // Auto-advance every 6 seconds
         setInterval(() => {
             currentSlide = (currentSlide + 1) % slides.length;
             goToSlide(currentSlide);
         }, 6000);
 
         // ============================================================
-        // INTERACTIVE TERMINAL
+        // INTERACTIVE TERMINAL (FIXED CLEAR)
         // ============================================================
         const termInput = document.getElementById('termInput');
-        const termBody = document.getElementById('terminalBody');
+        const termOutputWrapper = document.getElementById('termOutputWrapper');
+        const terminalBody = document.getElementById('terminalBody');
 
         const commands = {
-            help: () => {
-                return [
-                    '<span class="term-highlight">Available commands:</span>',
-                    '  <span class="term-gold">whoami</span>       — About Shayan',
-                    '  <span class="term-gold">skills</span>       — List technical skills',
-                    '  <span class="term-gold">achievements</span> — Show disclosures',
-                    '  <span class="term-gold">experience</span>   — Career highlights',
-                    '  <span class="term-gold">contact</span>      — Contact info',
-                    '  <span class="term-gold">cv</span>           — Download CV',
-                    '  <span class="term-gold">clear</span>        — Clear terminal',
-                    '  <span class="term-gold">help</span>         — Show this message'
-                ];
-            },
+            help: () => [
+                '<span class="term-highlight">Available commands:</span>',
+                '  <span class="term-gold">whoami</span>       — About Shayan',
+                '  <span class="term-gold">skills</span>       — List technical skills',
+                '  <span class="term-gold">achievements</span> — Show disclosures',
+                '  <span class="term-gold">experience</span>   — Career highlights',
+                '  <span class="term-gold">contact</span>      — Contact info',
+                '  <span class="term-gold">cv</span>           — Download CV',
+                '  <span class="term-gold">clear</span>        — Clear terminal',
+                '  <span class="term-gold">help</span>         — Show this message'
+            ],
             whoami: () => [
                 '<span class="term-success">Shayan Khan</span> — Junior Penetration Tester',
                 'Bug Hunter · Security Researcher',
@@ -1799,7 +1717,9 @@
                 return ['<span class="term-success">✓ Downloading CV...</span>'];
             },
             clear: () => {
-                termBody.innerHTML = '';
+                // FIX: Only clear output, keep input working
+                termOutputWrapper.innerHTML = '';
+                termInput.focus();
                 return [];
             }
         };
@@ -1809,13 +1729,11 @@
                 const cmd = this.value.trim().toLowerCase();
                 this.value = '';
 
-                // Add command line
                 const cmdLine = document.createElement('div');
                 cmdLine.className = 'term-line';
                 cmdLine.innerHTML = `<span class="term-prompt">$</span> <span class="term-command">${cmd}</span>`;
-                termBody.insertBefore(cmdLine, termBody.lastElementChild);
+                termOutputWrapper.appendChild(cmdLine);
 
-                // Process command
                 if (cmd) {
                     if (commands[cmd]) {
                         playSound('success');
@@ -1824,33 +1742,32 @@
                             const outLine = document.createElement('div');
                             outLine.className = 'term-line term-output';
                             outLine.innerHTML = line;
-                            termBody.insertBefore(outLine, termBody.lastElementChild);
+                            termOutputWrapper.appendChild(outLine);
                         });
                     } else {
                         playSound('click');
                         const errLine = document.createElement('div');
                         errLine.className = 'term-line term-error';
                         errLine.innerHTML = `command not found: ${cmd}. Type <span class="term-highlight">help</span> for available commands.`;
-                        termBody.insertBefore(errLine, termBody.lastElementChild);
+                        termOutputWrapper.appendChild(errLine);
                     }
                 }
 
-                // Add blank line
                 const blank = document.createElement('div');
                 blank.className = 'term-line';
                 blank.innerHTML = '&nbsp;';
-                termBody.insertBefore(blank, termBody.lastElementChild);
+                termOutputWrapper.appendChild(blank);
 
                 // Scroll to bottom
-                termBody.scrollTop = termBody.scrollHeight;
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+                termInput.focus();
             }
         });
 
-        // Focus terminal input on terminal click
-        termBody.addEventListener('click', () => termInput.focus());
+        terminalBody.addEventListener('click', () => termInput.focus());
 
         // ============================================================
-        // SKILL BARS ANIMATION (on scroll into view)
+        // SKILL BARS ANIMATION
         // ============================================================
         const skillBars = document.querySelectorAll('.skill-bar-fill');
         const observer = new IntersectionObserver((entries) => {
@@ -1864,9 +1781,7 @@
 
         skillBars.forEach(bar => observer.observe(bar));
 
-        // ============================================================
-        // ESC KEY - Close Popups
-        // ============================================================
+        // ESC key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 if (popup.classList.contains('open')) closePopup();
@@ -1874,13 +1789,11 @@
             }
         });
 
-        // ============================================================
-        // SOUND ON CV DOWNLOAD BUTTON
-        // ============================================================
-        document.querySelector('.cv-download-btn').addEventListener('click', () => playSound('success'));
+        // CV button sound
+        document.getElementById('cvBtn').addEventListener('click', () => playSound('success'));
     </script>
 
-    <!-- ========== GOATCOUNTER ANALYTICS ========== -->
+    <!-- GOATCOUNTER -->
     <script data-goatcounter="https://shayankhan.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
 
