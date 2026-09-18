@@ -70,6 +70,15 @@ function playSound(type) {
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
             osc.start(now);
             osc.stop(now + 0.04);
+        } else if (type === 'tour') {
+            // Tour step sound — soft ascending chime
+            osc.frequency.setValueAtTime(600, now);
+            osc.frequency.linearRampToValueAtTime(1000, now + 0.2);
+            osc.type = 'triangle';
+            gain.gain.setValueAtTime(0.06, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+            osc.start(now);
+            osc.stop(now + 0.25);
         }
     } catch (e) { /* silent */ }
 }
@@ -257,6 +266,7 @@ const commands = {
         '  <span class="term-gold">skills</span>       — List technical skills',
         '  <span class="term-gold">achievements</span> — Show disclosures',
         '  <span class="term-gold">experience</span>   — Career highlights',
+        '  <span class="term-gold">tour</span>         — Take a guided portfolio tour',
         '  <span class="term-gold">contact</span>      — Contact info',
         '  <span class="term-gold">cv</span>           — Download CV',
         '  <span class="term-gold">clear</span>        — Clear terminal',
@@ -294,6 +304,14 @@ const commands = {
         '  • Vulnerability Disclosure Researcher (2024 – Present)',
         '  • Independent Security Researcher (2023 – Present)'
     ],
+    tour: () => {
+        setTimeout(() => startTour(), 400);
+        return [
+            '<span class="term-highlight">🚀 Starting guided tour...</span>',
+            'Scrolling through portfolio highlights.',
+            'Click <span class="term-gold">"Skip Tour"</span> anytime to exit.'
+        ];
+    },
     contact: () => [
         '<span class="term-highlight">Contact Info:</span>',
         '  📧 Email:     shayankhan.vop@gmail.com',
@@ -384,6 +402,7 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         if (popup.classList.contains('open')) closePopup();
         if (wall.classList.contains('open')) closeWall();
+        if (typeof tourActive !== 'undefined' && tourActive) endTour(false);
     }
 });
 
@@ -391,3 +410,162 @@ document.addEventListener('keydown', function(e) {
    CV BUTTON SOUND
    ============================================================ */
 document.getElementById('cvBtn').addEventListener('click', () => playSound('success'));
+
+/* ============================================================
+   GUIDED TOUR
+   ============================================================ */
+const tourSteps = [
+    {
+        selector: '.hero',
+        title: '👋 Welcome',
+        message: 'This is Shayan Khan — Junior Penetration Tester and Bug Hunter.'
+    },
+    {
+        selector: '.about-box',
+        title: '👨‍💻 About Me',
+        message: 'Get to know Shayan — his focus areas and disclosure track record.'
+    },
+    {
+        selector: '.career-highlight',
+        title: '🚀 Career Highlight',
+        message: 'Selected as Junior Security Engineer at Exfiltra — beat CS graduates with only FSc!'
+    },
+    {
+        selector: '.testimonial-slider-wrap',
+        title: '💬 Client Testimonials',
+        message: 'Real praise from Founders, Product Managers, and Security Teams.'
+    },
+    {
+        selector: '.skills-grid',
+        title: '⚡ Technical Skills',
+        message: '12+ security tools and disciplines. Click any to learn more.'
+    },
+    {
+        selector: '.skill-bars',
+        title: '📊 Proficiency Levels',
+        message: 'Visual breakdown of expertise — all above 90%!'
+    },
+    {
+        selector: '.terminal',
+        title: '💻 Interactive Terminal',
+        message: 'You just used this! Type "help" anytime for available commands.'
+    },
+    {
+        selector: '#openWallBtn',
+        title: '🏆 Achievement Wall',
+        message: 'See all verified disclosures with full acknowledgment emails.'
+    },
+    {
+        selector: '#cvBtn',
+        title: '📥 Download CV',
+        message: 'One-click download of the full CV as a PDF.'
+    },
+    {
+        selector: '.footer',
+        title: '🔗 Connect',
+        message: 'Email and GitHub links for direct contact. Thanks for touring!'
+    }
+];
+
+let tourActive = false;
+let tourIndex = 0;
+let tourTimer = null;
+
+function startTour() {
+    if (tourActive) return;
+    tourActive = true;
+    tourIndex = 0;
+    runTourStep();
+}
+
+function runTourStep() {
+    // Clear previous highlight
+    document.querySelectorAll('.tour-highlight').forEach(el => el.classList.remove('tour-highlight'));
+
+    if (tourIndex >= tourSteps.length) {
+        endTour(true);
+        return;
+    }
+
+    const step = tourSteps[tourIndex];
+    const target = document.querySelector(step.selector);
+
+    if (!target) {
+        tourIndex++;
+        runTourStep();
+        return;
+    }
+
+    // Play tour step sound
+    playSound('tour');
+
+    // Scroll to target
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Add highlight after scroll starts
+    setTimeout(() => {
+        target.classList.add('tour-highlight');
+    }, 400);
+
+    // Remove previous tooltip
+    const existing = document.querySelector('.tour-tooltip');
+    if (existing) existing.remove();
+
+    // Create tooltip
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tour-tooltip';
+    tooltip.innerHTML = `
+        <span class="tour-step">${tourIndex + 1}/${tourSteps.length}</span>
+        <span><strong>${step.title}</strong> — ${step.message}</span>
+        <button class="tour-skip">Skip Tour</button>
+    `;
+    document.body.appendChild(tooltip);
+
+    // Skip button
+    tooltip.querySelector('.tour-skip').addEventListener('click', (e) => {
+        e.stopPropagation();
+        playSound('click');
+        endTour(false);
+    });
+
+    // Auto-advance after 4 seconds
+    tourTimer = setTimeout(() => {
+        tourIndex++;
+        runTourStep();
+    }, 4000);
+}
+
+function endTour(completed) {
+    tourActive = false;
+    clearTimeout(tourTimer);
+
+    // Remove highlight
+    document.querySelectorAll('.tour-highlight').forEach(el => el.classList.remove('tour-highlight'));
+
+    // Remove tooltip
+    const tooltip = document.querySelector('.tour-tooltip');
+    if (tooltip) tooltip.remove();
+
+    // Play end sound
+    playSound(completed ? 'success' : 'click');
+
+    // Show final message in terminal
+    if (termOutputWrapper) {
+        const endLine = document.createElement('div');
+        endLine.className = 'term-line term-success';
+        endLine.innerHTML = completed 
+            ? '✓ Tour complete! Thanks for exploring.' 
+            : '✗ Tour skipped.';
+        termOutputWrapper.appendChild(endLine);
+        
+        const blank = document.createElement('div');
+        blank.className = 'term-line';
+        blank.innerHTML = '&nbsp;';
+        termOutputWrapper.appendChild(blank);
+
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+
+    // Re-focus terminal
+    if (termInput) termInput.focus();
+}

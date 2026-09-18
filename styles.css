@@ -950,6 +950,92 @@ h2 {
 .footer .email-link { color: var(--accent-cyan); }
 
 /* ============================================================
+   GUIDED TOUR
+   ============================================================ */
+.tour-highlight {
+    position: relative;
+    animation: tourGlow 2s ease-in-out infinite;
+    z-index: 5;
+    border-radius: 16px;
+}
+
+@keyframes tourGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.6), 0 0 30px rgba(0, 212, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.9), 0 0 50px rgba(0, 212, 255, 0.5);
+    }
+}
+
+.tour-tooltip {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 60px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    animation: tourTooltipIn 0.4s ease;
+    max-width: 90%;
+    text-align: center;
+}
+
+@keyframes tourTooltipIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.tour-tooltip .tour-step {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.tour-tooltip .tour-skip {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: #fff;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.8rem;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+.tour-tooltip .tour-skip:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.tour-dim {
+    filter: blur(2px) brightness(0.5);
+    transition: filter 0.4s ease;
+}
+
+.tour-highlight.tour-dim {
+    filter: none;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 600px) {
@@ -963,4 +1049,19 @@ h2 {
     .terminal-body { height: 260px; font-size: 0.8rem; }
     .top-bar { padding: 0.5rem; }
     .hire-badge { font-size: 0.75rem; padding: 0.3rem 0.7rem; }
+
+    /* Tour responsive */
+    .tour-tooltip {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.85rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        bottom: 20px;
+    }
+    .tour-tooltip .tour-step {
+        font-size: 0.7rem;
+    }
+    .tour-tooltip .tour-skip {
+        font-size: 0.75rem;
+    }
 }
