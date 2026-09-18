@@ -62,6 +62,14 @@ function playSound(type) {
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
             osc.start(now);
             osc.stop(now + 0.2);
+        } else if (type === 'keypress') {
+            // Mechanical keyboard tick — short, low-volume, subtle
+            osc.type = 'square';
+            osc.frequency.value = 1200 + Math.random() * 400; // slight variation per key
+            gain.gain.setValueAtTime(0.03, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+            osc.start(now);
+            osc.stop(now + 0.04);
         }
     } catch (e) { /* silent */ }
 }
@@ -309,6 +317,11 @@ const commands = {
 };
 
 termInput.addEventListener('keydown', function(e) {
+    // Play keyboard tick on any key EXCEPT Enter (Enter has its own sound)
+    if (e.key !== 'Enter' && e.key !== 'Shift' && e.key !== 'Control' && e.key !== 'Alt' && e.key !== 'Tab' && e.key !== 'Meta') {
+        playSound('keypress');
+    }
+
     if (e.key === 'Enter') {
         const cmd = this.value.trim().toLowerCase();
         this.value = '';
